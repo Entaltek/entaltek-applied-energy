@@ -54,7 +54,7 @@ const Navbar = () => {
                 className={`${
                   isScrolled
                     ? "text-foreground hover:text-primary"
-                    : "text-white hover:text-accent bg-white/10 hover:bg-white/20"
+                    : "text-white hover:text-white hover:bg-white/20 bg-white/10"
                 } transition-smooth font-medium`}
               >
                 {item.label}

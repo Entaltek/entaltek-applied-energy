@@ -45,20 +45,30 @@ const Navbar = () => {
           </button>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
             {navItems.map((item) => (
-              <button
+              <Button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-foreground/80 hover:text-primary transition-smooth font-medium"
+                variant="ghost"
+                size="sm"
+                className={`${
+                  isScrolled
+                    ? "text-foreground hover:text-primary"
+                    : "text-white hover:text-accent bg-white/10 hover:bg-white/20"
+                } transition-smooth font-medium`}
               >
                 {item.label}
-              </button>
+              </Button>
             ))}
             <Button
-              variant="hero"
               size="sm"
               onClick={() => scrollToSection("contact")}
+              className={`${
+                isScrolled
+                  ? "bg-primary text-white hover:bg-primary/90"
+                  : "bg-white text-primary hover:bg-white/90"
+              } transition-smooth font-semibold`}
             >
               Contáctanos
             </Button>
@@ -83,17 +93,17 @@ const Navbar = () => {
         <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-border animate-fade-in">
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navItems.map((item) => (
-              <button
+              <Button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-4 py-3 rounded-lg hover:bg-muted transition-smooth font-medium"
+                variant="ghost"
+                className="w-full justify-start hover:bg-muted transition-smooth font-medium"
               >
                 {item.label}
-              </button>
+              </Button>
             ))}
             <Button
-              variant="hero"
-              className="w-full mt-4"
+              className="w-full mt-4 bg-primary text-white hover:bg-primary/90"
               onClick={() => scrollToSection("contact")}
             >
               Contáctanos

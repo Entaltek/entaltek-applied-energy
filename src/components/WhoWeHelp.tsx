@@ -1,4 +1,4 @@
-import { Building2, Rocket, GraduationCap, Factory } from "lucide-react";
+import { Building2, Rocket, Factory } from "lucide-react";
 
 const WhoWeHelp = () => {
   const audiences = [
@@ -15,15 +15,9 @@ const WhoWeHelp = () => {
       primary: true
     },
     {
-      icon: GraduationCap,
-      title: "Sector Académico",
-      description: "Instituciones educativas y de investigación",
-      primary: false
-    },
-    {
       icon: Factory,
       title: "Industria",
-      description: "Sector industrial y científico",
+      description: "Sector industrial",
       primary: false
     }
   ];

@@ -36,7 +36,14 @@ const Footer = () => {
             <div>
               <h4 className="font-semibold mb-4">Contacto</h4>
               <ul className="space-y-2 text-secondary-foreground/80">
-                <li>contacto@entaltek.com</li>
+                <li>
+                  <a 
+                    href="mailto:contact@entaltek.com"
+                    className="hover:text-primary-foreground transition-smooth"
+                  >
+                    contact@entaltek.com
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

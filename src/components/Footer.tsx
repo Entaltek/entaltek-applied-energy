@@ -1,3 +1,5 @@
+import logo from "@/assets/logo_entaltek.svg";
+
 const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground py-12">
@@ -5,9 +7,11 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-foreground to-primary-foreground/80">
-                Entaltek
-              </h3>
+              <img 
+                src={logo} 
+                alt="Entaltek Logo" 
+                className="h-12 w-auto mb-4"
+              />
               <p className="text-secondary-foreground/80">
                 Energía aplicada a la innovación tecnológica
               </p>

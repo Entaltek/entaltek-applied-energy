@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo_entaltek.svg";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,9 +39,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent hover:opacity-80 transition-smooth"
+            className="flex items-center hover:opacity-80 transition-smooth"
           >
-            Entaltek
+            <img 
+              src={logo} 
+              alt="Entaltek Logo" 
+              className="h-8 md:h-10 w-auto"
+            />
           </button>
 
           {/* Desktop Menu */}

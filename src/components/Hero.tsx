@@ -41,7 +41,7 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-white text-white hover:bg-white/10"
+              className="border-white text-accent hover:bg-white/10 hover:text-accent"
             >
               Quiénes somos
             </Button>

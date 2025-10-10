@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-tech-blue.jpg";
+import heroImage from "@/assets/hero-dev-background.jpg";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -8,23 +8,23 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden gradient-hero">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-technical to-primary">
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
-          alt="Tecnología e innovación" 
-          className="w-full h-full object-cover opacity-20"
+          alt="Desarrollo tecnológico e innovación" 
+          className="w-full h-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/60 via-transparent to-background"></div>
       </div>
       
       <div className="container relative z-10 mx-auto px-4 py-20 text-center">
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary animate-fade-in-up">
+          <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg animate-fade-in-up">
             Energía aplicada a la innovación
           </h1>
           
-          <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             Desarrollamos soluciones tecnológicas que integran software, ciencia e ingeniería para potenciar a las empresas y transformar sistemas.
           </p>
           

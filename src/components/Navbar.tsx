@@ -30,9 +30,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-md"
-          : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -41,17 +39,9 @@ const Navbar = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-3 hover:opacity-80 transition-smooth"
           >
-            <img 
-              src={logo} 
-              alt="Entaltek Logo" 
-              className="h-12 md:h-14 w-auto"
-            />
-            <span className={`text-2xl md:text-3xl font-bold ${
-              isScrolled 
-                ? "text-foreground" 
-                : "text-white"
-            }`}>
-              Entaltek
+            <img src={logo} alt="Entaltek Logo" className="h-12 md:h-14 w-auto" />
+            <span className={`text-2xl md:text-3xl font-bold ${isScrolled ? "text-foreground" : "text-white"}`}>
+              ENTALTEK
             </span>
           </button>
 
@@ -76,9 +66,7 @@ const Navbar = () => {
               size="sm"
               onClick={() => scrollToSection("contact")}
               className={`${
-                isScrolled
-                  ? "bg-primary text-white hover:bg-primary/90"
-                  : "bg-white text-primary hover:bg-white/90"
+                isScrolled ? "bg-primary text-white hover:bg-primary/90" : "bg-white text-primary hover:bg-white/90"
               } transition-smooth font-semibold`}
             >
               Contáctanos
@@ -90,11 +78,7 @@ const Navbar = () => {
             className="md:hidden p-2 rounded-lg hover:bg-muted transition-smooth"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>

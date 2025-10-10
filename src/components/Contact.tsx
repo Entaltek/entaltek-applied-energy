@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ContactForm from "./ContactForm";
-import contactIllustration from "@/assets/contact-illustration.jpg";
+import contactIllustration from "@/assets/contact-illustration.png";
 
 const Contact = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);

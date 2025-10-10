@@ -24,7 +24,6 @@ const Navbar = () => {
     { label: "Inicio", id: "hero" },
     { label: "Quiénes Somos", id: "about" },
     { label: "Valores", id: "values" },
-    { label: "Contacto", id: "contact" },
   ];
 
   return (

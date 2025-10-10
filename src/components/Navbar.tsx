@@ -85,20 +85,30 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-border animate-fade-in">
+        <div className={`md:hidden backdrop-blur-md border-t animate-fade-in ${
+          isScrolled ? "bg-background/98 border-border" : "bg-background/95 border-white/20"
+        }`}>
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navItems.map((item) => (
               <Button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 variant="ghost"
-                className="w-full justify-start hover:bg-muted transition-smooth font-medium"
+                className={`w-full justify-start transition-smooth font-medium ${
+                  isScrolled
+                    ? "text-foreground hover:bg-muted"
+                    : "text-white hover:bg-white hover:text-primary"
+                }`}
               >
                 {item.label}
               </Button>
             ))}
             <Button
-              className="w-full mt-4 bg-primary text-white hover:bg-primary/90"
+              className={`w-full mt-4 transition-smooth ${
+                isScrolled
+                  ? "bg-primary text-white hover:bg-primary/90"
+                  : "bg-white text-primary hover:bg-white/90"
+              }`}
               onClick={() => scrollToSection("contact")}
             >
               Contáctanos

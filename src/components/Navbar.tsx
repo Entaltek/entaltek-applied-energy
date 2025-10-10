@@ -86,7 +86,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className={`md:hidden backdrop-blur-md border-t animate-fade-in ${
-          isScrolled ? "bg-background/98 border-border" : "bg-background/95 border-white/20"
+          isScrolled ? "bg-background/98 border-border" : "bg-transparent border-white/10"
         }`}>
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navItems.map((item) => (

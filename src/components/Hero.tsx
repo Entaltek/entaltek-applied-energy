@@ -30,10 +30,9 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             <Button 
-              variant="hero" 
               size="lg"
               onClick={scrollToContact}
-              className="group"
+              className="group bg-accent text-secondary hover:bg-accent/90 font-semibold shadow-lg hover:shadow-xl transition-smooth"
             >
               Conoce nuestras soluciones
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -42,6 +41,7 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              className="border-white text-white hover:bg-white/10"
             >
               Quiénes somos
             </Button>

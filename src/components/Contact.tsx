@@ -16,7 +16,7 @@ const Contact = () => {
               <img 
                 src={contactIllustration} 
                 alt="Servicio de atención al cliente" 
-                className="w-full h-auto rounded-lg"
+                className="w-full h-64 object-contain rounded-lg"
               />
             </div>
             

@@ -19,22 +19,38 @@ const ContactForm = ({ open, onOpenChange }: ContactFormProps) => {
     mensaje: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate form
+
     if (!formData.nombres || !formData.apellidos || !formData.correo || !formData.mensaje) {
       toast.error("Por favor completa todos los campos");
       return;
     }
 
-    // Here you would typically send the data to your backend
-    console.log("Form data:", formData);
-    toast.success("Mensaje enviado correctamente");
-    
-    // Reset form and close dialog
-    setFormData({ nombres: "", apellidos: "", correo: "", mensaje: "" });
-    onOpenChange(false);
+    try {
+      const response = await fetch("https://formsubmit.co/contact@entaltek.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          Nombre: `${formData.nombres} ${formData.apellidos}`,
+          Correo: formData.correo,
+          Mensaje: formData.mensaje,
+        }),
+      });
+
+      if (response.ok) {
+        toast.success("Mensaje enviado correctamente");
+        setFormData({ nombres: "", apellidos: "", correo: "", mensaje: "" });
+        onOpenChange(false);
+      } else {
+        toast.error("Error al enviar el mensaje");
+      }
+    } catch (err) {
+      toast.error("No se pudo conectar con el servidor");
+    }
   };
 
   return (
@@ -54,7 +70,7 @@ const ContactForm = ({ open, onOpenChange }: ContactFormProps) => {
               required
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="apellidos">Apellidos</Label>
             <Input
@@ -65,7 +81,7 @@ const ContactForm = ({ open, onOpenChange }: ContactFormProps) => {
               required
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="correo">Correo electrónico</Label>
             <Input
@@ -77,7 +93,7 @@ const ContactForm = ({ open, onOpenChange }: ContactFormProps) => {
               required
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="mensaje">Mensaje</Label>
             <Textarea
@@ -89,7 +105,7 @@ const ContactForm = ({ open, onOpenChange }: ContactFormProps) => {
               required
             />
           </div>
-          
+
           <Button type="submit" className="w-full" size="lg">
             Enviar mensaje
           </Button>

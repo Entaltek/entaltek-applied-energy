@@ -28,15 +28,19 @@ const ContactForm = ({ open, onOpenChange }: ContactFormProps) => {
     }
 
     try {
-      // Formsubmit espera FormData, no JSON
-      const form = new FormData();
-      form.append("Nombre", `${formData.nombres} ${formData.apellidos}`);
-      form.append("Correo", formData.correo);
-      form.append("Mensaje", formData.mensaje);
-
-      const response = await fetch("https://formsubmit.co/contact@entaltek.com", {
+      const response = await fetch("https://formsubmit.co/ajax/contact@entaltek.com", {
         method: "POST",
-        body: form,
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          name: `${formData.nombres} ${formData.apellidos}`,
+          email: formData.correo,
+          message: formData.mensaje,
+          _subject: "Nuevo Lead desde Entaltek Web",
+          _captcha: "false",
+        }),
       });
 
       if (response.ok) {

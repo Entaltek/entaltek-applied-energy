@@ -29,7 +29,7 @@ const DNA = () => {
             {keywords.map((keyword, index) => (
               <span
                 key={index}
-                className="px-6 py-3 bg-background/10 backdrop-blur-sm rounded-full text-sm md:text-base font-medium border border-primary-foreground/20 text-white hover:bg-white hover:text-primary transition-smooth cursor-pointer"
+                className="px-6 py-3 bg-background/10 backdrop-blur-sm rounded-full text-sm md:text-base font-medium border border-primary-foreground/20 text-white"
               >
                 {keyword}
               </span>

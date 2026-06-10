@@ -75,8 +75,12 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-smooth"
+            className={`md:hidden p-2 rounded-lg transition-smooth ${
+              isScrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/20"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -86,7 +90,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className={`md:hidden backdrop-blur-md border-t animate-fade-in ${
-          isScrolled ? "bg-background/98 border-border" : "bg-transparent border-white/10"
+          isScrolled ? "bg-background/98 border-border" : "bg-secondary/95 border-white/10"
         }`}>
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navItems.map((item) => (

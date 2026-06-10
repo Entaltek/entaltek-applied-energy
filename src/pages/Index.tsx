@@ -1,11 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import AboutUs from "@/components/AboutUs";
-import MissionVision from "@/components/MissionVision";
-import DNA from "@/components/DNA";
-import Values from "@/components/Values";
-import WhoWeHelp from "@/components/WhoWeHelp";
+import WhyEntaltek from "@/components/WhyEntaltek";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -16,11 +12,7 @@ const Index = () => {
       <main id="hero">
         <Hero />
         <Services />
-        <AboutUs />
-        <MissionVision />
-        <DNA />
-        <Values />
-        <WhoWeHelp />
+        <WhyEntaltek />
         <Contact />
       </main>
       <Footer />

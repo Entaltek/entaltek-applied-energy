@@ -16,10 +16,10 @@ const Footer = () => {
               <ul className="space-y-2 text-secondary-foreground/80">
                 <li>
                   <button
-                    onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+                    onClick={() => document.getElementById("por-que-entaltek")?.scrollIntoView({ behavior: "smooth" })}
                     className="hover:text-primary-foreground transition-smooth"
                   >
-                    Quiénes Somos
+                    Por qué Entaltek
                   </button>
                 </li>
                 <li>

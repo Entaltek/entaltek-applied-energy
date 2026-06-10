@@ -23,8 +23,8 @@ const Navbar = () => {
 
   const navItems = [
     { label: "Inicio", id: "hero" },
-    { label: "Quiénes Somos", id: "about" },
-    { label: "Valores", id: "values" },
+    { label: "Servicios", id: "servicios" },
+    { label: "Por qué Entaltek", id: "por-que-entaltek" },
   ];
 
   return (
@@ -39,7 +39,7 @@ const Navbar = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-3 hover:opacity-80 transition-smooth"
           >
-            <img src={logo} alt="Entaltek Logo" className="h-12 md:h-14 w-auto" />
+            <img src={logo} alt="Logotipo de Entaltek" className="h-12 md:h-14 w-auto" />
             <span className={`text-2xl md:text-3xl font-bold ${isScrolled ? "text-foreground" : "text-white"}`}>
               ENTALTEK
             </span>
@@ -64,7 +64,7 @@ const Navbar = () => {
             ))}
             <Button
               size="sm"
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection("contacto")}
               className={`${
                 isScrolled ? "bg-primary text-white hover:bg-primary/90" : "bg-white text-primary hover:bg-white/90"
               } transition-smooth font-semibold`}
@@ -113,7 +113,7 @@ const Navbar = () => {
                   ? "bg-primary text-white hover:bg-primary/90"
                   : "bg-white text-primary hover:bg-white/90"
               }`}
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection("contacto")}
             >
               Contáctanos
             </Button>

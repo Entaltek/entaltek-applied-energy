@@ -24,7 +24,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <button
-                    onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                    onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}
                     className="hover:text-primary-foreground transition-smooth"
                   >
                     Contacto

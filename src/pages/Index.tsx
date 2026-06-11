@@ -1,22 +1,25 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import WhyEntaltek from "@/components/WhyEntaltek";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import HeroSection from "@/components/sections/HeroSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import ProductsSection from "@/components/sections/ProductsSection";
+import WhySection from "@/components/sections/WhySection";
+import ContactSection from "@/components/sections/ContactSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <>
       <Navbar />
-      <main id="hero">
-        <Hero />
-        <Services />
-        <WhyEntaltek />
-        <Contact />
+      <main
+        id="main-scroll"
+        className="h-screen overflow-y-auto scroll-smooth md:snap-y md:snap-mandatory"
+      >
+        <HeroSection />
+        <ServicesSection />
+        <ProductsSection />
+        <WhySection />
+        <ContactSection />
       </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

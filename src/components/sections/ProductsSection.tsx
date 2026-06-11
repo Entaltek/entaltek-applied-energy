@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { PawPrint, ArrowUpRight, Maximize2 } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
-import SabuesoOverlay from "@/components/SabuesoOverlay";
+import ProductOverlay, { type ProductDetail } from "@/components/ProductOverlay";
+import { sabuesoDetail, nailaDetail } from "@/lib/productDetails";
 
 const DeviceFrame = () => (
   <svg
@@ -44,10 +45,26 @@ const Badge = ({ label, className }: { label: string; className: string }) => (
 
 const ProductsSection = () => {
   const { ref, inView } = useInView<HTMLDivElement>();
-  const [sabuesoRect, setSabuesoRect] = useState<DOMRect | null>(null);
+  const [active, setActive] = useState<{ detail: ProductDetail; rect: DOMRect } | null>(null);
 
-  const openSabueso = (target: HTMLElement) => {
-    setSabuesoRect(target.getBoundingClientRect());
+  const openDetail = (detail: ProductDetail) => (target: HTMLElement) => {
+    setActive({ detail, rect: target.getBoundingClientRect() });
+  };
+
+  const expandableProps = (detail: ProductDetail) => {
+    const open = openDetail(detail);
+    return {
+      role: "button" as const,
+      tabIndex: 0,
+      "aria-label": `Ver detalle de ${detail.title}`,
+      onClick: (e: React.MouseEvent<HTMLElement>) => open(e.currentTarget),
+      onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open(e.currentTarget);
+        }
+      },
+    };
   };
 
   return (
@@ -89,16 +106,7 @@ const ProductsSection = () => {
 
           {/* Sabueso: clic expande el detalle */}
           <article
-            role="button"
-            tabIndex={0}
-            aria-label="Ver detalle de Sabueso"
-            onClick={(e) => openSabueso(e.currentTarget)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                openSabueso(e.currentTarget);
-              }
-            }}
+            {...expandableProps(sabuesoDetail)}
             className="group relative overflow-hidden rounded-2xl p-5 bg-gradient-to-br from-[#0179B1] to-[#013762] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6]"
           >
             <Maximize2
@@ -118,8 +126,15 @@ const ProductsSection = () => {
             />
           </article>
 
-          {/* Naila Art */}
-          <article className="group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25">
+          {/* Naila Art: clic expande el detalle */}
+          <article
+            {...expandableProps(nailaDetail)}
+            className="group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f9a8d4]"
+          >
+            <Maximize2
+              className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-hidden="true"
+            />
             <Badge label="Belleza" className="bg-[#f9a8d4]/10 text-[#f9a8d4]" />
             <h3 className="mt-3 text-lg font-bold text-white">Naila Art</h3>
             <p className="mt-2 text-sm text-white/60 leading-snug">
@@ -169,7 +184,9 @@ const ProductsSection = () => {
         </article>
       </div>
 
-      {sabuesoRect && <SabuesoOverlay originRect={sabuesoRect} onClose={() => setSabuesoRect(null)} />}
+      {active && (
+        <ProductOverlay detail={active.detail} originRect={active.rect} onClose={() => setActive(null)} />
+      )}
     </section>
   );
 };

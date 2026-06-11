@@ -151,14 +151,21 @@ const ProductsSection = () => {
             <DemoLink href="https://nail-chic-system.lovable.app" />
           </article>
 
-          {/* CLIOMM */}
+          {/* Entaltek Pilates */}
           <article className="group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25">
             <Badge label="Wellness" className="bg-[#6ee7b7]/10 text-[#6ee7b7]" />
-            <h3 className="mt-3 text-lg font-bold text-white">CLIOMM</h3>
+            <h3 className="mt-3 text-lg font-bold text-white">Entaltek Pilates</h3>
             <p className="mt-2 text-sm text-white/60 leading-snug">
-              Reservas para estudios de pilates y meditación con pagos integrados vía
-              Mercado Pago.
+              App móvil para estudios de pilates. Los clientes reservan clases desde su
+              celular, gestionan su perfil y pagan directamente con Mercado Pago. Menos
+              WhatsApp, más autonomía.
             </p>
+            <p className="mt-2 text-xs text-white/35 tracking-wide">
+              Flutter · Firebase · Firestore · Mercado Pago
+            </p>
+            <span className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-[#6ee7b7]">
+              Ver producto →
+            </span>
           </article>
 
           {/* SAT Harmony */}

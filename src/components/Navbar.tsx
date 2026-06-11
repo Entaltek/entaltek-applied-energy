@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/site";
-
-const HexLogo = ({ className = "h-9 w-auto" }: { className?: string }) => (
-  <svg viewBox="0 0 32 36" fill="none" className={className} aria-hidden="true">
-    <path d="M16 2 30 10v16L16 34 2 26V10L16 2Z" stroke="#47DAD6" strokeWidth="2" strokeLinejoin="round" />
-    <path d="M16 10l7 4v8l-7 4-7-4v-8l7-4Z" fill="#0179B1" />
-  </svg>
-);
+import logoMark from "@/assets/logo_entaltek_solo.svg";
 
 const navItems = [
   { label: "Servicios", id: "servicios" },
@@ -54,7 +48,7 @@ const Navbar = () => {
               className="flex items-center gap-3 hover:opacity-80 transition-opacity"
               aria-label="Ir al inicio"
             >
-              <HexLogo />
+              <img src={logoMark} alt="" className="h-10 md:h-12 w-auto" />
               <span className="text-xl md:text-2xl font-bold text-white tracking-wide">ENTALTEK</span>
             </button>
 
@@ -104,15 +98,16 @@ const Navbar = () => {
       {/* Panel móvil deslizante desde la derecha */}
       <div
         className={`md:hidden fixed inset-y-0 right-0 z-50 w-72 max-w-[85vw] bg-[#011627]/95 backdrop-blur-xl border-l border-white/10 transform transition-transform duration-300 ease-out ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
+          isMenuOpen ? "translate-x-0" : "translate-x-full pointer-events-none"
         }`}
         role="dialog"
         aria-modal="true"
         aria-label="Menú de navegación"
+        aria-hidden={!isMenuOpen}
       >
         <div className="flex items-center justify-between p-4 border-b border-white/10">
           <div className="flex items-center gap-2">
-            <HexLogo className="h-7 w-auto" />
+            <img src={logoMark} alt="" className="h-8 w-auto" />
             <span className="text-lg font-bold text-white">ENTALTEK</span>
           </div>
           <button

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Mail, MapPin, MessageCircle, Github, Linkedin } from "lucide-react";
 import { toast } from "sonner";
 import { useInView } from "@/hooks/useInView";
+import logoMark from "@/assets/logo_entaltek_solo.svg";
 import {
   WHATSAPP_URL,
   WHATSAPP_NUMBER,
@@ -14,12 +15,7 @@ import {
 const inputClass =
   "w-full bg-transparent border-0 border-b border-[#013762]/20 rounded-none px-0 py-3 text-[#013762] placeholder:text-[#013762]/35 focus:outline-none focus:border-[#0179B1] transition-colors";
 
-const HexLogo = () => (
-  <svg viewBox="0 0 32 36" className="h-8 w-auto" aria-hidden="true">
-    <path d="M16 2 30 10v16L16 34 2 26V10L16 2Z" stroke="#47DAD6" strokeWidth="2" strokeLinejoin="round" fill="none" />
-    <path d="M16 10l7 4v8l-7 4-7-4v-8l7-4Z" fill="#0179B1" />
-  </svg>
-);
+const HexLogo = () => <img src={logoMark} alt="Isotipo de Entaltek" className="h-9 w-auto" />;
 
 const ContactSection = () => {
   const { ref, inView } = useInView<HTMLDivElement>();

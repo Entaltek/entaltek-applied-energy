@@ -1,5 +1,7 @@
-import { PawPrint, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { PawPrint, ArrowUpRight, Maximize2 } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
+import SabuesoOverlay from "@/components/SabuesoOverlay";
 
 const DeviceFrame = () => (
   <svg
@@ -26,6 +28,7 @@ const DemoLink = ({ href }: { href: string }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
+    onClick={(e) => e.stopPropagation()}
     className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-[#47DAD6] hover:underline"
   >
     Ver demo
@@ -41,6 +44,11 @@ const Badge = ({ label, className }: { label: string; className: string }) => (
 
 const ProductsSection = () => {
   const { ref, inView } = useInView<HTMLDivElement>();
+  const [sabuesoRect, setSabuesoRect] = useState<DOMRect | null>(null);
+
+  const openSabueso = (target: HTMLElement) => {
+    setSabuesoRect(target.getBoundingClientRect());
+  };
 
   return (
     <section
@@ -79,8 +87,24 @@ const ProductsSection = () => {
             <DeviceFrame />
           </article>
 
-          {/* Sabueso */}
-          <article className="group relative overflow-hidden rounded-2xl p-5 bg-gradient-to-br from-[#0179B1] to-[#013762] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]">
+          {/* Sabueso: clic expande el detalle */}
+          <article
+            role="button"
+            tabIndex={0}
+            aria-label="Ver detalle de Sabueso"
+            onClick={(e) => openSabueso(e.currentTarget)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openSabueso(e.currentTarget);
+              }
+            }}
+            className="group relative overflow-hidden rounded-2xl p-5 bg-gradient-to-br from-[#0179B1] to-[#013762] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6]"
+          >
+            <Maximize2
+              className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-hidden="true"
+            />
             <Badge label="Mascotas" className="bg-white/15 text-white" />
             <h3 className="mt-3 text-lg font-bold text-white">Sabueso</h3>
             <p className="mt-2 text-sm text-white/60 leading-snug">
@@ -144,6 +168,8 @@ const ProductsSection = () => {
           </a>
         </article>
       </div>
+
+      {sabuesoRect && <SabuesoOverlay originRect={sabuesoRect} onClose={() => setSabuesoRect(null)} />}
     </section>
   );
 };

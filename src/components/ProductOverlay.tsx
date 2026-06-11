@@ -10,6 +10,8 @@ export type ProductDetail = {
   /** Color de acento del producto (clases tailwind de texto/fondo). */
   accentText: string;
   accentBg: string;
+  /** Gradiente de fondo del overlay: identidad visual del proyecto. */
+  gradient: string;
   title: string;
   tagline: string;
   intro: string;
@@ -74,7 +76,7 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
 
   return (
     <div
-      className="fixed z-[60] overflow-hidden bg-gradient-to-br from-[#0179B1] via-[#013762] to-[#011627]"
+      className={`fixed z-[60] overflow-hidden bg-gradient-to-br ${detail.gradient}`}
       style={{ ...boxStyle, transition: `all ${EXPAND_MS}ms cubic-bezier(0.32, 0.72, 0, 1)` }}
       role="dialog"
       aria-modal="true"

@@ -15,6 +15,9 @@ import {
   Clock,
   Hourglass,
   Building2,
+  LockKeyhole,
+  UserCircle,
+  CreditCard,
 } from "lucide-react";
 import type { ProductDetail } from "@/components/ProductOverlay";
 
@@ -27,11 +30,13 @@ import sabuesoMovilPerrhijos from "@/assets/sabueso/movil-perrhijos.webp";
 import sabuesoMovilPerfil from "@/assets/sabueso/movil-perfil.webp";
 import nailaArquitectura from "@/assets/naila/arquitectura.webp";
 import mediclinkMockup from "@/assets/mediclink/mockup.svg";
+import pilatesMockup from "@/assets/pilates/mockup.svg";
 
 export const sabuesoDetail: ProductDetail = {
   badge: { label: "Mascotas", className: "bg-white/15 text-white" },
   accentText: "text-[#47DAD6]",
   accentBg: "bg-[#47DAD6]",
+  gradient: "from-[#0179B1] via-[#024d7a] to-[#011627]",
   title: "Sabueso",
   tagline: "Plataforma de gestión integral para guarderías caninas",
   intro:
@@ -109,6 +114,7 @@ export const nailaDetail: ProductDetail = {
   badge: { label: "Belleza", className: "bg-[#f9a8d4]/10 text-[#f9a8d4]" },
   accentText: "text-[#f9a8d4]",
   accentBg: "bg-[#f9a8d4]",
+  gradient: "from-[#831843] via-[#3d0f2f] to-[#0d0518]",
   title: "Naila Art",
   tagline: "ERP para salones de uñas",
   intro:
@@ -182,9 +188,10 @@ export const nailaDetail: ProductDetail = {
 };
 
 export const mediclinkDetail: ProductDetail = {
-  badge: { label: "Salud", className: "bg-[#47DAD6]/15 text-[#47DAD6]" },
-  accentText: "text-[#47DAD6]",
-  accentBg: "bg-[#47DAD6]",
+  badge: { label: "Salud", className: "bg-[#7dd3fc]/15 text-[#7dd3fc]" },
+  accentText: "text-[#7dd3fc]",
+  accentBg: "bg-[#7dd3fc]",
+  gradient: "from-[#1e3a8a] via-[#13234d] to-[#011627]",
   title: "MedicLink",
   tagline: "Plataforma de gestión integral para clínicas y consultorios",
   intro:
@@ -269,6 +276,77 @@ export const mediclinkDetail: ProductDetail = {
       name: "Multi-clínica",
       description:
         "Arquitectura multi-tenant lista para escalar: cada clínica con su propio panel, datos aislados y administración centralizada.",
+    },
+  ],
+};
+
+export const pilatesDetail: ProductDetail = {
+  badge: { label: "Wellness", className: "bg-[#6ee7b7]/10 text-[#6ee7b7]" },
+  accentText: "text-[#6ee7b7]",
+  accentBg: "bg-[#6ee7b7]",
+  gradient: "from-[#065f46] via-[#053a35] to-[#011627]",
+  title: "Entaltek Pilates",
+  tagline: "App móvil para estudios de pilates",
+  intro:
+    "Elimina la coordinación manual por WhatsApp: los clientes reservan sus clases desde el celular, pagan dentro de la app y el estudio tiene su base de clientes centralizada en un solo lugar.",
+  hero: {
+    src: pilatesMockup,
+    alt: "Mockup de la app Entaltek Pilates con calendario de reservas y pago",
+    className: "max-h-[440px] w-auto mx-auto drop-shadow-2xl",
+  },
+  stats: [
+    { value: "Flutter", label: "un código, dos plataformas" },
+    { value: "Firebase", label: "Auth + Cloud Firestore" },
+    { value: "Mercado Pago", label: "pagos integrados" },
+  ],
+  pillars: [
+    {
+      title: "Reservación autónoma",
+      description:
+        "Calendario de disponibilidad con horarios libres en tiempo real: el cliente elige, confirma y su cita queda registrada.",
+    },
+    {
+      title: "Pagos en la app",
+      description: "Cobro integrado vía APIs de Mercado Pago en el mismo flujo de reserva.",
+    },
+    {
+      title: "Perfil sincronizado",
+      description:
+        "Datos personales consultables y editables, sincronizados entre Cloud Firestore y el dispositivo con SharedPreferences.",
+    },
+    {
+      title: "Clientes centralizados",
+      description: "El estudio ve y gestiona toda su base de clientes desde un solo lugar.",
+    },
+  ],
+  modulesTitle: "Qué hace la app",
+  modules: [
+    {
+      icon: LockKeyhole,
+      name: "Autenticación",
+      description: "Registro e inicio de sesión de usuarios con Firebase Authentication.",
+    },
+    {
+      icon: UserCircle,
+      name: "Perfil de usuario",
+      description:
+        "Consulta y edición de datos personales con sincronización entre Firestore y almacenamiento local.",
+    },
+    {
+      icon: CalendarCheck,
+      name: "Reservación de citas",
+      description:
+        "Calendario de disponibilidad, selección de horarios libres, confirmación y registro de la cita.",
+    },
+    {
+      icon: CreditCard,
+      name: "Pagos",
+      description: "Pago de clases dentro de la app vía las APIs de Mercado Pago.",
+    },
+    {
+      icon: Users,
+      name: "Gestión de clientes",
+      description: "Administración centralizada de los clientes del estudio.",
     },
   ],
 };

@@ -11,6 +11,10 @@ import {
   Palette,
   Wallet,
   BarChart3,
+  Stethoscope,
+  Clock,
+  Hourglass,
+  Building2,
 } from "lucide-react";
 import type { ProductDetail } from "@/components/ProductOverlay";
 
@@ -22,6 +26,7 @@ import sabuesoMovilDashboard from "@/assets/sabueso/movil-dashboard.webp";
 import sabuesoMovilPerrhijos from "@/assets/sabueso/movil-perrhijos.webp";
 import sabuesoMovilPerfil from "@/assets/sabueso/movil-perfil.webp";
 import nailaArquitectura from "@/assets/naila/arquitectura.webp";
+import mediclinkMockup from "@/assets/mediclink/mockup.svg";
 
 export const sabuesoDetail: ProductDetail = {
   badge: { label: "Mascotas", className: "bg-white/15 text-white" },
@@ -172,6 +177,98 @@ export const nailaDetail: ProductDetail = {
       icon: BarChart3,
       name: "Dashboard y reportes",
       description: "Indicadores del salón y reportes para ver el negocio completo de un vistazo.",
+    },
+  ],
+};
+
+export const mediclinkDetail: ProductDetail = {
+  badge: { label: "Salud", className: "bg-[#47DAD6]/15 text-[#47DAD6]" },
+  accentText: "text-[#47DAD6]",
+  accentBg: "bg-[#47DAD6]",
+  title: "MedicLink",
+  tagline: "Plataforma de gestión integral para clínicas y consultorios",
+  intro:
+    "Desarrollada para la operación real de clínicas multi-especialidad: centraliza citas, pacientes, especialistas y horarios en un solo sistema, con un bot de Telegram que agenda por sí solo, 24/7, sin intervención del personal.",
+  hero: {
+    src: mediclinkMockup,
+    alt: "Mockup del panel de administración de MedicLink con métricas de citas",
+    className: "w-full max-w-lg mx-auto drop-shadow-2xl rounded-xl",
+  },
+  stats: [
+    { value: "8", label: "módulos" },
+    { value: "24/7", label: "agendamiento por bot" },
+    { value: "PDF/Excel", label: "reportes exportables" },
+  ],
+  pillars: [
+    {
+      title: "Agendamiento autónomo",
+      description:
+        "Bot de Telegram que guía al paciente paso a paso: servicio, especialista, fecha y horario disponible — la cita se confirma sin tocar el teléfono.",
+    },
+    {
+      title: "Disponibilidad real",
+      description:
+        "Horarios por bloques con intervalos configurables por especialista. El sistema solo ofrece slots verdaderamente libres, sin dobles reservas.",
+    },
+    {
+      title: "Pacientes centralizados",
+      description:
+        "Expediente de cada paciente con historial completo de citas, notas clínicas y registro automático desde el primer agendamiento.",
+    },
+    {
+      title: "Reportes accionables",
+      description:
+        "Métricas por especialista, tendencias de citas y consultas por servicio, exportables a PDF y Excel con un clic.",
+    },
+  ],
+  modulesTitle: "8 módulos, una sola operación",
+  modules: [
+    {
+      icon: LayoutDashboard,
+      name: "Dashboard",
+      description:
+        "Tablero en tiempo real: citas pendientes del día, tendencia semanal, comparativas de periodo y pacientes registrados. El pulso de la clínica de un vistazo.",
+    },
+    {
+      icon: CalendarCheck,
+      name: "Citas",
+      description:
+        "Gestión completa con filtros por fecha, especialista y estado. Agendado manual en 4 pasos con validación de disponibilidad en vivo.",
+    },
+    {
+      icon: Users,
+      name: "Pacientes",
+      description:
+        "Expediente digital con historial de citas filtrable, datos de contacto y notas. Registro automático desde el bot.",
+    },
+    {
+      icon: Stethoscope,
+      name: "Especialistas",
+      description: "Personal con servicios asignados, cada especialista ofrece solo lo que realmente atiende.",
+    },
+    {
+      icon: Clock,
+      name: "Horarios",
+      description:
+        "Bloques horarios flexibles por día con intervalos de cita configurables. Soporta jornadas partidas (mañana y tarde).",
+    },
+    {
+      icon: Hourglass,
+      name: "Lista de espera",
+      description:
+        "Cuando un slot se cancela, el sistema identifica pacientes en espera para ese especialista y servicio. Ningún espacio se desperdicia.",
+    },
+    {
+      icon: BarChart3,
+      name: "Reportes",
+      description:
+        "Productividad por especialista, tasas de asistencia y servicios más demandados, exportables a PDF y Excel.",
+    },
+    {
+      icon: Building2,
+      name: "Multi-clínica",
+      description:
+        "Arquitectura multi-tenant lista para escalar: cada clínica con su propio panel, datos aislados y administración centralizada.",
     },
   ],
 };

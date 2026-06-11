@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PawPrint, ArrowUpRight, Maximize2 } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 import ProductOverlay, { type ProductDetail } from "@/components/ProductOverlay";
-import { sabuesoDetail, nailaDetail } from "@/lib/productDetails";
+import { sabuesoDetail, nailaDetail, mediclinkDetail } from "@/lib/productDetails";
 
 const DeviceFrame = () => (
   <svg
@@ -89,8 +89,15 @@ const ProductsSection = () => {
 
         {/* Bento grid asimétrico */}
         <div className="grid gap-3 md:grid-cols-[2fr_1fr_1fr] md:grid-rows-2 md:max-h-[58vh] min-h-0">
-          {/* MedicLink: 2 filas */}
-          <article className="group relative overflow-hidden md:row-span-2 rounded-2xl p-6 border border-[#47DAD6]/15 bg-gradient-to-br from-[#013762] to-[#0c2d4a] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#47DAD6]/40">
+          {/* MedicLink: 2 filas, clic expande el detalle */}
+          <article
+            {...expandableProps(mediclinkDetail)}
+            className="group relative overflow-hidden md:row-span-2 rounded-2xl p-6 border border-[#47DAD6]/15 bg-gradient-to-br from-[#013762] to-[#0c2d4a] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#47DAD6]/40 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6]"
+          >
+            <Maximize2
+              className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-hidden="true"
+            />
             <Badge label="Salud" className="bg-[#47DAD6]/15 text-[#47DAD6]" />
             <h3 className="mt-4 text-2xl font-bold text-white">MedicLink</h3>
             <p className="mt-3 text-white/60 leading-relaxed max-w-sm">

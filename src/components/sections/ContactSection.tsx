@@ -66,15 +66,14 @@ const ContactSection = () => {
       className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-white flex flex-col"
     >
       <div className="flex-1 flex items-center">
-        <div
-          ref={ref}
-          className={`container mx-auto px-4 pt-24 pb-12 transition-all duration-700 ease-out ${
-            inView ? "opacity-100 scale-100" : "opacity-0 scale-[0.98]"
-          }`}
-        >
+        <div ref={ref} className="container mx-auto px-4 pt-24 pb-12">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 max-w-5xl mx-auto items-start">
             {/* Izquierda: copy y vías directas */}
-            <div>
+            <div
+              className={`transition-all duration-700 ease-out ${
+                inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+              }`}
+            >
               <h2 className="font-bold text-[#013762] text-[clamp(1.8rem,3vw,2.8rem)] leading-tight">
                 ¿Tienes un problema que resolver?
               </h2>
@@ -110,7 +109,12 @@ const ContactSection = () => {
             </div>
 
             {/* Derecha: formulario inline */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className={`space-y-6 transition-all duration-700 ease-out delay-150 ${
+                inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+              }`}
+            >
               <div>
                 <label htmlFor="nombre" className="block text-sm font-semibold text-[#013762] mb-1">
                   Nombre

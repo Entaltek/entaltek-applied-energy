@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import SectionDots from "@/components/SectionDots";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProductsSection from "@/components/sections/ProductsSection";
@@ -9,6 +10,7 @@ const Index = () => {
   return (
     <>
       <Navbar />
+      <SectionDots />
       <main
         id="main-scroll"
         className="h-screen overflow-y-auto scroll-smooth md:snap-y md:snap-mandatory"

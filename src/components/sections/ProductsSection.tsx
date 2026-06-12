@@ -51,6 +51,9 @@ const ProductsSection = () => {
     setActive({ detail, rect: target.getBoundingClientRect() });
   };
 
+  const cardIn = inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8";
+  const cardDelay = (index: number) => ({ transitionDelay: inView ? `${120 + index * 90}ms` : "0ms" });
+
   const expandableProps = (detail: ProductDetail) => {
     const open = openDetail(detail);
     return {
@@ -74,11 +77,13 @@ const ProductsSection = () => {
     >
       <div
         ref={ref}
-        className={`container mx-auto px-4 py-24 md:py-0 md:pt-24 md:pb-10 w-full max-w-6xl flex flex-col transition-all duration-700 ease-out ${
-          inView ? "opacity-100 scale-100" : "opacity-0 scale-[0.98]"
-        }`}
+        className="container mx-auto px-4 py-24 md:py-0 md:pt-24 md:pb-10 w-full max-w-6xl flex flex-col"
       >
-        <div className="text-center mb-8">
+        <div
+          className={`text-center mb-8 transition-all duration-700 ease-out ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
           <h2 className="font-bold text-[clamp(1.8rem,3.5vw,3rem)] bg-gradient-to-r from-white to-[#47DAD6] bg-clip-text text-transparent">
             Lo que hemos construido
           </h2>
@@ -92,7 +97,8 @@ const ProductsSection = () => {
           {/* MedicLink: 2 filas, clic expande el detalle */}
           <article
             {...expandableProps(mediclinkDetail)}
-            className="group relative overflow-hidden md:row-span-2 rounded-2xl p-6 border border-[#47DAD6]/15 bg-gradient-to-br from-[#013762] to-[#0c2d4a] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#47DAD6]/40 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6]"
+            style={cardDelay(0)}
+            className={`group relative overflow-hidden md:row-span-2 rounded-2xl p-6 border border-[#47DAD6]/15 bg-gradient-to-br from-[#013762] to-[#0c2d4a] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-[#47DAD6]/40 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -114,7 +120,8 @@ const ProductsSection = () => {
           {/* Sabueso: clic expande el detalle */}
           <article
             {...expandableProps(sabuesoDetail)}
-            className="group relative overflow-hidden rounded-2xl p-5 bg-gradient-to-br from-[#0179B1] to-[#013762] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6]"
+            style={cardDelay(1)}
+            className={`group relative overflow-hidden rounded-2xl p-5 bg-gradient-to-br from-[#0179B1] to-[#013762] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.01] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -136,7 +143,8 @@ const ProductsSection = () => {
           {/* Naila Art: clic expande el detalle */}
           <article
             {...expandableProps(nailaDetail)}
-            className="group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f9a8d4]"
+            style={cardDelay(2)}
+            className={`group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f9a8d4] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -154,7 +162,8 @@ const ProductsSection = () => {
           {/* Entaltek Pilates: clic expande el detalle */}
           <article
             {...expandableProps(pilatesDetail)}
-            className="group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#6ee7b7]"
+            style={cardDelay(3)}
+            className={`group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#6ee7b7] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -178,7 +187,8 @@ const ProductsSection = () => {
           {/* SAT Harmony: clic expande el detalle */}
           <article
             {...expandableProps(satHarmonyDetail)}
-            className="group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#fcd34d]"
+            style={cardDelay(4)}
+            className={`group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#fcd34d] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -198,7 +208,8 @@ const ProductsSection = () => {
           {/* Entaltek Nodo: clic expande el detalle */}
           <article
             {...expandableProps(nodoDetail)}
-            className="group relative overflow-hidden rounded-2xl px-6 py-4 bg-[#a78bfa]/10 border border-[#a78bfa]/20 flex flex-col justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#a78bfa]/50 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a78bfa]"
+            style={cardDelay(5)}
+            className={`group relative overflow-hidden rounded-2xl px-6 py-4 bg-[#a78bfa]/10 border border-[#a78bfa]/20 flex flex-col justify-center transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-[#a78bfa]/50 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a78bfa] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -216,7 +227,10 @@ const ProductsSection = () => {
           </article>
 
           {/* FinTrack */}
-          <article className="group rounded-2xl px-6 py-4 bg-[#0179B1]/10 border border-[#0179B1]/20 flex flex-col sm:flex-row sm:items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#0179B1]/50">
+          <article
+            style={cardDelay(6)}
+            className={`group rounded-2xl px-6 py-4 bg-[#0179B1]/10 border border-[#0179B1]/20 flex flex-col sm:flex-row sm:items-center gap-3 transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-[#0179B1]/50 ${cardIn}`}
+          >
             <Badge label="Finanzas" className="bg-[#a5b4fc]/10 text-[#a5b4fc]" />
             <div className="flex-1">
               <h3 className="text-lg font-bold text-white inline">FinTrack</h3>

@@ -32,13 +32,13 @@ const hexagons = [
   { size: 60, top: "45%", left: "92%" },
 ];
 
-const Hexagon = ({ size, top, left }: { size: number; top: string; left: string }) => (
+const Hexagon = ({ size, top, left, index }: { size: number; top: string; left: string; index: number }) => (
   <svg
     viewBox="0 0 32 36"
     width={size}
     height={(size * 36) / 32}
-    className="absolute"
-    style={{ top, left }}
+    className="absolute animate-hex"
+    style={{ top, left, animationDuration: `${8 + index * 2}s`, animationDelay: `${index * 1.3}s` }}
     aria-hidden="true"
   >
     <path
@@ -60,18 +60,17 @@ const WhySection = () => {
       className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-[#013762] flex items-center"
     >
       {hexagons.map((hexagon, index) => (
-        <Hexagon key={index} {...hexagon} />
+        <Hexagon key={index} {...hexagon} index={index} />
       ))}
 
-      <div
-        ref={ref}
-        className={`relative z-10 container mx-auto px-4 py-24 max-w-[700px] transition-all duration-700 ease-out ${
-          inView ? "opacity-100 scale-100" : "opacity-0 scale-[0.98]"
-        }`}
-      >
+      <div ref={ref} className="relative z-10 container mx-auto px-4 py-24 max-w-[700px]">
         <h2 className="sr-only">Por qué Entaltek</h2>
 
-        <blockquote className="relative text-center">
+        <blockquote
+          className={`relative text-center transition-all duration-700 ease-out ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
           <span
             className="absolute -top-10 left-1/2 -translate-x-1/2 text-8xl font-bold text-[#47DAD6]/30 select-none leading-none"
             aria-hidden="true"
@@ -85,11 +84,17 @@ const WhySection = () => {
         </blockquote>
 
         <div className="mt-14 grid sm:grid-cols-2 gap-8">
-          {reasons.map((reason) => {
+          {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
-              <div key={reason.title} className="flex items-start gap-4">
-                <div className="p-2.5 rounded-lg bg-[#47DAD6]/10 shrink-0">
+              <div
+                key={reason.title}
+                className={`group flex items-start gap-4 rounded-xl p-3 -m-3 transition-all duration-500 ease-out hover:bg-white/[0.04] ${
+                  inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                }`}
+                style={{ transitionDelay: inView ? `${200 + index * 110}ms` : "0ms" }}
+              >
+                <div className="p-2.5 rounded-lg bg-[#47DAD6]/10 shrink-0 transition-transform duration-300 group-hover:scale-110">
                   <Icon className="w-6 h-6 text-[#47DAD6]" aria-hidden="true" />
                 </div>
                 <div>

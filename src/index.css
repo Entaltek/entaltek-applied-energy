@@ -226,8 +226,23 @@ All colors MUST be HSL.
   animation: orb-pulse 8s ease-in-out infinite;
 }
 
+/* Flotación lenta de los hexágonos decorativos */
+@keyframes hex-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.animate-hex {
+  animation: hex-float 9s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-orb,
+  .animate-hex,
   .animate-bounce {
     animation: none;
   }

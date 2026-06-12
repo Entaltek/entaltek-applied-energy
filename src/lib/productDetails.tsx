@@ -18,6 +18,8 @@ import {
   LockKeyhole,
   UserCircle,
   CreditCard,
+  Archive,
+  Zap,
 } from "lucide-react";
 import type { ProductDetail } from "@/components/ProductOverlay";
 
@@ -31,6 +33,7 @@ import sabuesoMovilPerfil from "@/assets/sabueso/movil-perfil.webp";
 import nailaArquitectura from "@/assets/naila/arquitectura.webp";
 import mediclinkMockup from "@/assets/mediclink/mockup.svg";
 import pilatesMockup from "@/assets/pilates/mockup.svg";
+import satMockup from "@/assets/sat/mockup.svg";
 
 export const sabuesoDetail: ProductDetail = {
   badge: { label: "Mascotas", className: "bg-white/15 text-white" },
@@ -347,6 +350,79 @@ export const pilatesDetail: ProductDetail = {
       icon: Users,
       name: "Gestión de clientes",
       description: "Administración centralizada de los clientes del estudio.",
+    },
+  ],
+};
+
+export const satHarmonyDetail: ProductDetail = {
+  badge: { label: "Fiscal", className: "bg-[#fcd34d]/10 text-[#fcd34d]" },
+  accentText: "text-[#fcd34d]",
+  accentBg: "bg-[#fcd34d]",
+  gradient: "from-[#92400e] via-[#422006] to-[#0d0903]",
+  title: "SAT Harmony",
+  tagline: "Bóveda de CFDIs y automatización fiscal",
+  intro:
+    "Plataforma para contadores y despachos en México: descarga, resguarda y automatiza los comprobantes fiscales del SAT. Sincronización directa con el portal, bóveda XML con búsqueda por UUID o RFC, y conexión a n8n para procesar facturas sin tocar un botón.",
+  demoUrl: "https://sat-swift-vault.lovable.app",
+  hero: {
+    src: satMockup,
+    alt: "Mockup del Resumen Fiscal de SAT Harmony con KPIs y bóveda XML",
+    className: "w-full max-w-lg mx-auto drop-shadow-2xl rounded-xl",
+  },
+  stats: [
+    { value: "CFDI", label: "ingreso · egreso · nómina" },
+    { value: "n8n", label: "webhooks por empresa" },
+    { value: "PDF/XML", label: "descarga por comprobante" },
+  ],
+  pillars: [
+    {
+      title: "Sincronización con SAT",
+      description: "Descarga de comprobantes directo del portal, con subida manual de XML cuando hace falta.",
+    },
+    {
+      title: "Bóveda XML",
+      description:
+        "Tabla de alta densidad con filtros por fecha, RFC, tipo y estado. UUID con copia en un clic y acciones masivas.",
+    },
+    {
+      title: "Multi-empresa",
+      description: "Varias empresas y RFCs en una sola cuenta, con conteo de facturas y estado por cliente.",
+    },
+    {
+      title: "Automatización n8n",
+      description: "Cada empresa se conecta a un webhook con auto-envío de facturas nuevas al pipeline.",
+    },
+  ],
+  modulesTitle: "Qué incluye",
+  modules: [
+    {
+      icon: LayoutDashboard,
+      name: "Resumen Fiscal",
+      description:
+        "KPIs del mes por empresa: ingresos totales, gastos, facturas canceladas y pendientes de pago, con comparativa contra el periodo anterior.",
+    },
+    {
+      icon: Archive,
+      name: "Bóveda XML",
+      description:
+        "Comprobantes vigentes y cancelados con filtros por fecha, RFC emisor/receptor, tipo y estado. Descarga de PDF y XML o envío a n8n por factura.",
+    },
+    {
+      icon: Building2,
+      name: "Empresas / RFCs",
+      description: "Gestión de clientes del despacho: cada empresa con su RFC, conteo de facturas y estado activo.",
+    },
+    {
+      icon: Zap,
+      name: "Automatizaciones",
+      description:
+        "Conexión de cada empresa a n8n o cualquier webhook, con interruptor de auto-envío para procesar facturas nuevas automáticamente.",
+    },
+    {
+      icon: Settings,
+      name: "Configuración",
+      description:
+        "Notificaciones de facturas descargadas, cancelaciones y errores de sincronización; seguridad con autenticación de dos factores.",
     },
   ],
 };

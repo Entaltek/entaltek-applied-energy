@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PawPrint, ArrowUpRight, Maximize2 } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 import ProductOverlay, { type ProductDetail } from "@/components/ProductOverlay";
-import { sabuesoDetail, nailaDetail, mediclinkDetail, pilatesDetail } from "@/lib/productDetails";
+import { sabuesoDetail, nailaDetail, mediclinkDetail, pilatesDetail, satHarmonyDetail } from "@/lib/productDetails";
 
 const DeviceFrame = () => (
   <svg
@@ -175,8 +175,15 @@ const ProductsSection = () => {
             </span>
           </article>
 
-          {/* SAT Harmony */}
-          <article className="group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25">
+          {/* SAT Harmony: clic expande el detalle */}
+          <article
+            {...expandableProps(satHarmonyDetail)}
+            className="group relative overflow-hidden rounded-2xl p-5 bg-white/[0.04] border border-white/[0.08] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#fcd34d]"
+          >
+            <Maximize2
+              className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-hidden="true"
+            />
             <Badge label="Fiscal" className="bg-[#fcd34d]/10 text-[#fcd34d]" />
             <h3 className="mt-3 text-lg font-bold text-white">SAT Harmony</h3>
             <p className="mt-2 text-sm text-white/60 leading-snug">

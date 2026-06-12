@@ -5,8 +5,8 @@ import { useInView } from "@/hooks/useInView";
 import { WHATSAPP_URL } from "@/lib/site";
 
 const metrics = [
-  { value: "6", label: "productos en producción" },
-  { value: "6", label: "industrias" },
+  { value: "7", label: "productos construidos" },
+  { value: "7", label: "industrias" },
   { value: "León", label: "Guanajuato" },
 ];
 

@@ -20,6 +20,10 @@ import {
   CreditCard,
   Archive,
   Zap,
+  FolderOpen,
+  Inbox,
+  Home,
+  Bell,
 } from "lucide-react";
 import type { ProductDetail } from "@/components/ProductOverlay";
 
@@ -34,6 +38,7 @@ import nailaArquitectura from "@/assets/naila/arquitectura.webp";
 import mediclinkMockup from "@/assets/mediclink/mockup.svg";
 import pilatesMockup from "@/assets/pilates/mockup.svg";
 import satMockup from "@/assets/sat/mockup.svg";
+import nodoMockup from "@/assets/nodo/mockup.svg";
 
 export const sabuesoDetail: ProductDetail = {
   badge: { label: "Mascotas", className: "bg-white/15 text-white" },
@@ -423,6 +428,82 @@ export const satHarmonyDetail: ProductDetail = {
       name: "Configuración",
       description:
         "Notificaciones de facturas descargadas, cancelaciones y errores de sincronización; seguridad con autenticación de dos factores.",
+    },
+  ],
+};
+
+export const nodoDetail: ProductDetail = {
+  badge: { label: "Inmobiliario", className: "bg-[#a78bfa]/10 text-[#a78bfa]" },
+  accentText: "text-[#a78bfa]",
+  accentBg: "bg-[#a78bfa]",
+  gradient: "from-[#4c1d95] via-[#241245] to-[#0b0518]",
+  title: "Entaltek Nodo",
+  tagline: "Portal de gestión para agentes inmobiliarios",
+  intro:
+    "Gestiona el ciclo completo de una renta: del lead que llega por WhatsApp al contrato activo. Expedientes de inquilinos con checklist de documentos, CRM de prospectos con score de interés y panel de propiedades con la rentabilidad del negocio a la vista.",
+  hero: {
+    src: nodoMockup,
+    alt: "Mockup del dashboard de Entaltek Nodo con KPIs, leads y expedientes",
+    className: "w-full max-w-lg mx-auto drop-shadow-2xl rounded-xl",
+  },
+  stats: [
+    { value: "5", label: "etapas de renta por expediente" },
+    { value: "CRM", label: "leads con score por fuente" },
+    { value: "KPIs", label: "ocupación, ticket y rentabilidad" },
+  ],
+  pillars: [
+    {
+      title: "Expedientes con checklist",
+      description:
+        "INE, CURP, constancia fiscal, comprobante de ingresos y aval: cada documento con estatus de validación propio.",
+    },
+    {
+      title: "Pipeline de renta visible",
+      description:
+        "Barra de progreso por etapa: solicitud, documentación, estudio socioeconómico, contrato y activo.",
+    },
+    {
+      title: "Leads calificados",
+      description:
+        "Inbox tipo kanban con prospectos de WhatsApp, Facebook y web, cada uno con su score de interés. Preparado para recibirlos automáticamente vía n8n.",
+    },
+    {
+      title: "El negocio en números",
+      description:
+        "Tasa de ocupación, ticket promedio, días en mercado, rentabilidad por zona e ingresos contra egresos.",
+    },
+  ],
+  modulesTitle: "Los módulos del portal",
+  modules: [
+    {
+      icon: LayoutDashboard,
+      name: "Dashboard",
+      description:
+        "KPIs del negocio inmobiliario: ocupación, ticket promedio, días en mercado, ingresos del mes, rentabilidad por zona y agenda del agente.",
+    },
+    {
+      icon: FolderOpen,
+      name: "Expedientes",
+      description:
+        "Gestión de inquilinos con estatus por solicitud — en revisión, aprobado, pendiente, activo o rechazado — y detalle con la documentación requerida.",
+    },
+    {
+      icon: Inbox,
+      name: "Inbox de Leads",
+      description:
+        "CRM por etapas: recibido por bot, interesado/cita, en proceso de renta y descartado, con fuente y score de cada prospecto.",
+    },
+    {
+      icon: Home,
+      name: "Propiedades",
+      description:
+        "Inventario de inmuebles con renta mensual, amenidades, estatus de disponibilidad y días en mercado.",
+    },
+    {
+      icon: Bell,
+      name: "Notificaciones",
+      description:
+        "Pagos recibidos y pendientes, leads nuevos calificados por el bot y contratos por vencer, en tiempo real.",
     },
   ],
 };

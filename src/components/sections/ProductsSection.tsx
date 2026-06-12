@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PawPrint, ArrowUpRight, Maximize2 } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 import ProductOverlay, { type ProductDetail } from "@/components/ProductOverlay";
-import { sabuesoDetail, nailaDetail, mediclinkDetail, pilatesDetail, satHarmonyDetail } from "@/lib/productDetails";
+import { sabuesoDetail, nailaDetail, mediclinkDetail, pilatesDetail, satHarmonyDetail, nodoDetail } from "@/lib/productDetails";
 
 const DeviceFrame = () => (
   <svg
@@ -83,7 +83,7 @@ const ProductsSection = () => {
             Lo que hemos construido
           </h2>
           <p className="mt-3 text-white/40">
-            6 productos en producción · salud, mascotas, belleza, wellness, fiscal y finanzas
+            7 productos · salud, mascotas, belleza, wellness, fiscal, finanzas e inmobiliario
           </p>
         </div>
 
@@ -193,23 +193,46 @@ const ProductsSection = () => {
           </article>
         </div>
 
-        {/* FinTrack: fila horizontal */}
-        <article className="group mt-3 rounded-2xl px-6 py-4 bg-[#0179B1]/10 border border-[#0179B1]/20 flex flex-col sm:flex-row sm:items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#0179B1]/50">
-          <Badge label="Finanzas" className="bg-[#a5b4fc]/10 text-[#a5b4fc]" />
-          <div className="flex-1">
-            <h3 className="text-lg font-bold text-white inline">FinTrack</h3>
-            <span className="ml-3 text-sm text-white/60">Gestión financiera personal y empresarial.</span>
-          </div>
-          <a
-            href="https://credit-crusader.lovable.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-[#47DAD6] hover:underline shrink-0"
+        {/* Fila inferior: Entaltek Nodo + FinTrack */}
+        <div className="grid gap-3 md:grid-cols-2 mt-3">
+          {/* Entaltek Nodo: clic expande el detalle */}
+          <article
+            {...expandableProps(nodoDetail)}
+            className="group relative overflow-hidden rounded-2xl px-6 py-4 bg-[#a78bfa]/10 border border-[#a78bfa]/20 flex flex-col justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#a78bfa]/50 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a78bfa]"
           >
-            Ver demo
-            <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
-          </a>
-        </article>
+            <Maximize2
+              className="absolute top-4 right-4 w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-hidden="true"
+            />
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <Badge label="Inmobiliario" className="bg-[#a78bfa]/10 text-[#a78bfa]" />
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-white inline">Entaltek Nodo</h3>
+                <span className="ml-3 text-sm text-white/60">
+                  Expedientes de renta, CRM de leads y propiedades para agentes inmobiliarios.
+                </span>
+              </div>
+            </div>
+          </article>
+
+          {/* FinTrack */}
+          <article className="group rounded-2xl px-6 py-4 bg-[#0179B1]/10 border border-[#0179B1]/20 flex flex-col sm:flex-row sm:items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:border-[#0179B1]/50">
+            <Badge label="Finanzas" className="bg-[#a5b4fc]/10 text-[#a5b4fc]" />
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-white inline">FinTrack</h3>
+              <span className="ml-3 text-sm text-white/60">Gestión financiera personal y empresarial.</span>
+            </div>
+            <a
+              href="https://credit-crusader.lovable.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-[#47DAD6] hover:underline shrink-0"
+            >
+              Ver demo
+              <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+          </article>
+        </div>
       </div>
 
       {active && (

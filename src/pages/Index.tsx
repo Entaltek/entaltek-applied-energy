@@ -6,6 +6,7 @@ import Process from "@/components/Process";
 import MissionVision from "@/components/MissionVision";
 import DNA from "@/components/DNA";
 import Values from "@/components/Values";
+import BrandIdentity from "@/components/BrandIdentity";
 import WhoWeHelp from "@/components/WhoWeHelp";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -22,6 +23,7 @@ const Index = () => {
         <MissionVision />
         <DNA />
         <Values />
+        <BrandIdentity />
         <WhoWeHelp />
         <Contact />
       </main>

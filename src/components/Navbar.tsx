@@ -23,8 +23,9 @@ const Navbar = () => {
 
   const navItems = [
     { label: "Inicio", id: "hero" },
-    { label: "Quiénes Somos", id: "about" },
-    { label: "Valores", id: "values" },
+    { label: "Soluciones", id: "solutions" },
+    { label: "Proceso", id: "process" },
+    { label: "Clientes", id: "audiences" },
   ];
 
   return (
@@ -38,6 +39,7 @@ const Navbar = () => {
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-3 hover:opacity-80 transition-smooth"
+            aria-label="Ir al inicio"
           >
             <img src={logo} alt="Entaltek Logo" className="h-12 md:h-14 w-auto" />
             <span className={`text-2xl md:text-3xl font-bold ${isScrolled ? "text-foreground" : "text-white"}`}>
@@ -45,8 +47,7 @@ const Navbar = () => {
             </span>
           </button>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3">
             {navItems.map((item) => (
               <Button
                 key={item.id}
@@ -69,24 +70,26 @@ const Navbar = () => {
                 isScrolled ? "bg-primary text-white hover:bg-primary/90" : "bg-white text-primary hover:bg-white/90"
               } transition-smooth font-semibold`}
             >
-              Contáctanos
+              Agenda diagnóstico
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-smooth"
+            className={`md:hidden p-2 rounded-lg transition-smooth ${
+              isScrolled ? "hover:bg-muted text-foreground" : "text-white hover:bg-white/10"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Abrir menú"
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className={`md:hidden backdrop-blur-md border-t animate-fade-in ${
-          isScrolled ? "bg-background/98 border-border" : "bg-transparent border-white/10"
+          isScrolled ? "bg-background/98 border-border" : "bg-secondary/95 border-white/10"
         }`}>
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navItems.map((item) => (
@@ -94,24 +97,16 @@ const Navbar = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 variant="ghost"
-                className={`w-full justify-start transition-smooth font-medium ${
-                  isScrolled
-                    ? "text-foreground hover:bg-muted"
-                    : "text-white hover:bg-white hover:text-primary"
-                }`}
+                className="w-full justify-start transition-smooth font-medium text-white hover:bg-white hover:text-primary"
               >
                 {item.label}
               </Button>
             ))}
             <Button
-              className={`w-full mt-4 transition-smooth ${
-                isScrolled
-                  ? "bg-primary text-white hover:bg-primary/90"
-                  : "bg-white text-primary hover:bg-white/90"
-              }`}
+              className="w-full mt-4 transition-smooth bg-white text-primary hover:bg-white/90"
               onClick={() => scrollToSection("contact")}
             >
-              Contáctanos
+              Agenda diagnóstico
             </Button>
           </div>
         </div>

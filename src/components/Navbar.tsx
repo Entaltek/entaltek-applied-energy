@@ -25,6 +25,7 @@ const Navbar = () => {
     { label: "Inicio", id: "hero" },
     { label: "Soluciones", id: "solutions" },
     { label: "Proceso", id: "process" },
+    { label: "Marca", id: "brand" },
     { label: "Clientes", id: "audiences" },
   ];
 
@@ -47,7 +48,7 @@ const Navbar = () => {
             </span>
           </button>
 
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden lg:flex items-center space-x-3">
             {navItems.map((item) => (
               <Button
                 key={item.id}
@@ -75,7 +76,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className={`md:hidden p-2 rounded-lg transition-smooth ${
+            className={`lg:hidden p-2 rounded-lg transition-smooth ${
               isScrolled ? "hover:bg-muted text-foreground" : "text-white hover:bg-white/10"
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -88,7 +89,7 @@ const Navbar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className={`md:hidden backdrop-blur-md border-t animate-fade-in ${
+        <div className={`lg:hidden backdrop-blur-md border-t animate-fade-in ${
           isScrolled ? "bg-background/98 border-border" : "bg-secondary/95 border-white/10"
         }`}>
           <div className="container mx-auto px-4 py-4 space-y-2">

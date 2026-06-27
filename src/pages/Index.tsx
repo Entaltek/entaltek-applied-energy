@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutUs from "@/components/AboutUs";
+import Solutions from "@/components/Solutions";
+import Process from "@/components/Process";
 import MissionVision from "@/components/MissionVision";
 import DNA from "@/components/DNA";
 import Values from "@/components/Values";
@@ -15,6 +17,8 @@ const Index = () => {
       <main id="hero">
         <Hero />
         <AboutUs />
+        <Solutions />
+        <Process />
         <MissionVision />
         <DNA />
         <Values />

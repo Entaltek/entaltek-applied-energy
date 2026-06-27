@@ -97,13 +97,17 @@ const Navbar = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 variant="ghost"
-                className="w-full justify-start transition-smooth font-medium text-white hover:bg-white hover:text-primary"
+                className={`w-full justify-start transition-smooth font-medium ${
+                  isScrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white hover:text-primary"
+                }`}
               >
                 {item.label}
               </Button>
             ))}
             <Button
-              className="w-full mt-4 transition-smooth bg-white text-primary hover:bg-white/90"
+              className={`w-full mt-4 transition-smooth ${
+                isScrolled ? "bg-primary text-white hover:bg-primary/90" : "bg-white text-primary hover:bg-white/90"
+              }`}
               onClick={() => scrollToSection("contact")}
             >
               Agenda diagnóstico

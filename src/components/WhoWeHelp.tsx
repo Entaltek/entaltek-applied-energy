@@ -1,46 +1,58 @@
-import { Building2, Rocket, Factory } from "lucide-react";
+import { Building2, Factory, Landmark, Palette, Rocket } from "lucide-react";
 
 const WhoWeHelp = () => {
   const audiences = [
     {
       icon: Building2,
-      title: "PyMEs",
-      description: "Empresas que buscan digitalizar o automatizar procesos",
+      title: "PyMEs y negocios locales",
+      description: "Empresas que necesitan digitalizar operación, ventas, reportes o seguimiento de clientes.",
+      primary: true,
+    },
+    {
+      icon: Palette,
+      title: "Talleres creativos y de impresión",
+      description: "Serigrafía, sublimación, diseño, impresión y negocios que manejan pedidos, anticipos y entregas.",
+      primary: true,
+    },
+    {
+      icon: Landmark,
+      title: "Despachos y áreas administrativas",
+      description: "Equipos que viven entre XML, Excel, correos, documentos, validaciones y reportes repetitivos.",
       primary: true,
     },
     {
       icon: Rocket,
-      title: "Startups",
-      description: "Proyectos que requieren desarrollo desde cero",
-      primary: true,
+      title: "Startups y nuevos productos",
+      description: "Proyectos que necesitan pasar de idea a MVP sin sobredimensionar alcance ni costo.",
+      primary: false,
     },
     {
       icon: Factory,
-      title: "Industria",
-      description: "Sector industrial",
+      title: "Operaciones industriales",
+      description: "Procesos internos que requieren trazabilidad, tableros, captura de datos o integraciones.",
       primary: false,
     },
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section id="audiences" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 animate-fade-in-up">A Quién Ayudamos</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 animate-fade-in-up">A quién ayudamos</h2>
 
           <p
             className="text-xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto animate-fade-in-up"
             style={{ animationDelay: "0.2s" }}
           >
-            Acompañamos a quienes ven la tecnología como una herramienta para crecer, no como un obstáculo.
+            Trabajamos con personas que ya sienten el costo de operar a mano y quieren una solución práctica, no solo una página bonita.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {audiences.map((audience, index) => {
               const Icon = audience.icon;
               return (
                 <div
-                  key={index}
+                  key={audience.title}
                   className={`bg-card rounded-2xl p-8 shadow-md hover:shadow-xl transition-smooth border ${
                     audience.primary ? "border-primary/20" : "border-border"
                   } animate-scale-in`}
@@ -54,7 +66,7 @@ const WhoWeHelp = () => {
                       <h3 className="text-xl font-bold mb-2">{audience.title}</h3>
                       <p className="text-foreground/70">{audience.description}</p>
                       {audience.primary && (
-                        <span className="inline-block mt-3 text-xs font-semibold text-primary">Público Primario</span>
+                        <span className="inline-block mt-3 text-xs font-semibold text-primary">Enfoque prioritario</span>
                       )}
                     </div>
                   </div>

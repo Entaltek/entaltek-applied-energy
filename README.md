@@ -10,6 +10,7 @@ La página presenta a Entaltek como una empresa de software, automatización e I
 - qué soluciones ofrece;
 - a quién ayuda;
 - cómo trabaja;
+- cuál es su identidad de marca;
 - cómo solicitar un diagnóstico inicial.
 
 ## Stack
@@ -45,6 +46,7 @@ src/
 │   ├── MissionVision.tsx
 │   ├── DNA.tsx
 │   ├── Values.tsx
+│   ├── BrandIdentity.tsx
 │   ├── WhoWeHelp.tsx
 │   ├── Contact.tsx
 │   ├── ContactForm.tsx
@@ -61,6 +63,15 @@ src/
 - Automatización operativa: procesos, reportes, formularios, Excel, CRM, APIs, webhooks y backoffice.
 - Gestión para talleres: serigrafía, sublimación, impresión y negocios similares.
 - Marketplace de rentas: idea en discovery para publicaciones completas y contacto ordenado.
+
+## Identidad de marca comunicada
+
+La sección `BrandIdentity.tsx` resume el manual de marca:
+
+- ADN: energía aplicada, ciencia e ingeniería, humanidad, adaptabilidad, proporción e inteligencia.
+- Valores: responsabilidad, respeto, honestidad, puntualidad y lealtad.
+- Paleta: azul brillante, azul marino, azul cielo claro, azul técnico y blanco.
+- Tipografía: referencia a Exo 2 como fuente original de marca.
 
 ## Flujo de trabajo recomendado
 

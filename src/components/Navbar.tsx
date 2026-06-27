@@ -7,6 +7,7 @@ const navItems = [
   { label: "Servicios", id: "servicios" },
   { label: "Productos", id: "productos" },
   { label: "Por qué Entaltek", id: "por-que-entaltek" },
+  { label: "ADN", id: "adn-marca" },
   { label: "Contacto", id: "contacto" },
 ];
 
@@ -53,7 +54,7 @@ const Navbar = () => {
             </button>
 
             {/* Desktop */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -75,7 +76,7 @@ const Navbar = () => {
 
             {/* Mobile trigger */}
             <button
-              className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+              className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
               onClick={() => setIsMenuOpen(true)}
               aria-label="Abrir menú"
               aria-expanded={isMenuOpen}
@@ -88,7 +89,7 @@ const Navbar = () => {
 
       {/* Overlay móvil */}
       <div
-        className={`md:hidden fixed inset-0 z-50 bg-black/50 transition-opacity duration-300 ${
+        className={`lg:hidden fixed inset-0 z-50 bg-black/50 transition-opacity duration-300 ${
           isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMenuOpen(false)}
@@ -97,7 +98,7 @@ const Navbar = () => {
 
       {/* Panel móvil deslizante desde la derecha */}
       <div
-        className={`md:hidden fixed inset-y-0 right-0 z-50 w-72 max-w-[85vw] bg-[#011627]/95 backdrop-blur-xl border-l border-white/10 transform transition-transform duration-300 ease-out ${
+        className={`lg:hidden fixed inset-y-0 right-0 z-50 w-72 max-w-[85vw] bg-[#011627]/95 backdrop-blur-xl border-l border-white/10 transform transition-transform duration-300 ease-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full pointer-events-none"
         }`}
         role="dialog"

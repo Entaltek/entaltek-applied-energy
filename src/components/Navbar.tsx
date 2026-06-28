@@ -36,10 +36,11 @@ const Navbar = () => {
       <nav
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          background: isScrolled ? "rgba(1,55,98,0.85)" : "transparent",
-          backdropFilter: isScrolled ? "blur(16px)" : "none",
-          WebkitBackdropFilter: isScrolled ? "blur(16px)" : "none",
-          transition: "background 400ms ease, backdrop-filter 400ms ease",
+          background: isScrolled ? "rgba(13, 44, 66, 0.78)" : "transparent",
+          backdropFilter: isScrolled ? "blur(18px)" : "none",
+          WebkitBackdropFilter: isScrolled ? "blur(18px)" : "none",
+          borderBottom: isScrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
+          transition: "background 400ms ease, backdrop-filter 400ms ease, border-color 400ms ease",
         }}
       >
         <div className="container mx-auto px-4">
@@ -98,7 +99,7 @@ const Navbar = () => {
 
       {/* Panel móvil deslizante desde la derecha */}
       <div
-        className={`lg:hidden fixed inset-y-0 right-0 z-50 w-72 max-w-[85vw] bg-[#011627]/95 backdrop-blur-xl border-l border-white/10 transform transition-transform duration-300 ease-out ${
+        className={`lg:hidden fixed inset-y-0 right-0 z-50 w-72 max-w-[85vw] bg-[#0D2C42]/95 backdrop-blur-xl border-l border-white/10 transform transition-transform duration-300 ease-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full pointer-events-none"
         }`}
         role="dialog"

@@ -130,11 +130,11 @@ const workflowSteps = [
 ];
 
 const idealCases = [
-  "Tu operación depende demasiado de Excel.",
-  "Das seguimiento por WhatsApp sin orden.",
-  "Pierdes tiempo copiando datos entre sistemas.",
-  "Tus reportes tardan horas o días.",
-  "El negocio creció y el proceso manual empieza a fallar.",
+  "Excel manual",
+  "WhatsApp sin orden",
+  "Datos duplicados",
+  "Reportes tardados",
+  "Procesos que ya no escalan",
 ];
 
 /* ─── Component ─────────────────────────────────────────────────────────────── */
@@ -171,20 +171,20 @@ const ServicesSection = () => {
       {/* ── Main container ── */}
       <div
         ref={ref}
-        className="w-full px-6 xl:px-10 py-12 md:py-8 max-w-[1400px] mx-auto"
+        className="w-full px-6 xl:px-10 pt-28 pb-12 md:pt-24 md:pb-10 max-w-[1500px] mx-auto"
       >
         {/*
          * Grid:
          *   mobile  → 1 col (copy → timeline → cards)
-         *   desktop → [left 340px | center 1fr | right 360px]
+         *   desktop → dynamic wide grid [~0.9fr | ~1.3fr | ~1.1fr]
          */}
-        <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr_360px] gap-8 lg:gap-8 xl:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.3fr_1.1fr] gap-8 xl:gap-10 items-start">
 
           {/* ══════════════════════════════════════════
               COLUMNA IZQUIERDA — copy + CTA
           ══════════════════════════════════════════ */}
           <div
-            className={`flex flex-col gap-6 transition-all duration-700 ease-out ${
+            className={`flex flex-col gap-5 transition-all duration-700 ease-out ${
               inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{ transitionDelay: inView ? "60ms" : "0ms" }}
@@ -195,7 +195,7 @@ const ServicesSection = () => {
             </p>
 
             {/* Title */}
-            <h2 className="font-extrabold text-[#0D2C42] leading-[1.1] text-[clamp(2rem,3.4vw,3.4rem)]">
+            <h2 className="font-extrabold text-[#0D2C42] leading-[1.05] text-[clamp(2.2rem,3.2vw,3.4rem)]">
               Digitalizamos procesos que hoy te quitan tiempo
             </h2>
 
@@ -206,33 +206,36 @@ const ServicesSection = () => {
               que ya usas.
             </p>
 
-            {/* Ideal para cuando */}
-            <div
-              className="flex flex-col gap-3 mt-1 bg-[rgba(1,121,177,0.03)] border border-[rgba(1,121,177,0.12)] p-4 rounded-2xl"
-              style={{ boxShadow: "0 4px 20px rgba(13,44,66,0.02)" }}
-            >
-              <p className="text-[0.78rem] font-bold uppercase tracking-wider text-[#0179B1]/90 mb-1">
+            {/* Ideal para cuando (Chips) */}
+            <div className="flex flex-col gap-2 mt-2">
+              <p className="text-[0.7rem] font-bold uppercase tracking-wider text-[#0179B1]/90">
                 Ideal para cuando...
               </p>
-              <ul className="flex flex-col gap-2.5">
+              <div className="flex flex-wrap gap-2">
                 {idealCases.map((text, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
+                  <span
+                    key={idx}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[0.78rem] font-medium"
+                    style={{
+                      background: "rgba(1,121,177,0.06)",
+                      color: "#345878",
+                      border: "1px solid rgba(1,121,177,0.15)",
+                    }}
+                  >
                     <CheckCircle2
-                      className="w-4 h-4 text-[#0179B1] shrink-0 mt-[2px]"
+                      className="w-3.5 h-3.5 text-[#0179B1]"
                       strokeWidth={2.5}
                       aria-hidden="true"
                     />
-                    <span className="text-[0.88rem] text-[#345878] leading-snug">
-                      {text}
-                    </span>
-                  </li>
+                    {text}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
 
             {/* Trust phrase */}
             <div
-              className="flex gap-3 p-4 rounded-xl mt-1"
+              className="flex gap-3 p-3 rounded-xl mt-2"
               style={{
                 background: "rgba(71,218,214,0.07)",
                 border: "1px solid rgba(71,218,214,0.25)",
@@ -243,9 +246,8 @@ const ServicesSection = () => {
                 style={{ background: "rgba(71,218,214,0.7)" }}
                 aria-hidden="true"
               />
-              <p className="text-[0.85rem] font-medium italic leading-snug text-[#345878]">
-                Si no hay un proceso que realmente valga la pena automatizar,
-                te lo diremos.
+              <p className="text-[0.82rem] font-medium italic leading-snug text-[#345878]">
+                Si no hay un proceso que valga la pena automatizar, te lo diremos.
               </p>
             </div>
 
@@ -256,7 +258,7 @@ const ServicesSection = () => {
                   .getElementById("contacto")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="inline-flex items-center gap-2 font-bold group text-base w-fit transition-colors duration-300 mt-2"
+              className="inline-flex items-center gap-2 font-bold group text-base w-fit transition-colors duration-300 mt-1"
               style={{ color: "#0179B1" }}
             >
               Cuéntanos qué proceso quieres mejorar
@@ -279,7 +281,7 @@ const ServicesSection = () => {
             style={{ transitionDelay: inView ? "180ms" : "0ms" }}
           >
             {/* Section label */}
-            <div className="flex items-center gap-3 mb-7">
+            <div className="flex items-center gap-3 mb-6">
               <div
                 className="h-px flex-1"
                 style={{
@@ -303,7 +305,7 @@ const ServicesSection = () => {
 
             {/* Timeline */}
             <ol
-              className="relative flex flex-col gap-1.5"
+              className="relative flex flex-col gap-1"
               aria-label="Proceso de trabajo Entaltek"
             >
               {workflowSteps.map((step, i) => {
@@ -314,7 +316,7 @@ const ServicesSection = () => {
                 return (
                   <li
                     key={step.n}
-                    className={`relative flex gap-4 transition-all duration-500 ease-out ${
+                    className={`relative flex gap-3.5 transition-all duration-500 ease-out ${
                       inView
                         ? "opacity-100 translate-x-0"
                         : "opacity-0 -translate-x-4"
@@ -322,23 +324,23 @@ const ServicesSection = () => {
                     style={{ transitionDelay: `${delayMs}ms` }}
                   >
                     {/* Node column */}
-                    <div className="flex flex-col items-center shrink-0 w-10">
+                    <div className="flex flex-col items-center shrink-0 w-9">
                       {/* Icon node */}
                       <div
-                        className="relative w-10 h-10 rounded-full flex items-center justify-center shrink-0 z-10"
+                        className="relative w-9 h-9 rounded-full flex items-center justify-center shrink-0 z-10"
                         style={{
                           background: step.color,
                           boxShadow: `0 0 0 3px ${step.ring}, 0 2px 8px rgba(0,0,0,0.12)`,
                         }}
                       >
                         <StepIcon
-                          className="w-[1.125rem] h-[1.125rem] text-white"
+                          className="w-[1rem] h-[1rem] text-white"
                           aria-hidden="true"
                           strokeWidth={2.2}
                         />
                         {/* Step number badge */}
                         <span
-                          className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-[0.55rem] font-bold flex items-center justify-center text-white leading-none"
+                          className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full text-[0.5rem] font-bold flex items-center justify-center text-white leading-none"
                           style={{ background: "rgba(13,44,66,0.85)" }}
                           aria-hidden="true"
                         >
@@ -352,7 +354,7 @@ const ServicesSection = () => {
                           className="w-[2px] mt-1.5 mb-1 flex-1"
                           style={{
                             background: `linear-gradient(180deg, ${step.color}55, ${step.color}18)`,
-                            minHeight: "20px",
+                            minHeight: "16px",
                           }}
                           aria-hidden="true"
                         />
@@ -360,11 +362,11 @@ const ServicesSection = () => {
                     </div>
 
                     {/* Content */}
-                    <div className={`pb-5 ${isLast ? "pb-0" : ""} pt-0.5 min-w-0`}>
-                      <p className="text-base font-bold text-[#0D2C42] leading-snug">
+                    <div className={`pb-3 ${isLast ? "pb-0" : ""} pt-[2px] min-w-0`}>
+                      <p className="text-[0.95rem] font-bold text-[#0D2C42] leading-snug">
                         {step.title}
                       </p>
-                      <p className="mt-1 text-sm text-[#345878]/75 leading-relaxed">
+                      <p className="mt-0.5 text-[0.8rem] text-[#345878]/80 leading-relaxed">
                         {step.desc}
                       </p>
                     </div>
@@ -377,7 +379,7 @@ const ServicesSection = () => {
           {/* ══════════════════════════════════════════
               COLUMNA DERECHA — 5 service cards
           ══════════════════════════════════════════ */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             {services.map((svc, i) => {
               const Icon = svc.icon;
               const delay = inView ? 260 + i * 100 : 0;
@@ -414,23 +416,23 @@ const ServicesSection = () => {
 
                   {/* Number watermark */}
                   <span
-                    className="absolute top-2 right-4 text-[3.2rem] font-black leading-none select-none pointer-events-none transition-colors duration-300"
+                    className="absolute top-1.5 right-3 text-[2.8rem] font-black leading-none select-none pointer-events-none transition-colors duration-300"
                     style={{ color: `rgba(${svc.accentRgb},0.08)` }}
                     aria-hidden="true"
                   >
                     {svc.number}
                   </span>
 
-                  <div className="relative flex items-center gap-4 px-6 py-5 pl-8">
+                  <div className="relative flex items-center gap-3.5 px-5 py-3 pl-6">
                     {/* Icon */}
                     <div
-                      className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
+                      className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
                       style={{
                         background: `rgba(${svc.accentRgb},0.14)`,
                       }}
                     >
                       <Icon
-                        className="w-[1.3rem] h-[1.3rem]"
+                        className="w-[1.2rem] h-[1.2rem]"
                         style={{ color: svc.accent }}
                         aria-hidden="true"
                         strokeWidth={2}
@@ -438,11 +440,11 @@ const ServicesSection = () => {
                     </div>
 
                     {/* Text */}
-                    <div className="min-w-0 pr-4">
-                      <h3 className="text-base font-bold text-[#0D2C42] leading-snug">
+                    <div className="min-w-0 pr-2">
+                      <h3 className="text-[0.95rem] font-bold text-[#0D2C42] leading-snug">
                         {svc.title}
                       </h3>
-                      <p className="mt-1 text-sm leading-relaxed" style={{ color: `rgba(${svc.accentRgb},0.78)` }}>
+                      <p className="mt-0.5 text-[0.8rem] leading-relaxed" style={{ color: `rgba(${svc.accentRgb},0.78)` }}>
                         {svc.bullets}
                       </p>
                     </div>

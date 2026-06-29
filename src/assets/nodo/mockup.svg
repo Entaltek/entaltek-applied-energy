@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="Sansation, ui-sans-serif, sans-serif">
+  <rect width="800" height="500" rx="14" fill="#F0F4F8"/>
+  <rect width="800" height="500" rx="14" fill="none" stroke="rgba(167,139,250,0.4)"/>
+  <path d="M0 14C0 6.27 6.27 0 14 0h156v500H14c-7.73 0-14-6.27-14-14V14Z" fill="#013762"/>
+  <text x="50" y="40" fill="#ffffff" font-size="16" font-weight="700">Entaltek</text>
+  <text x="50" y="58" fill="rgba(255,255,255,0.5)" font-size="10">Nodo</text>
+  <rect x="14" y="80" width="142" height="24" rx="6" fill="#0179B1" opacity="0.9"/>
+  <rect x="26" y="120" width="100" height="9" rx="3" fill="#ffffff" opacity="0.3"/>
+  <rect x="26" y="144" width="84" height="9" rx="3" fill="#ffffff" opacity="0.3"/>
+  <rect x="26" y="168" width="108" height="9" rx="3" fill="#ffffff" opacity="0.3"/>
+  <rect x="26" y="192" width="92" height="9" rx="3" fill="#ffffff" opacity="0.3"/>
+  <text x="190" y="44" fill="#013762" font-size="20" font-weight="700">Dashboard</text>
+  <text x="190" y="64" fill="rgba(1,55,98,0.5)" font-size="11">Análisis de negocio</text>
+  <rect x="190" y="84" width="138" height="64" rx="10" fill="#ffffff" stroke="rgba(1,55,98,0.1)"/>
+  <text x="204" y="108" fill="rgba(1,55,98,0.55)" font-size="10">Tasa de Ocupación</text>
+  <text x="204" y="134" fill="#013762" font-size="20" font-weight="700">94%</text>
+  <rect x="340" y="84" width="138" height="64" rx="10" fill="#ffffff" stroke="rgba(1,55,98,0.1)"/>
+  <text x="354" y="108" fill="rgba(1,55,98,0.55)" font-size="10">Ticket Promedio</text>
+  <text x="354" y="134" fill="#013762" font-size="20" font-weight="700">$18,500</text>
+  <rect x="490" y="84" width="138" height="64" rx="10" fill="#ffffff" stroke="rgba(1,55,98,0.1)"/>
+  <text x="504" y="108" fill="rgba(1,55,98,0.55)" font-size="10">Días en Mercado</text>
+  <text x="504" y="134" fill="#013762" font-size="20" font-weight="700">12</text>
+  <rect x="640" y="84" width="138" height="64" rx="10" fill="#ffffff" stroke="rgba(71,218,214,0.5)"/>
+  <text x="654" y="108" fill="rgba(1,55,98,0.55)" font-size="10">Ingresos del Mes</text>
+  <text x="654" y="134" fill="#0179B1" font-size="20" font-weight="700">$245K</text>
+  <rect x="190" y="168" width="280" height="180" rx="10" fill="#ffffff" stroke="rgba(1,55,98,0.1)"/>
+  <text x="206" y="194" fill="#013762" font-size="12" font-weight="700">Rentabilidad por Zona</text>
+  <rect x="206" y="212" width="220" height="16" rx="4" fill="#0179B1"/>
+  <rect x="206" y="238" width="196" height="16" rx="4" fill="#0179B1" opacity="0.85"/>
+  <rect x="206" y="264" width="160" height="16" rx="4" fill="#0179B1" opacity="0.7"/>
+  <rect x="206" y="290" width="178" height="16" rx="4" fill="#0179B1" opacity="0.55"/>
+  <rect x="206" y="316" width="142" height="16" rx="4" fill="#47DAD6" opacity="0.8"/>
+  <rect x="482" y="168" width="296" height="180" rx="10" fill="#ffffff" stroke="rgba(1,55,98,0.1)"/>
+  <text x="498" y="194" fill="#013762" font-size="12" font-weight="700">Inbox de Leads</text>
+  <rect x="498" y="210" width="126" height="56" rx="8" fill="#F0F4F8" stroke="rgba(1,121,177,0.3)"/>
+  <text x="508" y="228" fill="rgba(1,55,98,0.5)" font-size="8">WHATSAPP · BOT</text>
+  <text x="508" y="244" fill="#013762" font-size="10" font-weight="700">Fernando Reyes</text>
+  <rect x="508" y="250" width="52" height="10" rx="5" fill="rgba(71,218,214,0.3)"/>
+  <text x="534" y="258" text-anchor="middle" fill="#013762" font-size="7" font-weight="700">Score 85%</text>
+  <rect x="636" y="210" width="126" height="56" rx="8" fill="#F0F4F8" stroke="rgba(1,121,177,0.3)"/>
+  <text x="646" y="228" fill="rgba(1,55,98,0.5)" font-size="8">WEB · EN PROCESO</text>
+  <text x="646" y="244" fill="#013762" font-size="10" font-weight="700">Miguel Á. Torres</text>
+  <rect x="646" y="250" width="52" height="10" rx="5" fill="rgba(71,218,214,0.3)"/>
+  <text x="672" y="258" text-anchor="middle" fill="#013762" font-size="7" font-weight="700">Score 90%</text>
+  <rect x="498" y="278" width="264" height="28" rx="8" fill="rgba(1,121,177,0.08)"/>
+  <text x="510" y="296" fill="rgba(1,55,98,0.6)" font-size="9">Solicitud → Documentación → Contrato → Activo</text>
+  <rect x="498" y="314" width="264" height="22" rx="8" fill="rgba(71,218,214,0.15)"/>
+  <text x="510" y="329" fill="rgba(1,55,98,0.7)" font-size="9">⚡ Leads calificados por bot vía n8n</text>
+  <rect x="190" y="368" width="588" height="106" rx="10" fill="#ffffff" stroke="rgba(1,55,98,0.1)"/>
+  <text x="206" y="394" fill="#013762" font-size="12" font-weight="700">Expedientes</text>
+  <text x="206" y="420" fill="rgba(1,55,98,0.7)" font-size="10">Juan Pérez García · Depto 301 - Torre A</text>
+  <rect x="600" y="408" width="70" height="16" rx="8" fill="rgba(1,121,177,0.15)"/>
+  <text x="635" y="420" text-anchor="middle" fill="#0179B1" font-size="8" font-weight="700">En Revisión</text>
+  <line x1="206" y1="434" x2="762" y2="434" stroke="rgba(1,55,98,0.08)"/>
+  <text x="206" y="456" fill="rgba(1,55,98,0.7)" font-size="10">María García López · Casa 15 - Residencial Norte</text>
+  <rect x="600" y="444" width="70" height="16" rx="8" fill="rgba(74,222,128,0.2)"/>
+  <text x="635" y="456" text-anchor="middle" fill="#15803d" font-size="8" font-weight="700">Aprobado</text>
+</svg>

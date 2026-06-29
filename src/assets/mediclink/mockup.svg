@@ -1,0 +1,44 @@
+<svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="Sansation, ui-sans-serif, sans-serif">
+  <rect width="800" height="500" rx="14" fill="#011627" stroke="rgba(125,211,252,0.25)"/>
+  <circle cx="22" cy="20" r="5" fill="#7dd3fc" opacity="0.7"/>
+  <circle cx="42" cy="20" r="5" fill="#0179B1" opacity="0.7"/>
+  <circle cx="62" cy="20" r="5" fill="#ffffff" opacity="0.25"/>
+  <line x1="0" y1="40" x2="800" y2="40" stroke="rgba(255,255,255,0.1)"/>
+  <rect x="0" y="40" width="170" height="460" fill="#013762" opacity="0.55"/>
+  <rect x="18" y="64" width="120" height="14" rx="4" fill="#7dd3fc" opacity="0.85"/>
+  <rect x="18" y="100" width="134" height="22" rx="6" fill="#0179B1" opacity="0.9"/>
+  <rect x="18" y="134" width="100" height="10" rx="3" fill="#ffffff" opacity="0.25"/>
+  <rect x="18" y="158" width="112" height="10" rx="3" fill="#ffffff" opacity="0.25"/>
+  <rect x="18" y="182" width="92" height="10" rx="3" fill="#ffffff" opacity="0.25"/>
+  <rect x="18" y="206" width="106" height="10" rx="3" fill="#ffffff" opacity="0.25"/>
+  <rect x="18" y="230" width="84" height="10" rx="3" fill="#ffffff" opacity="0.25"/>
+  <rect x="18" y="254" width="98" height="10" rx="3" fill="#ffffff" opacity="0.25"/>
+  <text x="200" y="84" fill="#ffffff" font-size="24" font-weight="700">MedicLink</text>
+  <text x="200" y="106" fill="rgba(255,255,255,0.45)" font-size="12">Panel de administración de clínicas</text>
+  <rect x="200" y="126" width="178" height="70" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(125,211,252,0.3)"/>
+  <rect x="403" y="126" width="178" height="70" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(1,121,177,0.5)"/>
+  <rect x="606" y="126" width="170" height="70" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="216" y="154" fill="rgba(255,255,255,0.5)" font-size="11">Citas pendientes hoy</text>
+  <text x="216" y="184" fill="#7dd3fc" font-size="24" font-weight="700">12</text>
+  <text x="419" y="154" fill="rgba(255,255,255,0.5)" font-size="11">Citas esta semana</text>
+  <text x="419" y="184" fill="#ffffff" font-size="24" font-weight="700">48</text>
+  <text x="622" y="154" fill="rgba(255,255,255,0.5)" font-size="11">Pacientes</text>
+  <text x="622" y="184" fill="#ffffff" font-size="24" font-weight="700">214</text>
+  <rect x="200" y="220" width="350" height="250" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+  <text x="216" y="248" fill="rgba(255,255,255,0.6)" font-size="12" font-weight="700">Tendencia de citas</text>
+  <rect x="226" y="380" width="26" height="66" rx="3" fill="#0179B1"/>
+  <rect x="264" y="350" width="26" height="96" rx="3" fill="#0179B1"/>
+  <rect x="302" y="395" width="26" height="51" rx="3" fill="#7dd3fc"/>
+  <rect x="340" y="320" width="26" height="126" rx="3" fill="#0179B1"/>
+  <rect x="378" y="300" width="26" height="146" rx="3" fill="#7dd3fc"/>
+  <rect x="416" y="338" width="26" height="108" rx="3" fill="#0179B1"/>
+  <rect x="454" y="282" width="26" height="164" rx="3" fill="#7dd3fc"/>
+  <rect x="575" y="220" width="201" height="250" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+  <text x="591" y="248" fill="rgba(255,255,255,0.6)" font-size="12" font-weight="700">Consultas por servicio</text>
+  <rect x="591" y="268" width="150" height="9" rx="3" fill="#7dd3fc"/>
+  <rect x="591" y="296" width="122" height="9" rx="3" fill="#0179B1"/>
+  <rect x="591" y="324" width="96" height="9" rx="3" fill="#0179B1" opacity="0.7"/>
+  <rect x="591" y="352" width="70" height="9" rx="3" fill="#0179B1" opacity="0.5"/>
+  <rect x="591" y="380" width="52" height="9" rx="3" fill="#7dd3fc" opacity="0.5"/>
+  <rect x="591" y="408" width="40" height="9" rx="3" fill="#0179B1" opacity="0.4"/>
+</svg>

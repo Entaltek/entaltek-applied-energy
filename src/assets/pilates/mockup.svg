@@ -1,0 +1,28 @@
+<svg viewBox="0 0 300 600" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="Sansation, ui-sans-serif, sans-serif">
+  <rect x="4" y="4" width="292" height="592" rx="36" fill="#011627" stroke="rgba(110,231,183,0.35)" stroke-width="2"/>
+  <rect x="110" y="18" width="80" height="10" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="150" y="70" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="700">Entaltek Pilates</text>
+  <text x="150" y="92" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="11">Reserva tu siguiente clase</text>
+  <rect x="28" y="112" width="244" height="150" rx="14" fill="rgba(110,231,183,0.07)" stroke="rgba(110,231,183,0.25)"/>
+  <text x="44" y="138" fill="rgba(255,255,255,0.6)" font-size="11" font-weight="700">Junio</text>
+  <g fill="rgba(255,255,255,0.18)">
+    <circle cx="56" cy="166" r="9"/><circle cx="94" cy="166" r="9"/><circle cx="132" cy="166" r="9"/><circle cx="170" cy="166" r="9"/><circle cx="208" cy="166" r="9"/><circle cx="246" cy="166" r="9"/>
+    <circle cx="56" cy="200" r="9"/><circle cx="94" cy="200" r="9"/><circle cx="170" cy="200" r="9"/><circle cx="208" cy="200" r="9"/><circle cx="246" cy="200" r="9"/>
+    <circle cx="56" cy="234" r="9"/><circle cx="94" cy="234" r="9"/><circle cx="132" cy="234" r="9"/><circle cx="208" cy="234" r="9"/><circle cx="246" cy="234" r="9"/>
+  </g>
+  <circle cx="132" cy="200" r="11" fill="#6ee7b7"/>
+  <circle cx="170" cy="234" r="9" fill="rgba(110,231,183,0.45)"/>
+  <rect x="28" y="282" width="244" height="40" rx="10" fill="rgba(110,231,183,0.12)" stroke="rgba(110,231,183,0.4)"/>
+  <text x="44" y="307" fill="#6ee7b7" font-size="12" font-weight="700">07:00</text>
+  <text x="92" y="307" fill="rgba(255,255,255,0.7)" font-size="12">Mat Pilates · 2 lugares</text>
+  <rect x="28" y="332" width="244" height="40" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="44" y="357" fill="rgba(255,255,255,0.55)" font-size="12" font-weight="700">09:30</text>
+  <text x="92" y="357" fill="rgba(255,255,255,0.45)" font-size="12">Reformer · 1 lugar</text>
+  <rect x="28" y="382" width="244" height="40" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="44" y="407" fill="rgba(255,255,255,0.55)" font-size="12" font-weight="700">18:00</text>
+  <text x="92" y="407" fill="rgba(255,255,255,0.45)" font-size="12">Mat Pilates · 4 lugares</text>
+  <rect x="28" y="448" width="244" height="48" rx="12" fill="#6ee7b7"/>
+  <text x="150" y="478" text-anchor="middle" fill="#011627" font-size="14" font-weight="700">Reservar y pagar</text>
+  <text x="150" y="524" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="10">Pago seguro con Mercado Pago</text>
+  <rect x="120" y="568" width="60" height="6" rx="3" fill="rgba(255,255,255,0.25)"/>
+</svg>

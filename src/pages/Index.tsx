@@ -1,28 +1,29 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import AboutUs from "@/components/AboutUs";
-import MissionVision from "@/components/MissionVision";
-import DNA from "@/components/DNA";
-import Values from "@/components/Values";
-import WhoWeHelp from "@/components/WhoWeHelp";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import SectionDots from "@/components/SectionDots";
+import HeroSection from "@/components/sections/HeroSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import ProductsSection from "@/components/sections/ProductsSection";
+import WhySection from "@/components/sections/WhySection";
+import BrandAdnSection from "@/components/sections/BrandAdnSection";
+import ContactSection from "@/components/sections/ContactSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <>
       <Navbar />
-      <main id="hero">
-        <Hero />
-        <AboutUs />
-        <MissionVision />
-        <DNA />
-        <Values />
-        <WhoWeHelp />
-        <Contact />
+      <SectionDots />
+      <main
+        id="main-scroll"
+        className="h-screen overflow-y-auto scroll-smooth md:snap-y md:snap-mandatory"
+      >
+        <HeroSection />
+        <ServicesSection />
+        <ProductsSection />
+        <WhySection />
+        <BrandAdnSection />
+        <ContactSection />
       </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Mail, MapPin, MessageCircle, Github, Linkedin } from "lucide-react";
+import { ArrowRight, CheckCircle2, Github, Linkedin, Mail, MapPin, MessageCircle, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { useInView } from "@/hooks/useInView";
 import logoMark from "@/assets/logo_entaltek_solo.svg";
 import {
   WHATSAPP_URL,
-  WHATSAPP_NUMBER,
+  WHATSAPP_DISPLAY_NUMBER,
   CONTACT_EMAIL,
   LOCATION,
   LINKEDIN_URL,
@@ -13,7 +13,13 @@ import {
 } from "@/lib/site";
 
 const inputClass =
-  "w-full bg-transparent border-0 border-b border-[#013762]/20 rounded-none px-0 py-3 text-[#013762] placeholder:text-[#013762]/35 focus:outline-none focus:border-[#0179B1] transition-colors";
+  "w-full rounded-xl border border-[#013762]/12 bg-[#F8FAFC] px-4 py-3.5 text-[#013762] placeholder:text-[#013762]/35 shadow-inner shadow-[#013762]/[0.02] outline-none transition-all focus:border-[#0179B1]/60 focus:bg-white focus:ring-4 focus:ring-[#47DAD6]/15";
+
+const trustPoints = [
+  "Respuesta en menos de 24 horas.",
+  "Diagnóstico inicial sin costo.",
+  "Soluciones pensadas para PYMES, startups y equipos operativos.",
+];
 
 const HexLogo = () => <img src={logoMark} alt="Isotipo de Entaltek" className="h-9 w-auto" />;
 
@@ -63,119 +69,155 @@ const ContactSection = () => {
   return (
     <section
       id="contacto"
-      className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-white flex flex-col"
+      className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-[#F7FAFC] flex flex-col"
     >
-      <div className="flex-1 flex items-center">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute -top-28 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#47DAD6]/16 blur-[95px]" />
+        <div className="absolute bottom-24 left-8 h-64 w-64 rounded-full bg-[#0179B1]/10 blur-[90px]" />
+        <div className="absolute right-0 top-24 h-80 w-80 rounded-full bg-[#013762]/5 blur-[100px]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#0179B1]/20 to-transparent" />
+      </div>
+
+      <div className="relative flex-1 flex items-center">
         <div ref={ref} className="container mx-auto px-4 pt-24 pb-12">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 max-w-5xl mx-auto items-start">
-            {/* Izquierda: copy y vías directas */}
+          <div className="grid md:grid-cols-[0.92fr_1.08fr] gap-10 lg:gap-16 max-w-6xl mx-auto items-center">
             <div
               className={`transition-all duration-700 ease-out ${
                 inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
               }`}
             >
-              <h2 className="font-bold text-[#013762] text-[clamp(1.8rem,3vw,2.8rem)] leading-tight">
-                ¿Tienes un problema que resolver?
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#0179B1]/20 bg-white/70 px-4 py-1.5 text-sm font-semibold text-[#0179B1] shadow-sm">
+                <Sparkles className="h-4 w-4" aria-hidden="true" />
+                Empecemos por entender tu operación
+              </span>
+
+              <h2 className="mt-6 font-extrabold text-[#013762] text-[clamp(2rem,4vw,3.45rem)] leading-tight tracking-tight">
+                Cuéntanos qué proceso quieres mejorar
               </h2>
-              <p className="mt-4 text-lg text-[#013762]/70">
-                Cuéntanos qué necesitas. Respondemos en menos de 24 horas.
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#013762]/68">
+                Ya sea una automatización, una plataforma interna, una landing o una herramienta a la medida, podemos ayudarte a convertir una operación manual en un sistema claro y funcional.
               </p>
 
-              <ul className="mt-8 space-y-4">
-                <li className="flex items-center gap-3 text-[#013762]/80">
-                  <MessageCircle className="w-5 h-5 text-[#0179B1] shrink-0" aria-hidden="true" />
-                  WhatsApp: {WHATSAPP_NUMBER}
-                </li>
-                <li className="flex items-center gap-3 text-[#013762]/80">
-                  <Mail className="w-5 h-5 text-[#0179B1] shrink-0" aria-hidden="true" />
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-[#0179B1] transition-colors">
-                    {CONTACT_EMAIL}
-                  </a>
-                </li>
-                <li className="flex items-center gap-3 text-[#013762]/80">
-                  <MapPin className="w-5 h-5 text-[#0179B1] shrink-0" aria-hidden="true" />
-                  {LOCATION}
-                </li>
+              <ul className="mt-7 space-y-3">
+                {trustPoints.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-[#013762]/78">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0179B1]" aria-hidden="true" />
+                    <span>{point}</span>
+                  </li>
+                ))}
               </ul>
+
+              <div className="mt-8 grid gap-3 rounded-2xl border border-[#013762]/10 bg-white/75 p-5 shadow-sm backdrop-blur">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-[#013762]/85 hover:text-[#0179B1] transition-colors"
+                >
+                  <MessageCircle className="h-5 w-5 text-[#0179B1] shrink-0" aria-hidden="true" />
+                  WhatsApp: {WHATSAPP_DISPLAY_NUMBER}
+                </a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-3 text-[#013762]/85 hover:text-[#0179B1] transition-colors">
+                  <Mail className="h-5 w-5 text-[#0179B1] shrink-0" aria-hidden="true" />
+                  {CONTACT_EMAIL}
+                </a>
+                <div className="flex items-center gap-3 text-[#013762]/85">
+                  <MapPin className="h-5 w-5 text-[#0179B1] shrink-0" aria-hidden="true" />
+                  {LOCATION}
+                </div>
+              </div>
 
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-8 px-8 py-4 rounded-lg bg-[#0179B1] text-white font-semibold hover:bg-[#013762] transition-colors duration-300"
+                className="group mt-7 inline-flex items-center gap-2 rounded-xl bg-[#0179B1] px-7 py-4 font-bold text-white shadow-lg shadow-[#0179B1]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#013762] hover:shadow-[#013762]/20"
               >
-                Escríbenos por WhatsApp →
+                Escríbenos por WhatsApp
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </a>
             </div>
 
-            {/* Derecha: formulario inline */}
             <form
               onSubmit={handleSubmit}
-              className={`space-y-6 transition-all duration-700 ease-out delay-150 ${
+              className={`rounded-3xl border border-[#013762]/10 bg-white p-6 shadow-[0_24px_80px_rgba(1,55,98,0.12)] transition-all duration-700 ease-out delay-150 md:p-8 ${
                 inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
               }`}
             >
-              <div>
-                <label htmlFor="nombre" className="block text-sm font-semibold text-[#013762] mb-1">
-                  Nombre
-                </label>
-                <input
-                  id="nombre"
-                  type="text"
-                  value={formData.nombre}
-                  onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                  placeholder="Tu nombre"
-                  autoComplete="name"
-                  required
-                  className={inputClass}
-                />
+              <div className="mb-7">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#47DAD6]/12 text-[#0179B1]">
+                  <Mail className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 text-2xl font-extrabold text-[#013762]">Envíanos tu idea</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#013762]/58">
+                  No necesitas tener todo definido. Con una descripción inicial podemos ayudarte a ordenar el alcance.
+                </p>
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-[#013762] mb-1">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="tu@correo.com"
-                  autoComplete="email"
-                  required
-                  className={inputClass}
-                />
-              </div>
+              <div className="space-y-5">
+                <div>
+                  <label htmlFor="nombre" className="mb-2 block text-sm font-bold text-[#013762]">
+                    Nombre
+                  </label>
+                  <input
+                    id="nombre"
+                    type="text"
+                    value={formData.nombre}
+                    onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
+                    placeholder="Tu nombre"
+                    autoComplete="name"
+                    required
+                    className={inputClass}
+                  />
+                </div>
 
-              <div>
-                <label htmlFor="mensaje" className="block text-sm font-semibold text-[#013762] mb-1">
-                  Mensaje
-                </label>
-                <textarea
-                  id="mensaje"
-                  value={formData.mensaje}
-                  onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
-                  placeholder="Ej. quiero automatizar la agenda de mi clínica…"
-                  required
-                  rows={4}
-                  className={`${inputClass} resize-none`}
-                />
+                <div>
+                  <label htmlFor="email" className="mb-2 block text-sm font-bold text-[#013762]">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="tu@correo.com"
+                    autoComplete="email"
+                    required
+                    className={inputClass}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="mensaje" className="mb-2 block text-sm font-bold text-[#013762]">
+                    ¿Qué necesitas resolver?
+                  </label>
+                  <textarea
+                    id="mensaje"
+                    value={formData.mensaje}
+                    onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
+                    placeholder="Ej. Quiero automatizar cotizaciones, pedidos o seguimiento de clientes..."
+                    required
+                    rows={5}
+                    className={`${inputClass} resize-none`}
+                  />
+                </div>
               </div>
 
               <button
                 type="submit"
                 disabled={isSending}
-                className="w-full py-4 rounded-lg bg-[#013762] text-white font-semibold hover:bg-[#0179B1] transition-colors duration-300 disabled:opacity-60"
+                className="mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-[#013762] py-4 font-bold text-white shadow-lg shadow-[#013762]/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0179B1] disabled:translate-y-0 disabled:opacity-60"
               >
                 {isSending ? "Enviando…" : "Enviar mensaje"}
+                {!isSending && <ArrowRight className="h-4 w-4" aria-hidden="true" />}
               </button>
             </form>
           </div>
         </div>
       </div>
 
-      {/* Footer integrado */}
-      <footer className="bg-[#011627] py-6">
+      <footer className="relative bg-[#011627] py-6">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#47DAD6]/35 to-transparent" aria-hidden="true" />
         <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <HexLogo />

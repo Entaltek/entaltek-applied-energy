@@ -42,7 +42,7 @@ const services = [
     number: "03",
     icon: Layers,
     title: "Apps y herramientas conectadas",
-    bullets: "Web · móvil · APIs · pagos · notificaciones",
+    bullets: "Web · móvil · APIs · notificaciones",
     accent: "#0DB8B4",
     accentRgb: "13,184,180",
     tintBg: "rgba(71,218,214,0.05)",

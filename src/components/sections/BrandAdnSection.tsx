@@ -42,9 +42,8 @@ const BrandAdnSection = () => {
   const { ref, inView } = useInView<HTMLDivElement>();
 
   const reveal = (index: number, className = "") => ({
-    className: `${className} transition-all duration-700 ease-out ${
-      inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-    }`,
+    className: `${className} transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      }`,
     style: { transitionDelay: inView ? `${index * 120}ms` : "0ms" },
   });
 
@@ -96,15 +95,6 @@ const BrandAdnSection = () => {
               ))}
             </div>
 
-            <div
-              {...reveal(
-                4,
-                "mt-10 inline-flex items-center gap-3 rounded-2xl border border-[#47DAD6]/20 bg-[#47DAD6]/10 px-5 py-4 text-white shadow-[0_0_40px_rgba(71,218,214,0.08)]",
-              )}
-            >
-              <Sparkles className="h-5 w-5 text-[#47DAD6]" aria-hidden="true" />
-              <span className="font-semibold">Energía aplicada a problemas reales.</span>
-            </div>
           </div>
 
           <div className="grid gap-5">
@@ -114,14 +104,14 @@ const BrandAdnSection = () => {
                   key={title}
                   {...reveal(
                     index + 2,
-                    "group rounded-2xl border border-white/10 bg-white/[0.06] p-6 md:p-7 backdrop-blur-xl hover:border-[#47DAD6]/35 hover:bg-white/[0.08] transition-colors",
+                    "group rounded-2xl border border-white/10 bg-white/[0.06] p-6 md:p-7 backdrop-blur-xl hover:border-[#47DAD6]/85 hover:bg-white/[0.08] transition-colors",
                   )}
                 >
                   <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#47DAD6]/10 text-[#47DAD6] group-hover:bg-[#47DAD6]/15">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
                   <h3 className="text-xl font-bold text-white">{title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/58">{description}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/75">{description}</p>
                 </article>
               ))}
             </div>

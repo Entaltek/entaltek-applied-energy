@@ -5,6 +5,7 @@ const sections = [
   { id: "servicios", label: "Servicios" },
   { id: "productos", label: "Productos" },
   { id: "por-que-entaltek", label: "Por qué Entaltek" },
+  { id: "adn-marca", label: "ADN de marca" },
   { id: "contacto", label: "Contacto" },
 ];
 

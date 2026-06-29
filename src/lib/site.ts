@@ -1,8 +1,8 @@
 // Datos de contacto y configuración del sitio.
-// Reemplazar [NUMERO] con el número de WhatsApp en formato 52XXXXXXXXXX.
-export const WHATSAPP_NUMBER = "[NUMERO]";
+export const WHATSAPP_NUMBER = "524641591640";
+export const WHATSAPP_DISPLAY_NUMBER = "+52 464 159 1640";
 
-const WHATSAPP_MESSAGE = "Hola, me interesa hablar sobre un proyecto.";
+const WHATSAPP_MESSAGE = "Hola, me interesa hablar sobre un proyecto con Entaltek.";
 
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 

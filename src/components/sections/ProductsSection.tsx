@@ -103,23 +103,27 @@ const ProductsSection = () => {
         </div>
 
         {/* Bento Grid unificado */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 auto-rows-min">
+        <div className="grid gap-3 md:gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-12 auto-rows-fr">
           {/* Clínicas Entaltek (Principal grande) */}
           <article
             {...expandableProps(mediclinkDetail)}
             style={cardDelay(0)}
-            className={`group relative overflow-hidden md:col-span-2 lg:row-span-2 lg:col-span-2 rounded-3xl p-7 md:p-10 border border-[#47DAD6]/15 bg-gradient-to-br from-[#013762] to-[#0c2d4a] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#47DAD6]/40 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6] ${cardIn}`}
+            className={`group relative overflow-hidden md:col-span-2 lg:col-span-6 lg:row-span-2 rounded-[1.5rem] p-6 md:p-8 lg:p-10 border border-[#47DAD6]/15 bg-gradient-to-br from-[#013762] to-[#0c2d4a] flex flex-col justify-between transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#47DAD6]/40 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6] ${cardIn}`}
           >
             <Maximize2
-              className="absolute top-6 right-6 w-5 h-5 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-5 right-5 w-5 h-5 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Salud" className="bg-[#7dd3fc]/15 text-[#7dd3fc]" />
-            <h3 className="mt-5 text-3xl font-bold text-white">Clínicas Entaltek</h3>
-            <p className="mt-3 text-white/70 leading-relaxed max-w-md text-base md:text-lg">
-              Sistema para clínicas y consultorios con agenda de citas, especialistas, horarios, listas de espera, reportes y panel administrativo.
-            </p>
-            <DemoLink href="https://demo-mediclink.lovable.app" />
+            <div>
+              <Badge label="Salud" className="bg-[#7dd3fc]/15 text-[#7dd3fc] mb-4" />
+              <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight">Clínicas Entaltek</h3>
+              <p className="mt-3 text-white/70 leading-relaxed max-w-md text-sm lg:text-base">
+                Sistema para clínicas y consultorios con agenda de citas, especialistas, horarios, listas de espera, reportes y panel administrativo.
+              </p>
+            </div>
+            <div className="mt-4">
+              <DemoLink href="https://demo-mediclink.lovable.app" />
+            </div>
             <DeviceFrame />
           </article>
 
@@ -127,20 +131,19 @@ const ProductsSection = () => {
           <article
             {...expandableProps(sabuesoDetail)}
             style={cardDelay(1)}
-            className={`group relative overflow-hidden rounded-3xl p-6 md:p-8 bg-gradient-to-br from-[#0179B1] to-[#013762] border border-white/5 flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/20 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#0179B1] to-[#013762] border border-white/5 flex flex-col lg:col-span-2 min-h-[190px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/20 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#47DAD6] ${cardIn}`}
           >
             <Maximize2
-              className="absolute top-5 right-5 w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-4 right-4 w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Operación" className="bg-white/15 text-white" />
-            <h3 className="mt-4 text-xl font-bold text-white">Guarderías Entaltek</h3>
-            <p className="mt-2 text-sm text-white/70 leading-relaxed">
-              Plataforma para negocios de cuidado animal con control de mascotas, asistencia, vacunas, salud y comunicación con clientes.
-            </p>
-            <DemoLink href="https://perro-pal-manage.lovable.app" />
+            <Badge label="Operación" className="bg-white/15 text-white mb-auto" />
+            <div className="mt-4">
+              <h3 className="text-lg font-bold text-white leading-tight">Guarderías Entaltek</h3>
+              <DemoLink href="https://perro-pal-manage.lovable.app" />
+            </div>
             <PawPrint
-              className="absolute -bottom-4 -right-4 w-24 h-24 text-white/10"
+              className="absolute -bottom-4 -right-4 w-20 h-20 text-white/10"
               aria-hidden="true"
             />
           </article>
@@ -149,85 +152,80 @@ const ProductsSection = () => {
           <article
             {...expandableProps(nailaDetail)}
             style={cardDelay(2)}
-            className={`group relative overflow-hidden rounded-3xl p-6 md:p-8 bg-white/[0.03] border border-white/[0.08] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f9a8d4] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-white/[0.03] border border-white/[0.08] flex flex-col lg:col-span-2 min-h-[190px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f9a8d4] ${cardIn}`}
           >
             <Maximize2
-              className="absolute top-5 right-5 w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-4 right-4 w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Servicios" className="bg-[#f9a8d4]/10 text-[#f9a8d4]" />
-            <h3 className="mt-4 text-xl font-bold text-white">Salones Entaltek</h3>
-            <p className="mt-2 text-sm text-white/70 leading-relaxed">
-              Sistema para salones y servicios de belleza con control de citas, tiempos de atención, inventario, costos y rentabilidad.
-            </p>
-            <DemoLink href="https://nail-chic-system.lovable.app" />
+            <Badge label="Servicios" className="bg-[#f9a8d4]/10 text-[#f9a8d4] mb-auto" />
+            <div className="mt-4">
+              <h3 className="text-lg font-bold text-white leading-tight">Salones Entaltek</h3>
+              <DemoLink href="https://nail-chic-system.lovable.app" />
+            </div>
           </article>
 
           {/* Reservas Entaltek */}
           <article
             {...expandableProps(pilatesDetail)}
             style={cardDelay(3)}
-            className={`group relative overflow-hidden rounded-3xl p-6 md:p-8 bg-white/[0.03] border border-white/[0.08] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#6ee7b7] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-white/[0.03] border border-white/[0.08] flex flex-col lg:col-span-2 min-h-[190px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#6ee7b7] ${cardIn}`}
           >
             <Maximize2
-              className="absolute top-5 right-5 w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-4 right-4 w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Reservas" className="bg-[#6ee7b7]/10 text-[#6ee7b7]" />
-            <h3 className="mt-4 text-xl font-bold text-white">Reservas Entaltek</h3>
-            <p className="mt-2 text-sm text-white/70 leading-relaxed">
-              App para estudios y clases programadas, con reservas desde el celular, perfiles de clientes, pagos y gestión de horarios.
-            </p>
-            <DemoLink />
+            <Badge label="Reservas" className="bg-[#6ee7b7]/10 text-[#6ee7b7] mb-auto" />
+            <div className="mt-4">
+              <h3 className="text-lg font-bold text-white leading-tight">Reservas Entaltek</h3>
+              <DemoLink />
+            </div>
           </article>
 
           {/* CFDI Entaltek */}
           <article
             {...expandableProps(satHarmonyDetail)}
             style={cardDelay(4)}
-            className={`group relative overflow-hidden rounded-3xl p-6 md:p-8 bg-white/[0.03] border border-white/[0.08] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#fcd34d] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-white/[0.03] border border-white/[0.08] flex flex-col lg:col-span-2 min-h-[190px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/25 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#fcd34d] ${cardIn}`}
           >
             <Maximize2
-              className="absolute top-5 right-5 w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-4 right-4 w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Fiscal" className="bg-[#fcd34d]/10 text-[#fcd34d]" />
-            <h3 className="mt-4 text-xl font-bold text-white">CFDI Entaltek</h3>
-            <p className="mt-2 text-sm text-white/70 leading-relaxed">
-              Herramienta para convertir XML y ZIP de CFDI en información clara, revisable y exportable a Excel.
-            </p>
-            <DemoLink />
+            <Badge label="Fiscal" className="bg-[#fcd34d]/10 text-[#fcd34d] mb-auto" />
+            <div className="mt-4">
+              <h3 className="text-lg font-bold text-white leading-tight">CFDI Entaltek</h3>
+              <DemoLink />
+            </div>
           </article>
 
           {/* Rentas Entaltek */}
           <article
             {...expandableProps(nodoDetail)}
             style={cardDelay(5)}
-            className={`group relative overflow-hidden rounded-3xl p-6 md:p-8 bg-[#a78bfa]/[0.06] border border-[#a78bfa]/20 flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#a78bfa]/40 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a78bfa] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-[#a78bfa]/[0.06] border border-[#a78bfa]/20 flex flex-col lg:col-span-2 min-h-[190px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#a78bfa]/40 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a78bfa] ${cardIn}`}
           >
             <Maximize2
-              className="absolute top-5 right-5 w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-4 right-4 w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Inmobiliario" className="bg-[#a78bfa]/15 text-[#a78bfa]" />
-            <h3 className="mt-4 text-xl font-bold text-white">Rentas Entaltek</h3>
-            <p className="mt-2 text-sm text-white/70 leading-relaxed">
-              CRM inmobiliario para organizar propiedades, expedientes de renta, prospectos, documentos y seguimiento de leads.
-            </p>
-            <DemoLink />
+            <Badge label="Inmobiliario" className="bg-[#a78bfa]/15 text-[#a78bfa] mb-auto" />
+            <div className="mt-4">
+              <h3 className="text-lg font-bold text-white leading-tight">Rentas Entaltek</h3>
+              <DemoLink />
+            </div>
           </article>
 
           {/* Finanzas Entaltek */}
           <article
             style={cardDelay(6)}
-            className={`group relative overflow-hidden rounded-3xl p-6 md:p-8 bg-white/[0.03] border border-white/[0.08] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a5b4fc] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-white/[0.03] border border-white/[0.08] flex flex-col lg:col-span-2 min-h-[190px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a5b4fc] ${cardIn}`}
           >
-            <Badge label="Finanzas" className="bg-[#a5b4fc]/15 text-[#a5b4fc]" />
-            <h3 className="mt-4 text-xl font-bold text-white">Finanzas Entaltek</h3>
-            <p className="mt-2 text-sm text-white/70 leading-relaxed">
-              Dashboard para visualizar ingresos, egresos, presupuestos y control financiero personal o empresarial.
-            </p>
-            <DemoLink />
+            <Badge label="Finanzas" className="bg-[#a5b4fc]/15 text-[#a5b4fc] mb-auto" />
+            <div className="mt-4">
+              <h3 className="text-lg font-bold text-white leading-tight">Finanzas Entaltek</h3>
+              <DemoLink />
+            </div>
           </article>
         </div>
       </div>

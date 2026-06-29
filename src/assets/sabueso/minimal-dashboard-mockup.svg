@@ -1,0 +1,120 @@
+<svg width="1448" height="1086" viewBox="0 0 1448 1086" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1448" y2="1086" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0179B1"/>
+      <stop offset="1" stop-color="#013762"/>
+    </linearGradient>
+    <linearGradient id="sidebar" x1="52" y1="58" x2="342" y2="1010" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#062b52"/>
+      <stop offset="1" stop-color="#011627"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#47DAD6"/>
+      <stop offset="1" stop-color="#0179B1"/>
+    </linearGradient>
+    <filter id="shadow" x="10" y="25" width="1428" height="1030" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="26" flood-color="#011627" flood-opacity="0.25"/>
+    </filter>
+    <filter id="soft" x="0" y="0" width="1448" height="1086" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#013762" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="1448" height="1086" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="52" y="58" width="1344" height="970" rx="26" fill="#F8FBFE"/>
+    <rect x="52" y="58" width="278" height="970" rx="26" fill="url(#sidebar)"/>
+    <path d="M330 58H1369C1384 58 1396 70 1396 85V1001C1396 1016 1384 1028 1369 1028H330V58Z" fill="#FBFDFF"/>
+  </g>
+
+  <!-- Sidebar -->
+  <rect x="82" y="106" width="58" height="58" rx="14" fill="url(#cyan)"/>
+  <path d="M112 134c9 0 17 7 17 16h-34c0-9 8-16 17-16Z" stroke="#013762" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="98" cy="124" r="5" stroke="#013762" stroke-width="4"/>
+  <circle cx="112" cy="119" r="5" stroke="#013762" stroke-width="4"/>
+  <circle cx="126" cy="124" r="5" stroke="#013762" stroke-width="4"/>
+  <text x="154" y="130" fill="white" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">Guarderías</text>
+  <text x="154" y="158" fill="#47DAD6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Entaltek</text>
+
+  <rect x="82" y="222" width="225" height="50" rx="9" fill="url(#cyan)"/>
+  <rect x="100" y="240" width="18" height="18" rx="3" stroke="#013762" stroke-width="3"/>
+  <text x="142" y="253" fill="#013762" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">Dashboard</text>
+
+  <g fill="white" opacity="0.95" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">
+    <text x="142" y="322">Guarderías</text>
+    <text x="142" y="386">Mascotas</text>
+    <text x="142" y="450">Reservas</text>
+    <text x="142" y="514">Reportes</text>
+    <text x="142" y="578">Configuración</text>
+  </g>
+  <g stroke="white" stroke-width="3" opacity="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M104 315l9-8 9 8v14h-18v-14Z"/>
+    <path d="M98 374c8-9 23-9 30 0M104 386h18"/>
+    <rect x="99" y="431" width="25" height="25" rx="4"/>
+    <path d="M104 425v11M119 425v11"/>
+    <path d="M101 515v-24M112 515v-38M123 515v-30"/>
+    <circle cx="112" cy="560" r="11"/><path d="M112 544v5M112 571v5M96 560h5M123 560h5"/>
+  </g>
+
+  <rect x="82" y="884" width="225" height="72" rx="16" fill="#062B52" stroke="#1d6b94" stroke-opacity="0.55"/>
+  <circle cx="112" cy="920" r="22" fill="#47DAD6"/>
+  <text x="112" y="928" fill="#013762" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" text-anchor="middle">GE</text>
+  <text x="146" y="914" fill="white" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Guardería Central</text>
+  <text x="146" y="939" fill="#C8D9EA" font-family="Inter, Arial, sans-serif" font-size="14">Administrador</text>
+
+  <!-- Header -->
+  <text x="374" y="130" fill="#013762" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="850">Dashboard</text>
+  <text x="374" y="158" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="17">Resumen general de la operación</text>
+  <rect x="1170" y="118" width="185" height="40" rx="10" fill="white" stroke="#D5E0EA"/>
+  <text x="1210" y="144" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Hoy, 24 de mayo</text>
+
+  <!-- KPI cards -->
+  <g filter="url(#soft)">
+    <rect x="374" y="197" width="230" height="132" rx="15" fill="white" stroke="#DDE7F0"/>
+    <rect x="625" y="197" width="230" height="132" rx="15" fill="white" stroke="#DDE7F0"/>
+    <rect x="876" y="197" width="230" height="132" rx="15" fill="white" stroke="#DDE7F0"/>
+    <rect x="1127" y="197" width="230" height="132" rx="15" fill="white" stroke="#DDE7F0"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif">
+    <circle cx="418" cy="246" r="24" fill="#E5FBFF"/><text x="418" y="254" fill="#0179B1" font-size="24" font-weight="800" text-anchor="middle">🐾</text>
+    <text x="464" y="236" fill="#334155" font-size="14" font-weight="700">Mascotas hoy</text><text x="464" y="269" fill="#013762" font-size="30" font-weight="850">94</text><text x="464" y="299" fill="#64748B" font-size="14">En guardería</text>
+    <circle cx="669" cy="246" r="24" fill="#E5FBFF"/><text x="669" y="254" fill="#0179B1" font-size="22" font-weight="800" text-anchor="middle">18</text>
+    <text x="715" y="236" fill="#334155" font-size="14" font-weight="700">Reservas hoy</text><text x="715" y="269" fill="#013762" font-size="30" font-weight="850">18</text><text x="715" y="299" fill="#64748B" font-size="14">Confirmadas</text>
+    <circle cx="920" cy="246" r="24" fill="#E5FBFF"/><text x="920" y="254" fill="#0179B1" font-size="26" font-weight="800" text-anchor="middle">$</text>
+    <text x="966" y="236" fill="#334155" font-size="14" font-weight="700">Ingresos del día</text><text x="966" y="269" fill="#013762" font-size="28" font-weight="850">$18,500</text><text x="966" y="299" fill="#64748B" font-size="14">MXN</text>
+    <circle cx="1171" cy="246" r="24" fill="#E5FBFF"/><path d="M1160 254l11-14 9 8 16-21" stroke="#0179B1" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1217" y="236" fill="#334155" font-size="14" font-weight="700">Ocupación</text><text x="1217" y="269" fill="#013762" font-size="30" font-weight="850">72%</text><text x="1217" y="299" fill="#64748B" font-size="14">Capacidad ocupada</text>
+  </g>
+
+  <!-- Charts -->
+  <g filter="url(#soft)">
+    <rect x="374" y="363" width="565" height="292" rx="17" fill="white" stroke="#DDE7F0"/>
+    <rect x="962" y="363" width="395" height="292" rx="17" fill="white" stroke="#DDE7F0"/>
+    <rect x="374" y="682" width="983" height="260" rx="17" fill="white" stroke="#DDE7F0"/>
+  </g>
+  <text x="392" y="401" fill="#013762" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Ocupación de los últimos 7 días</text>
+  <g stroke="#E2E8F0" stroke-width="1">
+    <line x1="435" y1="440" x2="910" y2="440"/><line x1="435" y1="482" x2="910" y2="482"/><line x1="435" y1="524" x2="910" y2="524"/><line x1="435" y1="566" x2="910" y2="566"/><line x1="435" y1="608" x2="910" y2="608"/>
+  </g>
+  <path d="M435 510L510 508L585 482L660 502L735 478L810 482L885 468L910 477" stroke="#0179B1" stroke-width="4" fill="none"/>
+  <path d="M435 510L510 508L585 482L660 502L735 478L810 482L885 468L910 477V608H435V510Z" fill="#47DAD6" opacity="0.18"/>
+  <g fill="#0179B1"><circle cx="435" cy="510" r="5"/><circle cx="585" cy="482" r="5"/><circle cx="735" cy="478" r="5"/><circle cx="885" cy="468" r="5"/><circle cx="910" cy="477" r="5"/></g>
+
+  <text x="980" y="401" fill="#013762" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Estado de ocupación</text>
+  <circle cx="1075" cy="515" r="72" stroke="#E8EEF5" stroke-width="24"/>
+  <path d="M1075 443A72 72 0 1 1 1017 558" stroke="url(#cyan)" stroke-width="24" stroke-linecap="round"/>
+  <text x="1075" y="523" fill="#013762" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="850" text-anchor="middle">72%</text>
+  <text x="1075" y="550" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="14" text-anchor="middle">Ocupado</text>
+  <circle cx="1194" cy="475" r="5" fill="#0179B1"/><text x="1212" y="481" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="15">Ocupado 72%</text>
+  <circle cx="1194" cy="516" r="5" fill="#47DAD6"/><text x="1212" y="522" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="15">Disponible 23%</text>
+  <circle cx="1194" cy="557" r="5" fill="#F59E0B"/><text x="1212" y="563" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="15">Mantenimiento 5%</text>
+
+  <text x="392" y="721" fill="#013762" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Reservas recientes</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <line x1="392" y1="790" x2="1334" y2="790" stroke="#E2E8F0"/><line x1="392" y1="858" x2="1334" y2="858" stroke="#E2E8F0"/>
+    <circle cx="417" cy="764" r="19" fill="#F8C471"/><text x="452" y="760" fill="#013762" font-size="16" font-weight="800">Max</text><text x="452" y="784" fill="#64748B" font-size="14">Golden Retriever</text><text x="720" y="771" fill="#475569" font-size="14">Guardería de día</text><text x="930" y="771" fill="#475569" font-size="14">24 May, 9:00 AM</text><rect x="1162" y="746" width="100" height="26" rx="13" fill="#DCFCE7"/><text x="1212" y="764" fill="#15803D" font-size="13" font-weight="800" text-anchor="middle">Confirmada</text>
+    <circle cx="417" cy="832" r="19" fill="#F3D3B8"/><text x="452" y="828" fill="#013762" font-size="16" font-weight="800">Luna</text><text x="452" y="852" fill="#64748B" font-size="14">Labrador</text><text x="720" y="839" fill="#475569" font-size="14">Hospedaje</text><text x="930" y="839" fill="#475569" font-size="14">24 May, 10:30 AM</text><rect x="1162" y="814" width="100" height="26" rx="13" fill="#DCFCE7"/><text x="1212" y="832" fill="#15803D" font-size="13" font-weight="800" text-anchor="middle">Confirmada</text>
+    <circle cx="417" cy="900" r="19" fill="#475569"/><text x="452" y="896" fill="#013762" font-size="16" font-weight="800">Milo</text><text x="452" y="920" fill="#64748B" font-size="14">French Bulldog</text><text x="720" y="907" fill="#475569" font-size="14">Guardería de día</text><text x="930" y="907" fill="#475569" font-size="14">24 May, 11:00 AM</text><rect x="1162" y="882" width="100" height="26" rx="13" fill="#DBEAFE"/><text x="1212" y="900" fill="#2563EB" font-size="13" font-weight="800" text-anchor="middle">En proceso</text>
+  </g>
+  <text x="724" y="990" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="15" text-anchor="middle">🐾 Cuidamos a cada mascota como en casa.</text>
+</svg>

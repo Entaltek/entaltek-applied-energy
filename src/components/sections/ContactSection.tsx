@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Github, Linkedin, Mail, MapPin, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useInView } from "@/hooks/useInView";
 import logoMark from "@/assets/logo_entaltek_solo.svg";
@@ -9,7 +9,6 @@ import {
   CONTACT_EMAIL,
   LOCATION,
   LINKEDIN_URL,
-  GITHUB_URL,
 } from "@/lib/site";
 
 const inputClass =
@@ -79,49 +78,44 @@ const ContactSection = () => {
       </div>
 
       <div className="relative flex-1 min-h-0 flex items-center">
-        <div ref={ref} className="container mx-auto px-4 pt-16 pb-5 md:pt-14 md:pb-4">
-          <div className="grid md:grid-cols-[1.02fr_0.98fr] gap-8 lg:gap-14 xl:gap-20 max-w-7xl mx-auto items-center">
+        <div ref={ref} className="container mx-auto px-4 pt-14 pb-5 md:pt-12 md:pb-4">
+          <div className="grid md:grid-cols-[1.12fr_0.88fr] gap-8 lg:gap-12 xl:gap-16 max-w-[88rem] mx-auto items-center">
             <div
               className={`transition-all duration-700 ease-out ${
                 inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
               }`}
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#0179B1]/20 bg-white/70 px-4 py-1.5 text-sm font-semibold text-[#0179B1] shadow-sm">
-                <Sparkles className="h-4 w-4" aria-hidden="true" />
-                Empecemos por entender tu operación
-              </span>
-
-              <h2 className="mt-5 max-w-2xl font-extrabold text-[#013762] text-[clamp(2rem,3.65vw,3.35rem)] leading-[1.08] tracking-tight">
+              <h2 className="max-w-3xl font-extrabold text-[#013762] text-[clamp(2.15rem,3.9vw,3.55rem)] leading-[1.08] tracking-tight">
                 Cuéntanos qué proceso quieres mejorar
               </h2>
-              <p className="mt-5 max-w-2xl text-base lg:text-lg leading-relaxed text-[#013762]/68">
+              <p className="mt-5 max-w-3xl text-base lg:text-lg leading-relaxed text-[#013762]/68">
                 Ya sea una automatización, una plataforma interna, una landing o una herramienta a la medida, podemos ayudarte a convertir una operación manual en un sistema claro y funcional.
               </p>
 
-              <ul className="mt-6 grid gap-3 sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3">
+              <ul className="mt-6 grid gap-4 sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3">
                 {trustPoints.map((point) => (
-                  <li key={point} className="flex items-start gap-3 rounded-2xl border border-[#013762]/8 bg-white/55 px-4 py-3 text-sm text-[#013762]/78 shadow-sm backdrop-blur">
+                  <li key={point} className="flex min-h-[5.4rem] items-start gap-3 rounded-2xl border border-[#013762]/8 bg-white/60 px-5 py-4 text-sm text-[#013762]/80 shadow-sm backdrop-blur">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0179B1]" aria-hidden="true" />
                     <span>{point}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-6 grid gap-3 rounded-2xl border border-[#013762]/10 bg-white/75 p-4 shadow-sm backdrop-blur sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3">
+              <div className="mt-6 grid gap-4 rounded-2xl border border-[#013762]/10 bg-white/75 p-5 shadow-sm backdrop-blur sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-[1.2fr_1fr_1.05fr]">
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-[#013762]/85 hover:text-[#0179B1] transition-colors"
+                  className="flex min-h-[3.5rem] items-center gap-3 rounded-xl bg-white/55 px-3 text-sm text-[#013762]/85 hover:text-[#0179B1] transition-colors"
                 >
                   <MessageCircle className="h-5 w-5 text-[#0179B1] shrink-0" aria-hidden="true" />
                   <span>WhatsApp: {WHATSAPP_DISPLAY_NUMBER}</span>
                 </a>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-3 text-sm text-[#013762]/85 hover:text-[#0179B1] transition-colors">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="flex min-h-[3.5rem] items-center gap-3 rounded-xl bg-white/55 px-3 text-sm text-[#013762]/85 hover:text-[#0179B1] transition-colors">
                   <Mail className="h-5 w-5 text-[#0179B1] shrink-0" aria-hidden="true" />
                   <span>{CONTACT_EMAIL}</span>
                 </a>
-                <div className="flex items-center gap-3 text-sm text-[#013762]/85">
+                <div className="flex min-h-[3.5rem] items-center gap-3 rounded-xl bg-white/55 px-3 text-sm text-[#013762]/85">
                   <MapPin className="h-5 w-5 text-[#0179B1] shrink-0" aria-hidden="true" />
                   <span>{LOCATION}</span>
                 </div>
@@ -228,30 +222,15 @@ const ContactSection = () => {
             </span>
           </div>
 
-          <p className="text-xs text-white/35">
-            Construido con React · Supabase · n8n · amor por la ingeniería
-          </p>
-
-          <div className="flex items-center gap-4">
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/50 hover:text-[#47DAD6] transition-colors"
-              aria-label="LinkedIn de Entaltek"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/50 hover:text-[#47DAD6] transition-colors"
-              aria-label="GitHub de Entaltek"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-          </div>
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/50 hover:text-[#47DAD6] transition-colors"
+            aria-label="LinkedIn de Entaltek"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
         </div>
       </footer>
     </section>

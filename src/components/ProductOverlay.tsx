@@ -34,6 +34,7 @@ type Props = {
 const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
   const [expanded, setExpanded] = useState(false);
   const isGuarderias = detail.title === "Guarderías Entaltek";
+  const isSalones = detail.title === "Salones Entaltek";
   const hero = isGuarderias
     ? {
         src: guarderiasMockup,
@@ -41,6 +42,13 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
         className: "w-full max-w-xl mx-auto rounded-2xl border border-white/10 drop-shadow-2xl",
       }
     : detail.hero;
+  const stats = isSalones
+    ? [
+        { value: "Costos claros", label: "por servicio" },
+        { value: "Precios con datos", label: "no por intuición" },
+        { value: "Rentabilidad visible", label: "en cada operación" },
+      ]
+    : detail.stats;
 
   const handleClose = useCallback(() => {
     setExpanded(false);
@@ -153,9 +161,9 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
           </div>
 
           {/* Métricas de arquitectura */}
-          {detail.stats && (
+          {stats && (
             <div {...reveal(3, "mt-12 flex flex-wrap gap-8 rounded-xl bg-white/[0.06] border border-white/10 px-6 py-5")}>
-              {detail.stats.map((stat) => (
+              {stats.map((stat) => (
                 <div key={stat.label}>
                   <p className={`text-2xl font-bold leading-none ${detail.accentText}`}>{stat.value}</p>
                   <p className="mt-1.5 text-[0.7rem] uppercase tracking-wider text-white/40">{stat.label}</p>

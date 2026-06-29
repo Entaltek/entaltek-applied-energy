@@ -63,15 +63,7 @@ const BrandAdnSection = () => {
       <div ref={ref} className="relative z-10 container mx-auto px-4 py-24">
         <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-10 xl:gap-16 items-center">
           <div>
-            <span
-              {...reveal(
-                0,
-                "inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#47DAD6]/35 bg-[#47DAD6]/5 text-[#47DAD6] text-sm tracking-wide mb-6",
-              )}
-            >
-              <Atom className="w-4 h-4" aria-hidden="true" />
-              ADN Entaltek
-            </span>
+
 
             <h2 {...reveal(1, "text-white font-extrabold leading-tight text-[clamp(2.1rem,5vw,4.35rem)]")}>
               Creamos software que ordena,

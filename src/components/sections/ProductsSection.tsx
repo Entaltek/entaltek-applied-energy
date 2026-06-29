@@ -102,13 +102,13 @@ const ProductsSection = () => {
         </div>
 
         {/* Showcase horizontal amplio */}
-        <div className="grid gap-3 md:gap-4 lg:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-12 auto-rows-fr w-full">
+        <div className="grid gap-3 md:gap-4 lg:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-12 auto-rows-auto lg:auto-rows-fr w-full">
 
           {/* 1. Clínicas Entaltek (Principal grande) - Salud: cian suave */}
           <article
             {...expandableProps(mediclinkDetail)}
             style={cardDelay(0)}
-            className={`group relative overflow-hidden md:col-span-2 lg:col-span-6 lg:row-span-2 rounded-[1.5rem] p-6 md:p-8 lg:p-10 border border-[#7dd3fc]/15 bg-gradient-to-br from-[#7dd3fc]/10 via-[#013762]/45 to-[#011627] flex flex-col justify-between min-h-[360px] lg:min-h-[420px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#7dd3fc]/40 hover:shadow-[0_0_24px_rgba(125,211,252,0.1)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#7dd3fc] ${cardIn}`}
+            className={`group relative overflow-hidden md:col-span-2 lg:col-span-6 lg:row-span-2 rounded-[1.5rem] p-6 md:p-8 lg:p-10 border border-[#7dd3fc]/15 bg-gradient-to-br from-[#7dd3fc]/10 via-[#013762]/45 to-[#011627] flex flex-col justify-between min-h-[300px] md:min-h-[360px] lg:min-h-[420px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#7dd3fc]/40 hover:shadow-[0_0_24px_rgba(125,211,252,0.1)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#7dd3fc] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-5 right-5 w-5 h-5 text-[#7dd3fc]/40 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -131,14 +131,14 @@ const ProductsSection = () => {
           <article
             {...expandableProps(satHarmonyDetail)}
             style={cardDelay(1)}
-            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#fcd34d]/7 via-[#0b1f2e] to-[#011627] border border-[#fcd34d]/15 flex flex-col lg:col-span-2 min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#fcd34d]/35 hover:shadow-[0_0_15px_rgba(252,211,77,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#fcd34d] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#fcd34d]/7 via-[#0b1f2e] to-[#011627] border border-[#fcd34d]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#fcd34d]/35 hover:shadow-[0_0_15px_rgba(252,211,77,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#fcd34d] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#fcd34d]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Fiscal" className="bg-[#fcd34d]/10 text-[#fcd34d] mb-auto" />
-            <div className="mt-4">
+            <Badge label="Fiscal" className="bg-[#fcd34d]/10 text-[#fcd34d] mb-4" />
+            <div>
               <h3 className="text-lg font-bold text-white leading-tight">CFDI Entaltek</h3>
               <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
                 Herramienta para convertir XML y ZIP de CFDI en información clara, revisable y exportable a Excel.
@@ -151,14 +151,14 @@ const ProductsSection = () => {
           <article
             {...expandableProps(nodoDetail)}
             style={cardDelay(2)}
-            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#a78bfa]/7 via-[#101b33] to-[#011627] border border-[#a78bfa]/15 flex flex-col lg:col-span-2 min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#a78bfa]/35 hover:shadow-[0_0_15px_rgba(167,139,250,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a78bfa] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#a78bfa]/7 via-[#101b33] to-[#011627] border border-[#a78bfa]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#a78bfa]/35 hover:shadow-[0_0_15px_rgba(167,139,250,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a78bfa] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#a78bfa]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Inmobiliario" className="bg-[#a78bfa]/10 text-[#a78bfa] mb-auto" />
-            <div className="mt-4">
+            <Badge label="Inmobiliario" className="bg-[#a78bfa]/10 text-[#a78bfa] mb-4" />
+            <div>
               <h3 className="text-lg font-bold text-white leading-tight">Rentas Entaltek</h3>
               <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
                 CRM inmobiliario para organizar propiedades, expedientes de renta, prospectos, documentos y seguimiento comercial.
@@ -171,14 +171,14 @@ const ProductsSection = () => {
           <article
             {...expandableProps(pilatesDetail)}
             style={cardDelay(4)}
-            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#34d399]/7 via-[#062b2e] to-[#011627] border border-[#34d399]/15 flex flex-col lg:col-span-2 min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#34d399]/35 hover:shadow-[0_0_15px_rgba(52,211,153,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#34d399] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#34d399]/7 via-[#062b2e] to-[#011627] border border-[#34d399]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#34d399]/35 hover:shadow-[0_0_15px_rgba(52,211,153,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#34d399] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#34d399]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Reservas" className="bg-[#34d399]/10 text-[#34d399] mb-auto" />
-            <div className="mt-4">
+            <Badge label="Reservas" className="bg-[#34d399]/10 text-[#34d399] mb-4" />
+            <div>
               <h3 className="text-lg font-bold text-white leading-tight">Reservas Entaltek</h3>
               <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
                 Sistema para clases, estudios y servicios con horarios programados, reservas en línea, perfiles de clientes y pagos.
@@ -191,14 +191,14 @@ const ProductsSection = () => {
           <article
             {...expandableProps(nailaDetail)}
             style={cardDelay(5)}
-            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#f472b6]/7 via-[#24142a] to-[#011627] border border-[#f472b6]/15 flex flex-col lg:col-span-2 min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#f472b6]/35 hover:shadow-[0_0_15px_rgba(244,114,182,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f472b6] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#f472b6]/7 via-[#24142a] to-[#011627] border border-[#f472b6]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#f472b6]/35 hover:shadow-[0_0_15px_rgba(244,114,182,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f472b6] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#f472b6]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Servicios" className="bg-[#f472b6]/10 text-[#f472b6] mb-auto" />
-            <div className="mt-4">
+            <Badge label="Servicios" className="bg-[#f472b6]/10 text-[#f472b6] mb-4" />
+            <div>
               <h3 className="text-lg font-bold text-white leading-tight">Salones Entaltek</h3>
               <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
                 Herramienta para salones y servicios de belleza con control de citas, tiempos de atención, inventario, costos y rentabilidad.
@@ -211,14 +211,14 @@ const ProductsSection = () => {
           <article
             {...expandableProps(sabuesoDetail)}
             style={cardDelay(6)}
-            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#94a3b8]/7 via-[#102233] to-[#011627] border border-[#94a3b8]/15 flex flex-col lg:col-span-2 min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#94a3b8]/35 hover:shadow-[0_0_15px_rgba(148,163,184,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#94a3b8] ${cardIn}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#94a3b8]/7 via-[#102233] to-[#011627] border border-[#94a3b8]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#94a3b8]/35 hover:shadow-[0_0_15px_rgba(148,163,184,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#94a3b8] ${cardIn}`}
           >
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#94a3b8]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Operación" className="bg-[#94a3b8]/10 text-[#94a3b8] mb-auto" />
-            <div className="mt-4">
+            <Badge label="Operación" className="bg-[#94a3b8]/10 text-[#94a3b8] mb-4" />
+            <div>
               <h3 className="text-lg font-bold text-white leading-tight">Guarderías Entaltek</h3>
               <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
                 Plataforma para negocios de cuidado animal con registro de mascotas, asistencia, vacunas, estado de salud y comunicación con clientes.

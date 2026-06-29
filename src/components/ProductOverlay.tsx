@@ -120,7 +120,7 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
               <p className={`mt-2 text-lg font-medium ${detail.accentText}`}>{detail.tagline}</p>
               <p className="mt-4 text-white/70 leading-relaxed">{detail.intro}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                {detail.demoUrl && !isGuarderias && (
+                {false && detail.demoUrl && !isGuarderias && (
                   <a
                     href={detail.demoUrl}
                     target="_blank"

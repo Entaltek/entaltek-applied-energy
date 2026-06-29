@@ -21,8 +21,8 @@ const services = [
   {
     number: "01",
     icon: LayoutDashboard,
-    title: "Sistemas para operar mejor",
-    bullets: "Clientes · pedidos · inventario · reportes · dashboards",
+    title: "Operación y control interno",
+    bullets: "Clientes · pedidos · inventario · reportes · seguimiento",
     accent: "#0179B1",
     accentRgb: "1,121,177",
     tintBg: "rgba(1,121,177,0.05)",
@@ -31,8 +31,8 @@ const services = [
   {
     number: "02",
     icon: Zap,
-    title: "Automatización de tareas repetitivas",
-    bullets: "Correos · formularios · Excel · WhatsApp · documentos",
+    title: "Automatización de procesos",
+    bullets: "Tareas repetitivas · formularios · documentos · comunicación",
     accent: "#3F67C6",
     accentRgb: "63,103,198",
     tintBg: "rgba(63,103,198,0.05)",
@@ -51,8 +51,8 @@ const services = [
   {
     number: "04",
     icon: BarChart2,
-    title: "Dashboards y control operativo",
-    bullets: "Indicadores · seguimiento · métricas · visibilidad",
+    title: "Datos y toma de decisiones",
+    bullets: "Dashboards · métricas · indicadores · visibilidad operativa",
     accent: "#004C7A",
     accentRgb: "0,76,122",
     tintBg: "rgba(0,76,122,0.05)",
@@ -61,8 +61,8 @@ const services = [
   {
     number: "05",
     icon: Wrench,
-    title: "Herramientas a la medida",
-    bullets: "Portales · paneles · formularios · procesos internos",
+    title: "Desarrollo a la medida",
+    bullets: "Portales · paneles · flujos internos · soluciones especializadas",
     accent: "#0E7490",
     accentRgb: "14,116,144",
     tintBg: "rgba(14,116,144,0.05)",
@@ -130,11 +130,10 @@ const workflowSteps = [
 ];
 
 const idealCases = [
-  "Excel manual",
-  "WhatsApp sin orden",
-  "Datos duplicados",
-  "Reportes tardados",
-  "Procesos que ya no escalan",
+  "Tareas que se repiten diario",
+  "Información dispersa",
+  "Seguimiento manual",
+  "Reportes que consumen horas"
 ];
 
 /* ─── Component ─────────────────────────────────────────────────────────────── */
@@ -184,9 +183,8 @@ const ServicesSection = () => {
               COLUMNA IZQUIERDA — copy + CTA
           ══════════════════════════════════════════ */}
           <div
-            className={`flex flex-col gap-5 transition-all duration-700 ease-out ${
-              inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`flex flex-col gap-5 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
             style={{ transitionDelay: inView ? "60ms" : "0ms" }}
           >
             {/* Eyebrow */}
@@ -201,7 +199,7 @@ const ServicesSection = () => {
 
             {/* Subtitle */}
             <p className="text-base lg:text-lg text-[#345878]/85 leading-relaxed">
-              Creamos sistemas, automatizaciones y apps que ordenan tu
+              Creamos sistemas, automatizaciones y servicios que ordenan tu
               operación, reducen tareas manuales y conectan las herramientas
               que ya usas.
             </p>
@@ -275,9 +273,8 @@ const ServicesSection = () => {
               COLUMNA CENTRAL — cómo trabajamos (timeline)
           ══════════════════════════════════════════ */}
           <div
-            className={`transition-all duration-700 ease-out ${
-              inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
             style={{ transitionDelay: inView ? "180ms" : "0ms" }}
           >
             {/* Section label */}
@@ -316,11 +313,10 @@ const ServicesSection = () => {
                 return (
                   <li
                     key={step.n}
-                    className={`relative flex gap-3.5 transition-all duration-500 ease-out ${
-                      inView
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-4"
-                    }`}
+                    className={`relative flex gap-3.5 transition-all duration-500 ease-out ${inView
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 -translate-x-4"
+                      }`}
                     style={{ transitionDelay: `${delayMs}ms` }}
                   >
                     {/* Node column */}
@@ -380,17 +376,19 @@ const ServicesSection = () => {
               COLUMNA DERECHA — 5 service cards
           ══════════════════════════════════════════ */}
           <div className="flex flex-col gap-3">
+            <p className="text-[0.75rem] font-bold uppercase tracking-[0.22em] text-[#0179B1] mb-1 px-1">
+              Áreas donde aplicamos tecnología
+            </p>
             {services.map((svc, i) => {
               const Icon = svc.icon;
               const delay = inView ? 260 + i * 100 : 0;
               return (
                 <article
                   key={svc.number}
-                  className={`group relative overflow-hidden rounded-2xl border transition-all duration-500 ease-out cursor-default hover:-translate-y-0.5 hover:shadow-lg ${
-                    inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-6"
-                  }`}
+                  className={`group relative overflow-hidden rounded-2xl border transition-all duration-500 ease-out cursor-default hover:-translate-y-0.5 hover:shadow-lg ${inView
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
+                    }`}
                   style={{
                     transitionDelay: `${delay}ms`,
                     background: svc.tintBg,

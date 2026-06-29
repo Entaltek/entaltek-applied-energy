@@ -1,12 +1,12 @@
-import { Atom, BrainCircuit, CheckCircle2, HeartHandshake, Scale, ShieldCheck, Sparkles } from "lucide-react";
+import { Atom, BrainCircuit, CheckCircle2, HeartHandshake, Scale, ShieldCheck } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 
 const attributes = [
-  "Ingeniería aplicada",
-  "Automatización inteligente",
-  "Tecnología humana",
+  "Automatización",
+  "Sistemas a la medida",
   "Procesos claros",
-  "Soluciones proporcionales",
+  "Operación eficiente",
+  "Tecnología humana",
 ];
 
 const values = ["Responsabilidad", "Respeto", "Honestidad", "Puntualidad", "Lealtad"];
@@ -42,8 +42,9 @@ const BrandAdnSection = () => {
   const { ref, inView } = useInView<HTMLDivElement>();
 
   const reveal = (index: number, className = "") => ({
-    className: `${className} transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      }`,
+    className: `${className} transition-all duration-700 ease-out ${
+      inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+    }`,
     style: { transitionDelay: inView ? `${index * 120}ms` : "0ms" },
   });
 
@@ -73,15 +74,15 @@ const BrandAdnSection = () => {
             </span>
 
             <h2 {...reveal(1, "text-white font-extrabold leading-tight text-[clamp(2.1rem,5vw,4.35rem)]")}>
-              Software con ingeniería,
+              Creamos software que ordena,
               <br />
               <span className="bg-gradient-to-r from-white via-[#7de8e5] to-[#47DAD6] bg-clip-text text-transparent">
-                automatización y criterio humano
+                automatiza y hace crecer tu operación
               </span>
             </h2>
 
             <p {...reveal(2, "mt-6 text-white/65 text-lg leading-relaxed max-w-xl")}>
-              Combinamos pensamiento técnico, ciencia aplicada y empatía operativa para transformar procesos reales en soluciones digitales simples, útiles y sostenibles.
+              Diseñamos sistemas a la medida para convertir procesos manuales, dispersos o repetitivos en herramientas claras, útiles y fáciles de usar.
             </p>
 
             <div {...reveal(3, "mt-8 flex flex-wrap gap-3")}>
@@ -94,7 +95,6 @@ const BrandAdnSection = () => {
                 </span>
               ))}
             </div>
-
           </div>
 
           <div className="grid gap-5">

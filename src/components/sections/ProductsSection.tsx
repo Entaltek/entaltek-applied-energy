@@ -83,7 +83,7 @@ const ProductsSection = () => {
   return (
     <section
       id="productos"
-      className="relative min-h-screen md:min-h-screen py-24 overflow-hidden bg-[#011627] flex items-center"
+      className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-[#011627] flex items-center"
     >
       <div
         ref={ref}

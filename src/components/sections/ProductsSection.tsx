@@ -90,9 +90,8 @@ const ProductsSection = () => {
         className="mx-auto w-full max-w-[92rem] px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 flex flex-col"
       >
         <div
-          className={`text-center mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
+          className={`text-center mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
         >
           <h2 className="font-bold text-[clamp(1.8rem,3.5vw,3rem)] bg-gradient-to-r from-white to-[#47DAD6] bg-clip-text text-transparent leading-tight uppercase">
             Experiencia Aplicada
@@ -104,7 +103,7 @@ const ProductsSection = () => {
 
         {/* Showcase horizontal amplio */}
         <div className="grid gap-3 md:gap-4 lg:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-12 auto-rows-fr w-full">
-          
+
           {/* 1. Clínicas Entaltek (Principal grande) - Salud: cian suave */}
           <article
             {...expandableProps(mediclinkDetail)}
@@ -163,21 +162,6 @@ const ProductsSection = () => {
               <h3 className="text-lg font-bold text-white leading-tight">Rentas Entaltek</h3>
               <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
                 CRM inmobiliario para organizar propiedades, expedientes de renta, prospectos, documentos y seguimiento comercial.
-              </p>
-              <DemoLink />
-            </div>
-          </article>
-
-          {/* 4. Finanzas Entaltek - Finanzas: índigo / azul financiero */}
-          <article
-            style={cardDelay(3)}
-            className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#818cf8]/7 via-[#0b1b3c] to-[#011627] border border-[#818cf8]/15 flex flex-col lg:col-span-2 min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#818cf8]/35 hover:shadow-[0_0_15px_rgba(129,140,248,0.06)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#818cf8] ${cardIn}`}
-          >
-            <Badge label="Finanzas" className="bg-[#818cf8]/10 text-[#818cf8] mb-auto" />
-            <div className="mt-4">
-              <h3 className="text-lg font-bold text-white leading-tight">Finanzas Entaltek</h3>
-              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
-                Dashboard para visualizar ingresos, egresos, presupuestos y métricas financieras en un solo lugar.
               </p>
               <DemoLink />
             </div>

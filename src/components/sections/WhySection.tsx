@@ -59,9 +59,8 @@ const WhySection = () => {
   const { ref, inView } = useInView<HTMLDivElement>();
 
   const reveal = (index: number, className = "") => ({
-    className: `${className} transition-all duration-700 ease-out ${
-      inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-    }`,
+    className: `${className} transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      }`,
     style: { transitionDelay: inView ? `${index * 120}ms` : "0ms" },
   });
 
@@ -103,7 +102,7 @@ const WhySection = () => {
             </span>
           </h2>
 
-          <p {...reveal(2, "mx-auto mt-6 max-w-3xl text-base md:text-lg leading-relaxed text-white/68")}>
+          <p {...reveal(2, "mx-auto mt-6 max-w-3xl text-base md:text-lg leading-relaxed text-white/75")}>
             Creamos soluciones sólidas para transformar procesos sin borrar la esencia de cada negocio.
             Aplicamos ciencia, ingeniería y criterio práctico para convertir desafíos reales en sistemas claros,
             útiles y sostenibles.

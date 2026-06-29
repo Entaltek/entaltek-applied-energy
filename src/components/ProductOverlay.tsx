@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { X, ArrowUpRight, MessageCircle } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/site";
+import guarderiasMockup from "@/assets/sabueso/minimal-dashboard-mockup.svg";
 
 const EXPAND_MS = 550;
 
@@ -32,6 +33,14 @@ type Props = {
 
 const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
   const [expanded, setExpanded] = useState(false);
+  const isGuarderias = detail.title === "Guarderías Entaltek";
+  const hero = isGuarderias
+    ? {
+        src: guarderiasMockup,
+        alt: "Mockup minimalista del dashboard de Guarderías Entaltek",
+        className: "w-full max-w-xl mx-auto rounded-2xl border border-white/10 drop-shadow-2xl",
+      }
+    : detail.hero;
 
   const handleClose = useCallback(() => {
     setExpanded(false);
@@ -111,7 +120,7 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
               <p className={`mt-2 text-lg font-medium ${detail.accentText}`}>{detail.tagline}</p>
               <p className="mt-4 text-white/70 leading-relaxed">{detail.intro}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                {detail.demoUrl && (
+                {detail.demoUrl && !isGuarderias && (
                   <a
                     href={detail.demoUrl}
                     target="_blank"
@@ -135,9 +144,9 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
             </div>
             <div {...reveal(2)}>
               <img
-                src={detail.hero.src}
-                alt={detail.hero.alt}
-                className={detail.hero.className ?? "w-full max-w-md mx-auto drop-shadow-2xl"}
+                src={hero.src}
+                alt={hero.alt}
+                className={hero.className ?? "w-full max-w-md mx-auto drop-shadow-2xl"}
                 loading="lazy"
               />
             </div>

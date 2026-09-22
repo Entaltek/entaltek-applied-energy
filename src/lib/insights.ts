@@ -313,6 +313,81 @@ export const insights: Insight[] = [
     ],
   },
   {
+    slug: "comprobar-una-respuesta",
+    title: "Cómo comprobar una respuesta antes de usarla",
+    summary:
+      "Una lista breve para distinguir datos, supuestos, transformaciones y recomendaciones antes de usar una respuesta en trabajo real.",
+    category: "Guías",
+    publishedAt: "2026-09-22",
+    icon: ListChecks,
+    image: {
+      src: "/images/insights/comprobar-respuesta.png",
+      alt: "Ilustración de un documento que pasa por fuentes, supuestos, transformación y comprobación final.",
+    },
+    sources: [
+      { label: "OpenAI Help Center: cómo crear un buen prompt — consultada el 22 de septiembre de 2026", url: "https://help.openai.com/es-419/articles/4936848-c%C3%B3mo-creo-un-buen-prompt-para-un-modelo-de-ia" },
+    ],
+    diagram: ["Separa datos, supuestos y recomendaciones", "Contrasta una muestra con su origen", "Aprueba o corrige con evidencia visible"],
+    mindMap: {
+      title: "Qué comprobar antes de usar una respuesta",
+      variant: "flow",
+      branches: [
+        { label: "Dato", children: ["Fuente comprobable", "Fecha o nombre exacto"] },
+        { label: "Suposición", children: ["Confirmar", "Eliminar si no hay evidencia"] },
+        { label: "Transformación", children: ["Probar una muestra", "Repetir el cálculo"] },
+        { label: "Recomendación", children: ["Contexto del negocio", "Revisión responsable"] },
+      ],
+    },
+    examples: [
+      {
+        title: "Ejemplo ilustrativo 1: revisar un resumen",
+        prompt: "Separa acuerdos explícitos, propuestas y dudas. Para cada acuerdo, añade el fragmento de origen y marca las fechas no confirmadas como pendientes.",
+        result: "El resumen deja de convertir una intención en un compromiso y permite comprobar cada acuerdo.",
+      },
+      {
+        title: "Ejemplo ilustrativo 2: probar una clasificación",
+        prompt: "Clasifica estas solicitudes ficticias e incluye el motivo de cada prioridad. Si falta impacto o fecha, escribe ‘dato pendiente’ sin asignar prioridad alta.",
+        result: "Tres filas representativas permiten revisar la regla antes de usarla con solicitudes reales.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Una respuesta clara puede seguir necesitando revisión",
+        paragraphs: [
+          "Antes de copiar un texto a un correo, tomar una decisión con una tabla o ejecutar instrucciones sobre archivos, revisa qué afirma, en qué se apoya y qué queda pendiente. El objetivo no es desconfiar de todo: es decidir con evidencia qué parte usar, ajustar o confirmar.",
+          "El nivel de revisión depende del riesgo. Un borrador de ideas puede requerir una revisión ligera; información médica, legal, financiera, contractual o de seguridad requiere fuentes adecuadas y, cuando corresponde, una persona profesional.",
+        ],
+      },
+      {
+        heading: "Distingue cuatro tipos de contenido",
+        paragraphs: [
+          "Marca cada afirmación relevante como dato verificable, suposición, cálculo o transformación, o recomendación. Un dato se contrasta con una fuente; una suposición se confirma o elimina; un cálculo se repite con una muestra; y una recomendación se evalúa contra las condiciones reales del negocio.",
+          "Esta separación también indica cuál es el siguiente mensaje útil. En vez de pedir ‘hazlo mejor’, solicita una fuente, una columna de evidencia, una muestra o la eliminación de una suposición.",
+        ],
+      },
+      {
+        heading: "Comprueba una muestra antes de escalar",
+        paragraphs: [
+          "Para clasificaciones, resúmenes y tablas, revisa casos que revelen la regla: uno claro, uno ambiguo y uno que pueda ser una excepción. Si la salida no deja visibles los datos faltantes, no la copies al proceso real todavía.",
+          "El criterio de terminado puede ser una tabla con acuerdo, evidencia y responsable; una clasificación con motivo y pendiente; o un archivo que preserve las reglas pactadas. Una respuesta termina cuando puedes comprobar esa evidencia, no cuando simplemente llega al chat.",
+        ],
+        list: [
+          "¿Respeta los límites acordados?",
+          "¿Las fechas, cifras y citas importantes tienen fuente?",
+          "¿Puedo repetir la transformación con una muestra?",
+          "¿Una persona responsable debe confirmar la decisión?",
+        ],
+      },
+      {
+        heading: "Corrige el punto que falló",
+        paragraphs: [
+          "Si algo falla, conserva lo que sí sirve y corrige una condición a la vez. La iteración es más útil cuando hace visible el dato, regla o evidencia que faltaba.",
+          "Entaltek puede ayudarte a evaluar una tarea repetitiva y definir una prueba pequeña antes de cambiar un proceso real.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "hermes-agent-y-linear",
     title: "Hermes Agent y Linear: del encargo al resultado revisado",
     summary:

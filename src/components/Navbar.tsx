@@ -5,6 +5,7 @@ import logoMark from "@/assets/logo_entaltek_solo.svg";
 
 const navItems = [
   { label: "Servicios", id: "servicios" },
+  { label: "Soluciones", id: "soluciones" },
   { label: "Productos", id: "productos" },
   { label: "Por qué Entaltek", id: "por-que-entaltek" },
   { label: "ADN", id: "adn-marca" },

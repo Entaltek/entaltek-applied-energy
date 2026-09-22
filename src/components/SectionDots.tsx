@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 const sections = [
   { id: "hero", label: "Inicio" },
   { id: "servicios", label: "Servicios" },
+  { id: "soluciones", label: "Soluciones" },
   { id: "productos", label: "Productos" },
   { id: "por-que-entaltek", label: "Por qué Entaltek" },
   { id: "adn-marca", label: "ADN de marca" },
   { id: "contacto", label: "Contacto" },
 ];
 
-const lightSections = new Set(["servicios", "contacto"]);
+const lightSections = new Set(["servicios", "soluciones", "contacto"]);
 
 const SectionDots = () => {
   const [active, setActive] = useState("hero");

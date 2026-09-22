@@ -1,4 +1,4 @@
-import { type LucideIcon, BotMessageSquare, Code2, Layers3, Workflow } from "lucide-react";
+import { type LucideIcon, BotMessageSquare, Code2, Layers3, ListChecks, Workflow } from "lucide-react";
 
 export type Insight = {
   slug: string;
@@ -233,6 +233,81 @@ export const insights: Insight[] = [
         paragraphs: [
           "Pide una primera versión pequeña, revísala con ejemplos y corrige una regla por vez. Ese ciclo de proponer, comprobar y ajustar es más confiable que solicitar una solución enorme de una sola vez.",
           "Cuando el proceso ya funciona de forma repetible, entonces puede convertirse en una plantilla, una skill, un script o una capacitación para otras personas.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "mejorar-una-respuesta",
+    title: "Cómo mejorar una respuesta con preguntas, ejemplos y criterio de terminado",
+    summary:
+      "Convierte una respuesta inicial en una entrega que puedas revisar: pregunta qué falta, muestra un ejemplo y define la evidencia de cierre.",
+    category: "Guías",
+    publishedAt: "2026-09-22",
+    icon: ListChecks,
+    image: {
+      src: "/images/insights/mejorar-respuesta.png",
+      alt: "Ilustración de una petición ambigua que se transforma en preguntas, ejemplos y una lista de comprobación.",
+    },
+    sources: [
+      { label: "OpenAI Help Center: cómo crear un buen prompt — consultada el 22 de septiembre de 2026", url: "https://help.openai.com/es-419/articles/4936848-c%C3%B3mo-creo-un-buen-prompt-para-un-modelo-de-ia" },
+    ],
+    diagram: ["Identifica qué falta", "Corrige con una pregunta y una muestra", "Comprueba una entrega con criterios visibles"],
+    mindMap: {
+      title: "De la primera respuesta a una versión revisable",
+      variant: "cycle",
+      branches: [
+        { label: "Respuesta", children: ["Qué sí sirve", "Qué está incompleto"] },
+        { label: "Pregunta", children: ["Una decisión pendiente", "Sin pedir que adivine"] },
+        { label: "Ejemplo", children: ["Entrada representativa", "Regla observable"] },
+        { label: "Revisión", children: ["Criterio de terminado", "Siguiente corrección"] },
+      ],
+    },
+    examples: [
+      {
+        title: "Ejemplo ilustrativo 1: corregir un correo",
+        prompt: "Conserva un tono profesional y cercano. Incluye fecha deseada, cantidad aproximada y persona responsable. No prometas tiempos ni precios. El correo está terminado si tiene asunto, saludo, tres preguntas y cierre en menos de 140 palabras.",
+        result: "La siguiente versión puede comprobarse contra cuatro condiciones concretas en lugar de evaluarse solo por impresión general.",
+      },
+      {
+        title: "Ejemplo ilustrativo 2: revisar solicitudes de soporte",
+        prompt: "Clasifica cinco solicitudes ficticias en acceso, facturación o error técnico. Si falta información, escribe ‘dato pendiente’. Entrega una tabla con mensaje, categoría, prioridad y dato pendiente.",
+        result: "La tabla hace visibles los casos que necesitan información adicional y permite validar las reglas antes de trabajar con mensajes reales.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Una primera respuesta es el inicio de la revisión",
+        paragraphs: [
+          "Si una respuesta todavía no sirve, no hace falta reiniciar la conversación ni encontrar una frase perfecta. Identifica qué parte conservarías, qué dato o regla falta y cuál sería la evidencia para considerar lista la siguiente versión.",
+          "OpenAI recomienda trabajar de forma iterativa: dividir una tarea compleja en solicitudes más enfocadas y perfeccionarlas a partir de la respuesta inicial. El objetivo es revisar el trabajo como revisarías un correo, una tabla o una propuesta.",
+        ],
+      },
+      {
+        heading: "Pregunta por la decisión que falta",
+        paragraphs: [
+          "Evita pedir simplemente ‘hazlo mejor’. Nombra la decisión pendiente: ‘¿Qué información falta para estimar el alcance sin suponer el número de usuarios?’ o ‘separa los acuerdos confirmados de las dudas que requieren validación’. Así conservas lo útil y corriges una parte concreta.",
+          "Si falta información, la respuesta debe dejarlo visible. El siguiente paso puede ser pedir un dato a una persona, revisar una fuente o reducir el alcance de la tarea.",
+        ],
+      },
+      {
+        heading: "El ejemplo y el criterio de terminado hacen visible la calidad",
+        paragraphs: [
+          "Un ejemplo muestra cómo debe aplicarse una regla; no es decoración. Usa una entrada representativa y explica el resultado esperado. Si contiene datos sensibles, reemplázalos por una versión ficticia o anonimizada.",
+          "El criterio de terminado puede ser una tabla con columnas definidas, un texto con límite de extensión, un archivo que abra correctamente o una lista de fuentes con fecha. Sirve para comprobar la entrega con evidencia y no solo por intuición.",
+        ],
+        list: [
+          "¿Conserva lo que ya era útil?",
+          "¿Marca los datos faltantes en vez de inventarlos?",
+          "¿Cumple las reglas y el formato acordados?",
+          "¿Hay una parte que deba revisar una persona o una fuente primaria?",
+        ],
+      },
+      {
+        heading: "Trabaja en partes cuando la tarea crece",
+        paragraphs: [
+          "Primero define el formato, después prueba una muestra y al final prepara la versión completa. Corregir una regla por vez reduce el costo de equivocarse y evita que una petición extensa esconda varios problemas a la vez.",
+          "Si tienes una tarea repetitiva que aún da resultados irregulares, Entaltek puede ayudarte a evaluar qué información, reglas y prueba pequeña harían viable un primer paso.",
         ],
       },
     ],

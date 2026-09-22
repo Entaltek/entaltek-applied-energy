@@ -215,9 +215,16 @@ export const insights: Insight[] = [
         ],
       },
       {
+        heading: "Añade un criterio de terminado",
+        paragraphs: [
+          "Además de pedir una respuesta, explica qué evidencia te permitiría decidir que la tarea quedó lista. Puede ser una tabla que cumpla las reglas, un archivo que abra sin errores, un enlace que funcione o un comportamiento que puedas observar. Ese criterio evita que “terminado” signifique solamente que la herramienta respondió.",
+          "Una fórmula breve sirve para revisar tu petición: resultado, contexto, restricciones y criterio de terminado. No hace falta que sea extensa; importa que otra persona pueda reconocer la entrega y comprobarla con los materiales disponibles.",
+        ],
+      },
+      {
         heading: "Un ejemplo para empezar",
         paragraphs: [
-          "“Trabajo con archivos de un proyecto de diseño. Necesito una tabla que proponga nombres con el formato fecha_proyecto_pieza_version. Conserva la extensión, no inventes datos faltantes y señala los nombres que puedan duplicarse. Te daré cinco ejemplos. Devuélveme primero la tabla y no renombres archivos.”",
+          "“Trabajo con archivos de un proyecto de diseño. Necesito una tabla que proponga nombres con el formato fecha_proyecto_pieza_version. Conserva la extensión, no inventes datos faltantes y señala los nombres que puedan duplicarse. Te daré cinco ejemplos. Devuélveme primero la tabla y no renombres archivos. Consideraré la tarea lista cuando cada nombre conserve su extensión, los duplicados estén marcados y los datos ausentes queden señalados.”",
           "Este prompt no garantiza que la solución final sea correcta. Sí reduce ambigüedades: define la salida, conserva límites y pide una prueba antes de modificar algo importante.",
         ],
       },

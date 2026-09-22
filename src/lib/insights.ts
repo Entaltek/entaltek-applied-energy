@@ -1,4 +1,5 @@
 import { type LucideIcon, BotMessageSquare, Code2, Layers3, ListChecks, Workflow } from "lucide-react";
+import { insightsModuleThree } from "./insightsModuleThree";
 
 export type Insight = {
   slug: string;
@@ -20,6 +21,7 @@ export type Insight = {
 };
 
 export const insights: Insight[] = [
+  ...insightsModuleThree,
   {
     slug: "ordenar-capas-en-photoshop",
     title: "De capas desordenadas a una solución que se puede repetir",

@@ -6,7 +6,7 @@ type MindMapProps = { title: string; variant: "flow" | "compare" | "cycle"; bran
 
 const details = {
   flow: { label: "Ruta de la solución", icon: ArrowRight, text: "Sigue el recorrido desde la tarea hasta la revisión. Abre una etapa para ver sus decisiones." },
-  compare: { label: "Mapa de decisión", icon: GitCompareArrows, text: "Compara las dos rutas principales y las condiciones que comparten." },
+  compare: { label: "Mapa de decisión", icon: GitCompareArrows, text: "Compara alternativas y las condiciones para usarlas." },
   cycle: { label: "Ciclo de mejora", icon: RotateCw, text: "Un prompt útil se construye en vueltas cortas: plantea, prueba y corrige." },
 };
 

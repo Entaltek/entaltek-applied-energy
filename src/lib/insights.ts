@@ -1,4 +1,4 @@
-import { type LucideIcon, BotMessageSquare, Code2, Layers3 } from "lucide-react";
+import { type LucideIcon, BotMessageSquare, Code2, Layers3, Workflow } from "lucide-react";
 
 export type Insight = {
   slug: string;
@@ -7,6 +7,7 @@ export type Insight = {
   category: "Casos" | "Herramientas" | "Guías";
   publishedAt: string;
   icon: LucideIcon;
+  image: { src: string; alt: string };
   sources: Array<{ label: string; url: string }>;
   diagram: string[];
   mindMap?: {
@@ -27,6 +28,10 @@ export const insights: Insight[] = [
     category: "Casos",
     publishedAt: "2026-09-22",
     icon: Layers3,
+    image: {
+      src: "/images/insights/photoshop-layers.png",
+      alt: "Ilustración de capas que pasan de una organización dispersa a una estructura revisable.",
+    },
     sources: [
       { label: "Adobe Help: Scripting in Photoshop — consultada el 22 de septiembre de 2026", url: "https://helpx.adobe.com/ca/photoshop/using/scripting.html" },
       { label: "Adobe Developer: UXP Scripting — consultada el 22 de septiembre de 2026", url: "https://developer.adobe.com/photoshop/uxp/scripting/" },
@@ -91,6 +96,10 @@ export const insights: Insight[] = [
     category: "Herramientas",
     publishedAt: "2026-09-22",
     icon: BotMessageSquare,
+    image: {
+      src: "/images/insights/chatgpt-codex.png",
+      alt: "Ilustración de una pregunta que se convierte en conversaciones y código para llegar a un resultado revisado.",
+    },
     sources: [
       { label: "Documentación oficial de OpenAI: Use ChatGPT", url: "https://learn.chatgpt.com/docs/use-chatgpt" },
     ],
@@ -154,6 +163,10 @@ export const insights: Insight[] = [
     category: "Guías",
     publishedAt: "2026-09-22",
     icon: Code2,
+    image: {
+      src: "/images/insights/useful-prompt.png",
+      alt: "Ilustración de un proceso que transforma una solicitud ambigua en un resultado verificable.",
+    },
     sources: [
       { label: "Documentación oficial de OpenAI: Prompting", url: "https://learn.chatgpt.com/docs/prompting" },
     ],
@@ -213,6 +226,83 @@ export const insights: Insight[] = [
         paragraphs: [
           "Pide una primera versión pequeña, revísala con ejemplos y corrige una regla por vez. Ese ciclo de proponer, comprobar y ajustar es más confiable que solicitar una solución enorme de una sola vez.",
           "Cuando el proceso ya funciona de forma repetible, entonces puede convertirse en una plantilla, una skill, un script o una capacitación para otras personas.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "hermes-agent-y-linear",
+    title: "Hermes Agent y Linear: del encargo al resultado revisado",
+    summary:
+      "Una forma práctica de convertir una petición en trabajo trazable: definir la entrega, seguir dependencias y comprobar el resultado antes de cerrarlo.",
+    category: "Guías",
+    publishedAt: "2026-09-22",
+    icon: Workflow,
+    image: {
+      src: "/images/insights/hermes-linear.png",
+      alt: "Ilustración de una tarea que pasa por investigación, revisión y un resultado comprobado.",
+    },
+    sources: [
+      { label: "Hermes Agent: MCP — consultada el 22 de septiembre de 2026", url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp" },
+      { label: "Linear: servidor MCP — consultada el 22 de septiembre de 2026", url: "https://linear.app/docs/mcp" },
+      { label: "Linear: relaciones entre tareas — consultada el 22 de septiembre de 2026", url: "https://linear.app/docs/issue-relations" },
+    ],
+    diagram: ["Escribe una entrega y criterios verificables", "Divide el trabajo y haz visibles sus dependencias", "Revisa la evidencia antes de marcar la tarea como terminada"],
+    mindMap: {
+      title: "De encargo a resultado revisable",
+      variant: "flow",
+      branches: [
+        { label: "Encargo", children: ["Problema concreto", "Entrada y entrega esperada"] },
+        { label: "Seguimiento", children: ["Tareas pequeñas", "Dependencias y estado"] },
+        { label: "Agente", children: ["Herramientas necesarias", "Límites y evidencia"] },
+        { label: "Revisión", children: ["Comprobar resultado", "Decidir el cierre"] },
+      ],
+    },
+    examples: [
+      {
+        title: "Ejemplo 1: preparar una guía",
+        prompt: "Divide la creación de una guía sobre nombres de archivos en investigación, borrador y revisión. Para cada tarea, indica una entrega verificable y qué depende de qué.",
+        result: "El encargo deja de ser una petición amplia: cada parte tiene un resultado que otra persona puede inspeccionar antes de continuar.",
+      },
+      {
+        title: "Ejemplo 2: probar una regla sin tocar archivos reales",
+        prompt: "Con diez nombres ficticios, crea una tabla con propuesta, motivo, duplicados detectados y datos faltantes. No renombres archivos.",
+        result: "La tabla permite corregir una regla ambigua en una muestra pequeña antes de autorizar un cambio en una carpeta real.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Un agente necesita una tarea que se pueda revisar",
+        paragraphs: [
+          "Pedirle a un agente que se encargue de todo deja abiertas preguntas importantes: qué debe entregar, dónde se verá el avance y quién decide si el resultado sirve. Antes de delegar, escribe el problema, los materiales disponibles y dos o tres condiciones que permitan comprobar el cierre.",
+          "Por ejemplo, en lugar de pedir “investiga bien”, pide tres fuentes primarias con enlaces, fecha de consulta y dudas pendientes. La diferencia parece pequeña, pero convierte una expectativa en una entrega revisable.",
+        ],
+      },
+      {
+        heading: "Linear hace visible el trabajo que depende de otro trabajo",
+        paragraphs: [
+          "Linear permite organizar un resultado amplio como proyecto y dividirlo en tareas. Sus estados se configuran por equipo. Para un flujo de aprendizaje, una propuesta útil puede ser Pendiente, En curso, En revisión y Terminado; el estado En revisión se configura si el equipo lo necesita.",
+          "Las relaciones entre tareas permiten mostrar qué está bloqueando a qué. Si el borrador necesita que alguien confirme una regla, la dependencia debe quedar visible. Marcar algo como terminado sin la evidencia esperada hace más difícil detectar el problema después.",
+        ],
+        list: [
+          "Proyecto: el resultado amplio que se busca conseguir.",
+          "Tarea: una unidad concreta con responsable, entrega y criterio de aceptación.",
+          "Dependencia: el trabajo que debe terminar o aclararse antes de continuar.",
+          "Revisión: la comprobación humana de que la entrega responde al encargo.",
+        ],
+      },
+      {
+        heading: "La conexión entre Hermes y Linear está documentada",
+        paragraphs: [
+          "Hermes Agent documenta una conexión con Linear mediante MCP, un protocolo para que un agente pueda usar herramientas externas. Linear publica un servidor MCP con acceso a datos y operaciones sobre objetos como tareas, proyectos y comentarios.",
+          "La documentación confirma que existe esta ruta de conexión. No se ha instalado Hermes ni conectado Linear en una cuenta de Entaltek, por lo que no presentamos este artículo como una integración probada. Un primer ensayo responsable puede limitarse a leer una tarea conocida y contrastar el resultado con la interfaz.",
+        ],
+      },
+      {
+        heading: "Empieza con una prueba de lectura y una entrega pequeña",
+        paragraphs: [
+          "Primero selecciona una tarea de prueba, define los campos que esperas encontrar y comprueba que el agente los devuelve correctamente. Después pide un informe local que enlace la evidencia. Solo cuando esa lectura sea fiable conviene valorar una acción que modifique datos, sobre una tarea de prueba y con una verificación posterior.",
+          "También puedes comenzar sin conexión: copia el encargo y el resultado entre las herramientas. El proceso sigue aportando claridad porque la parte esencial es que la persona sepa qué se pidió, qué cambió y qué falta revisar.",
         ],
       },
     ],

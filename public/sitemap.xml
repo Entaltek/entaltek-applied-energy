@@ -2,7 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://entaltek.com/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://entaltek.com/soluciones</loc>
+    <lastmod>2026-09-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://entaltek.com/soluciones/chatgpt-y-codex</loc>
+    <lastmod>2026-09-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://entaltek.com/soluciones/un-prompt-que-si-ayuda</loc>
+    <lastmod>2026-09-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://entaltek.com/soluciones/ordenar-capas-en-photoshop</loc>
+    <lastmod>2026-09-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://entaltek.com/soluciones/hermes-agent-y-linear</loc>
+    <lastmod>2026-09-22</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>

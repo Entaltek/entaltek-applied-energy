@@ -31,6 +31,9 @@ const InsightArticle = () => {
         <h1 className="mt-3 text-[clamp(2.5rem,6vw,5rem)] font-extrabold leading-[0.98] tracking-tight text-[#013762]">{insight.title}</h1>
         <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[#013762]/72">{insight.summary}</p>
         <time dateTime={insight.publishedAt} className="mt-6 block text-sm text-[#013762]/55">Publicado el {new Intl.DateTimeFormat("es-MX", { dateStyle: "long" }).format(new Date(`${insight.publishedAt}T12:00:00`))}</time>
+        <figure className="mt-10 overflow-hidden rounded-3xl border border-[#013762]/10 bg-white shadow-[0_18px_45px_rgba(1,55,98,0.1)]">
+          <img src={insight.image.src} alt={insight.image.alt} className="aspect-[16/9] w-full object-cover" />
+        </figure>
         {insight.mindMap && <MindMap {...insight.mindMap} />}
         <section className="mt-12 border-y border-[#013762]/10 py-7">
           <h2 className="text-xl font-bold text-[#013762]">Esquema de aplicación</h2>

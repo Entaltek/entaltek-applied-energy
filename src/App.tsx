@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import InsightArticle from "./pages/InsightArticle";
 import InsightLibrary from "./pages/InsightLibrary";
+import RouteEffects from "./components/navigation/RouteEffects";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RouteEffects />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/soluciones" element={<InsightLibrary />} />

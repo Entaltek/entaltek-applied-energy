@@ -15,7 +15,7 @@ const Index = () => {
       <SectionDots />
       <main
         id="main-scroll"
-        className="h-screen overflow-y-auto scroll-smooth md:snap-y md:snap-mandatory"
+        className="route-page h-screen overflow-y-auto scroll-smooth md:snap-y md:snap-mandatory"
       >
         <HeroSection />
         <ServicesSection />

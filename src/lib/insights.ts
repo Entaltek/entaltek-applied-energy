@@ -9,7 +9,7 @@ export type Insight = {
   icon: LucideIcon;
   sources: Array<{ label: string; url: string }>;
   diagram: string[];
-  mindMap: Array<{ label: string; children: string[] }>;
+  mindMap?: Array<{ label: string; children: string[] }>;
   examples: Array<{ title: string; prompt: string; result: string }>;
   sections: Array<{ heading: string; paragraphs: string[]; list?: string[] }>;
 };

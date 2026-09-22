@@ -3,25 +3,24 @@ import { Link, useParams } from "react-router-dom";
 import logoMark from "@/assets/logo_entaltek_solo.svg";
 import { getInsight } from "@/lib/insights";
 import MindMap from "@/components/insights/MindMap";
+import TransitionLink from "@/components/navigation/TransitionLink";
 
 const InsightArticle = () => {
   const insight = getInsight(useParams().slug);
 
   if (!insight) {
-    return <main className="min-h-screen bg-[#F5F9FC] p-8 text-[#013762]"><Link to="/">Volver a Entaltek</Link></main>;
+    return <main className="route-page min-h-screen bg-[#F5F9FC] p-8 text-[#013762]"><TransitionLink to="/">Volver a Entaltek</TransitionLink></main>;
   }
 
   const Icon = insight.icon;
   return (
-    <main className="min-h-screen bg-[#F5F9FC] text-[#013762]">
+    <main className="route-page min-h-screen bg-[#F5F9FC] text-[#013762]">
       <header className="border-b border-[#013762]/10 bg-white/85 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
           <Link to="/" className="flex items-center gap-3 font-bold tracking-wide text-[#013762]">
             <img src={logoMark} alt="" className="h-9 w-auto" /> ENTALTEK
           </Link>
-          <Link to="/#soluciones" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0179B1] hover:text-[#013762]">
-            <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Soluciones e impacto
-          </Link>
+          <TransitionLink to="/soluciones" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0179B1] hover:text-[#013762]"><ArrowLeft className="h-4 w-4" aria-hidden="true" /> Soluciones e impacto</TransitionLink>
         </div>
       </header>
       <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 md:py-24">
@@ -32,7 +31,7 @@ const InsightArticle = () => {
         <h1 className="mt-3 text-[clamp(2.5rem,6vw,5rem)] font-extrabold leading-[0.98] tracking-tight text-[#013762]">{insight.title}</h1>
         <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[#013762]/72">{insight.summary}</p>
         <time dateTime={insight.publishedAt} className="mt-6 block text-sm text-[#013762]/55">Publicado el {new Intl.DateTimeFormat("es-MX", { dateStyle: "long" }).format(new Date(`${insight.publishedAt}T12:00:00`))}</time>
-        <MindMap title={insight.title} branches={insight.mindMap} />
+        {insight.mindMap && <MindMap title={insight.title} branches={insight.mindMap} />}
         <section className="mt-12 border-y border-[#013762]/10 py-7">
           <h2 className="text-xl font-bold text-[#013762]">Esquema de aplicación</h2>
           <ol className="mt-5 grid gap-3 sm:grid-cols-3">

@@ -1,7 +1,7 @@
 import { ArrowRight, ArrowUpRight, Lightbulb } from "lucide-react";
-import { Link } from "react-router-dom";
 import { newestInsights } from "@/lib/insights";
 import { useInView } from "@/hooks/useInView";
+import TransitionLink from "@/components/navigation/TransitionLink";
 
 const SolutionsSection = () => {
   const { ref, inView } = useInView<HTMLDivElement>();
@@ -26,16 +26,16 @@ const SolutionsSection = () => {
               Compartimos aprendizajes que nacen de problemas reales y explicaciones prácticas para usar la tecnología con mejor criterio.
             </p>
             <p className="mt-5 max-w-lg text-sm leading-relaxed text-[#013762]/55">La landing muestra los seis artículos más recientes. La biblioteca mantiene el historial completo, sus fuentes y fechas.</p>
-            <Link to="/soluciones" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#0179B1] hover:text-[#013762]">
+            <TransitionLink to="/soluciones" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#0179B1] hover:text-[#013762]">
               Explorar la biblioteca <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            </TransitionLink>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             {newestInsights().slice(0, 6).map((insight, index) => {
               const Icon = insight.icon;
               return (
-                <Link
+                <TransitionLink
                   key={insight.slug}
                   to={`/soluciones/${insight.slug}`}
                   className={`group flex min-h-[22rem] flex-col justify-between rounded-2xl border border-[#013762]/10 bg-white p-7 shadow-[0_16px_36px_rgba(1,55,98,0.08)] transition-all duration-500 hover:-translate-y-1 hover:border-[#0179B1]/40 hover:shadow-[0_22px_46px_rgba(1,55,98,0.14)] ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
@@ -51,7 +51,7 @@ const SolutionsSection = () => {
                     <time dateTime={insight.publishedAt}>{new Intl.DateTimeFormat("es-MX", { dateStyle: "long" }).format(new Date(`${insight.publishedAt}T12:00:00`))}</time>
                     <span className="inline-flex items-center gap-2">Leer artículo <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" /></span>
                   </span>
-                </Link>
+                </TransitionLink>
               );
             })}
           </div>

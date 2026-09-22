@@ -9,7 +9,11 @@ export type Insight = {
   icon: LucideIcon;
   sources: Array<{ label: string; url: string }>;
   diagram: string[];
-  mindMap?: Array<{ label: string; children: string[] }>;
+  mindMap?: {
+    title: string;
+    variant: "flow" | "compare" | "cycle";
+    branches: Array<{ label: string; children: string[] }>;
+  };
   examples: Array<{ title: string; prompt: string; result: string }>;
   sections: Array<{ heading: string; paragraphs: string[]; list?: string[] }>;
 };
@@ -28,12 +32,16 @@ export const insights: Insight[] = [
       { label: "Adobe Developer: UXP Scripting — consultada el 22 de septiembre de 2026", url: "https://developer.adobe.com/photoshop/uxp/scripting/" },
     ],
     diagram: ["Observa la tarea y sus reglas", "Prepara una primera solución ejecutable", "Revísala con archivos de prueba antes de reutilizarla"],
-    mindMap: [
+    mindMap: {
+      title: "De una tarea repetitiva a una solución revisable",
+      variant: "flow",
+      branches: [
       { label: "La tarea", children: ["Agrupar y acomodar capas", "Detectar lo que se repite"] },
       { label: "Las reglas", children: ["Qué debe ir junto", "Qué casos requieren criterio"] },
       { label: "La solución", children: ["Instrucciones reutilizables", "Script que Photoshop puede ejecutar"] },
       { label: "La validación", children: ["Probar con una copia", "Revisar el resultado antes de adoptarlo"] },
-    ],
+      ],
+    },
     examples: [
       {
         title: "Ejemplo 1: una regla que sí se puede explicar",
@@ -87,12 +95,16 @@ export const insights: Insight[] = [
       { label: "Documentación oficial de OpenAI: Use ChatGPT", url: "https://learn.chatgpt.com/docs/use-chatgpt" },
     ],
     diagram: ["Define el resultado", "Explora y decide con ChatGPT", "Construye, prueba o despliega con Codex"],
-    mindMap: [
-      { label: "El resultado", children: ["Aclarar una idea", "Construir un cambio comprobable"] },
+    mindMap: {
+      title: "¿Qué necesitas resolver?",
+      variant: "compare",
+      branches: [
       { label: "ChatGPT", children: ["Investigar y comparar", "Ordenar decisiones y textos"] },
       { label: "Codex", children: ["Trabajar en un repositorio", "Probar y desplegar"] },
+      { label: "El resultado", children: ["Aclarar una idea", "Construir un cambio comprobable"] },
       { label: "Comprobación", children: ["Revisar restricciones", "Validar que el resultado sirve"] },
-    ],
+      ],
+    },
     examples: [
       {
         title: "Ejemplo 1: ordenar una idea de negocio",
@@ -146,12 +158,16 @@ export const insights: Insight[] = [
       { label: "Documentación oficial de OpenAI: Prompting", url: "https://learn.chatgpt.com/docs/prompting" },
     ],
     diagram: ["Describe el resultado", "Prueba con ejemplos", "Revisa y ajusta una regla"],
-    mindMap: [
+    mindMap: {
+      title: "Un prompt se mejora en ciclos",
+      variant: "cycle",
+      branches: [
       { label: "Resultado", children: ["Qué debe quedar listo", "Cómo se reconocerá"] },
       { label: "Contexto", children: ["Qué ocurre hoy", "Qué información es relevante"] },
       { label: "Reglas", children: ["Qué conservar o evitar", "Qué hacer ante faltantes"] },
       { label: "Comprobación", children: ["Primero una muestra", "Ajustar una regla por vez"] },
-    ],
+      ],
+    },
     examples: [
       {
         title: "Ejemplo 1: una consulta demasiado amplia",

@@ -388,6 +388,39 @@ export const insights: Insight[] = [
     ],
   },
   {
+    slug: "contexto-util-sin-datos-innecesarios",
+    title: "Cómo aportar contexto útil sin compartir información innecesaria",
+    summary: "Selecciona el contexto que cambia una decisión, anonimiza lo que no hace falta y deja claros los límites de una tarea.",
+    category: "Guías",
+    publishedAt: "2026-09-22",
+    icon: ListChecks,
+    image: { src: "/images/insights/contexto-util.png", alt: "Ilustración de documentos que se filtran para conservar una muestra de contexto anonimizada." },
+    sources: [
+      { label: "OpenAI Help Center: Data controls — consultada el 22 de septiembre de 2026", url: "https://help.openai.com/en/articles/7730893" },
+      { label: "OpenAI Help Center: cómo crear un buen prompt — consultada el 22 de septiembre de 2026", url: "https://help.openai.com/es-419/articles/4936848-c%C3%B3mo-creo-un-buen-prompt-para-un-modelo-de-ia" },
+    ],
+    diagram: ["Define el resultado", "Comparte solo los campos necesarios", "Prueba y revisa una muestra sin datos sensibles"],
+    mindMap: {
+      title: "Contexto suficiente y delimitado",
+      variant: "flow",
+      branches: [
+        { label: "Necesario", children: ["Objetivo", "Campos que cambian la decisión"] },
+        { label: "Excluido", children: ["Identidades y credenciales", "Datos que no aportan"] },
+        { label: "Reglas", children: ["Qué conservar", "Cuándo detenerse"] },
+        { label: "Revisión", children: ["Muestra ficticia", "Criterio de terminado"] },
+      ],
+    },
+    examples: [
+      { title: "Ejemplo ilustrativo 1: un correo de seguimiento", prompt: "Redacta un correo profesional para pedir fecha, cantidad y responsable. No menciones precios ni plazos. Usa solo este resumen de la conversación.", result: "El encargo conserva el objetivo y el tono sin compartir el hilo completo ni datos que no aportan a la redacción." },
+      { title: "Ejemplo ilustrativo 2: solicitudes de soporte", prompt: "Clasifica cinco casos ficticios en acceso, facturación o error técnico. Incluye categoría, prioridad, dato pendiente y motivo.", result: "La muestra mantiene los casos difíciles y permite probar la regla antes de trabajar con mensajes reales." },
+    ],
+    sections: [
+      { heading: "El contexto se selecciona; no se vuelca", paragraphs: ["Dar contexto mejora una respuesta, pero compartirlo todo no. Antes de pegar un correo o subir un documento, pregunta qué información cambia realmente la decisión y qué material puedes resumir, anonimizar o dejar fuera.", "Los controles de datos de ChatGPT ayudan a gestionar conversaciones y enlaces compartidos, pero no sustituyen la revisión que haces antes de enviar el material. La tarea empieza por delimitar qué necesita el encargo." ] },
+      { heading: "Prepara una ficha mínima", paragraphs: ["Registra el resultado, quién usará la salida, los datos necesarios, los datos excluidos, las reglas y el criterio de terminado. Si hay duda, crea una muestra sintética que conserve la estructura y los casos difíciles, pero reemplace identidades y valores sensibles.", "No existe una lista universal de datos seguros: el contexto de una nómina, una conversación con clientes o un archivo de producción exige cuidados distintos. Mantén fuera credenciales, datos de pago y datos personales cuando no sean necesarios." ], list: ["Resultado y audiencia", "Campos indispensables", "Datos excluidos", "Reglas, excepciones y condición de parada"] },
+      { heading: "Detén el flujo antes de conectar datos reales", paragraphs: ["Si una tarea requiere permisos, archivos reales o una integración, comienza con una prueba de lectura y define quién revisará la salida. No escales una regla que solo funcionó con una muestra sin comprobar sus límites.", "Un contexto delimitado protege información y vuelve más fácil revisar una respuesta. Entaltek puede ayudar a convertir una tarea dispersa en una prueba pequeña con datos mínimos y reglas visibles."] },
+    ],
+  },
+  {
     slug: "hermes-agent-y-linear",
     title: "Hermes Agent y Linear: del encargo al resultado revisado",
     summary:

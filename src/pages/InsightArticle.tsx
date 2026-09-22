@@ -79,6 +79,10 @@ const InsightArticle = () => {
             {insight.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-[#004C7A] hover:text-[#0179B1]">{source.label} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a></li>)}
           </ul>
         </section>
+        {insight.relatedSlugs && <section className="mt-12 border-t border-[#013762]/15 pt-10" aria-labelledby="related-title">
+          <h2 id="related-title" className="text-xl font-bold text-[#013762]">Sigue explorando</h2>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">{insight.relatedSlugs.map((slug) => { const related = getInsight(slug); return related && <TransitionLink key={slug} to={`/soluciones/${slug}`} className="rounded-xl border border-[#013762]/15 bg-white p-4 font-semibold text-[#004C7A] hover:border-[#0179B1] hover:text-[#0179B1]">{related.title} <ArrowUpRight className="ml-1 inline h-4 w-4" aria-hidden="true" /></TransitionLink>; })}</div>
+        </section>}
       </article>
     </main>
   );

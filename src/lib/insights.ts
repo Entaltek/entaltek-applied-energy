@@ -3,6 +3,7 @@ import { insightsModuleThree } from "./insightsModuleThree";
 import { codexSetupInsight } from "./insightsCodexSetup";
 import { firstCodexInsight } from "./insightsFirstCodex";
 import { testChangesInsight } from "./insightsTestChanges";
+import { agentInsights } from "./insightsAgents";
 
 export type Insight = {
   slug: string;
@@ -21,6 +22,7 @@ export type Insight = {
   };
   examples: Array<{ title: string; prompt: string; result: string }>;
   sections: Array<{ heading: string; paragraphs: string[]; list?: string[] }>;
+  relatedSlugs?: string[];
 };
 
 export const insights: Insight[] = [
@@ -28,6 +30,7 @@ export const insights: Insight[] = [
   firstCodexInsight,
   testChangesInsight,
   ...insightsModuleThree,
+  ...agentInsights,
   {
     slug: "ordenar-capas-en-photoshop",
     title: "De capas desordenadas a una solución que se puede repetir",
@@ -521,10 +524,11 @@ export const insights: Insight[] = [
   },
   {
     slug: "hermes-agent-y-linear",
-    title: "Hermes Agent y Linear: del encargo al resultado revisado",
+    title: "Hermes Agent y Linear: cómo se complementan en un encargo",
     summary:
       "Una forma práctica de convertir una petición en trabajo trazable: definir la entrega, seguir dependencias y comprobar el resultado antes de cerrarlo.",
     category: "Guías",
+    relatedSlugs: ["hermes-agent-perfiles-y-subagentes", "linear-proyectos-tareas-y-agentes", "disenar-miniagentes-hermes-linear"],
     publishedAt: "2026-09-22",
     icon: Workflow,
     image: {
@@ -549,12 +553,12 @@ export const insights: Insight[] = [
     },
     examples: [
       {
-        title: "Ejemplo 1: preparar una guía",
+        title: "Ejemplo ilustrativo 1: preparar una guía",
         prompt: "Divide la creación de una guía sobre nombres de archivos en investigación, borrador y revisión. Para cada tarea, indica una entrega verificable y qué depende de qué.",
         result: "El encargo deja de ser una petición amplia: cada parte tiene un resultado que otra persona puede inspeccionar antes de continuar.",
       },
       {
-        title: "Ejemplo 2: probar una regla sin tocar archivos reales",
+        title: "Ejemplo ilustrativo 2: probar una regla sin tocar archivos reales",
         prompt: "Con diez nombres ficticios, crea una tabla con propuesta, motivo, duplicados detectados y datos faltantes. No renombres archivos.",
         result: "La tabla permite corregir una regla ambigua en una muestra pequeña antes de autorizar un cambio en una carpeta real.",
       },

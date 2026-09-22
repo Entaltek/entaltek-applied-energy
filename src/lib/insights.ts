@@ -468,6 +468,13 @@ export const insights: Insight[] = [
     ],
   },
   {
+    slug: "organizar-trabajo-continuo-en-chatgpt", title: "Cómo organizar un trabajo continuo en un proyecto de ChatGPT", summary: "Mantén objetivo, fuentes, decisiones y pendientes visibles para retomar un trabajo sin perder contexto.", category: "Guías", publishedAt: "2026-09-22", icon: ListChecks,
+    image: { src: "/images/insights/proyecto-chatgpt.png", alt: "Ilustración de un proyecto organizado con objetivo, fuentes, decisiones y siguiente paso." }, sources: [],
+    diagram: ["Conserva el objetivo", "Separa fuentes y decisiones", "Define el siguiente paso revisable"],
+    examples: [{ title: "Ejemplo ilustrativo 1: una propuesta", prompt: "Registra problema, preguntas confirmadas, archivos aprobados y límites.", result: "El borrador siguiente conserva condiciones verificables." }, { title: "Ejemplo ilustrativo 2: investigación", prompt: "Guarda enlaces, fecha de consulta, hallazgos y dudas.", result: "La información nueva muestra qué conclusión debe revisarse." }],
+    sections: [{ heading: "Contexto que se puede retomar", paragraphs: ["Un proyecto conserva objetivo, materiales y reglas que otra persona puede revisar. Registra resultado, audiencia, fuentes validadas, restricciones, criterio de terminado y pendientes.", "No copies todo el chat: conserva solo lo que cambia el siguiente paso. Distingue la fuente de la conclusión y asigna una entrega que alguien pueda comprobar."] }],
+  },
+  {
     slug: "hermes-agent-y-linear",
     title: "Hermes Agent y Linear: del encargo al resultado revisado",
     summary:

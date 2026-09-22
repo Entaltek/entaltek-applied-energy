@@ -421,6 +421,32 @@ export const insights: Insight[] = [
     ],
   },
   {
+    slug: "documentos-y-archivos-en-chatgpt",
+    title: "Cómo trabajar con documentos y archivos en ChatGPT",
+    summary: "Convierte un archivo en una entrega revisable: define qué extraer, transformar o comparar y comprueba una muestra contra el origen.",
+    category: "Guías",
+    publishedAt: "2026-09-22",
+    icon: ListChecks,
+    image: { src: "/images/insights/documentos-chatgpt.png", alt: "Ilustración de documentos, hojas de cálculo y presentaciones que pasan por extracción, comparación y resumen." },
+    sources: [{ label: "OpenAI Help Center: carga de archivos — consultada el 22 de septiembre de 2026", url: "https://help.openai.com/es-es/articles/8982896-c%C3%B3mo-funciona-la-nueva-funci%C3%B3n-de-carga-de-archivos" }],
+    diagram: ["Delimita el archivo y la pregunta", "Extrae, compara o transforma una muestra", "Contrasta la entrega con el origen"],
+    mindMap: { title: "Una pregunta para cada archivo", variant: "flow", branches: [
+      { label: "Extracción", children: ["Citas y acuerdos", "Campos concretos"] },
+      { label: "Transformación", children: ["Resumen", "Reescritura sin perder sentido"] },
+      { label: "Comparación", children: ["Dos documentos", "Criterios visibles"] },
+      { label: "Revisión", children: ["Muestra manual", "Datos faltantes"] },
+    ] },
+    examples: [
+      { title: "Ejemplo ilustrativo 1: acuerdos de una minuta", prompt: "Extrae acuerdos explícitos, responsable, fecha y párrafo de origen. Marca pendiente si falta información y no infieras compromisos.", result: "La tabla se revisa contra el texto y evita convertir una intención en una decisión." },
+      { title: "Ejemplo ilustrativo 2: una hoja de solicitudes", prompt: "Cuenta solicitudes por tipo y marca registros sin estado. La entrega queda lista cuando los totales coincidan con una muestra manual de diez filas.", result: "La prueba revela las excepciones antes de usar el análisis en una decisión operativa." },
+    ],
+    sections: [
+      { heading: "El archivo necesita una pregunta delimitada", paragraphs: ["ChatGPT puede apoyar síntesis, transformación y extracción con documentos y hojas de cálculo. Para que el resultado sirva, define qué debe encontrarse, en qué formato y cómo se contrastará con el origen.", "No siempre hace falta compartir un documento completo. Para detectar acuerdos puede bastar una transcripción; para comparar políticas necesitas ambas versiones y criterios explícitos."] },
+      { heading: "Define la evidencia antes de pedir la respuesta", paragraphs: ["Pide columnas, secciones o citas concretas. Un criterio de terminado puede ser una tabla con acuerdo, responsable, fecha y párrafo de origen, o una suma que coincida con una muestra manual.", "Con datos tabulares, usa encabezados claros y una fila por registro. Declara cálculos, agrupaciones y reglas para los faltantes."] },
+      { heading: "Conserva límites visibles", paragraphs: ["Un archivo puede ser demasiado grande, complejo, escaneado o poco estructurado para un análisis completo. Revisa cláusulas, cifras, fechas y excepciones en el original antes de usar una respuesta.", "Las funciones disponibles dependen de plan, permisos y tipo de archivo. Si hay datos sensibles, usa una muestra anonimizada y define quién revisa la salida antes de escalar el flujo."] },
+    ],
+  },
+  {
     slug: "hermes-agent-y-linear",
     title: "Hermes Agent y Linear: del encargo al resultado revisado",
     summary:

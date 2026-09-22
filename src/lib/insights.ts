@@ -9,6 +9,7 @@ export type Insight = {
   icon: LucideIcon;
   sources: Array<{ label: string; url: string }>;
   diagram: string[];
+  mindMap: Array<{ label: string; children: string[] }>;
   examples: Array<{ title: string; prompt: string; result: string }>;
   sections: Array<{ heading: string; paragraphs: string[]; list?: string[] }>;
 };
@@ -26,6 +27,12 @@ export const insights: Insight[] = [
       { label: "Documentación oficial de OpenAI: Use ChatGPT", url: "https://learn.chatgpt.com/docs/use-chatgpt" },
     ],
     diagram: ["Define el resultado", "Explora y decide con ChatGPT", "Construye, prueba o despliega con Codex"],
+    mindMap: [
+      { label: "El resultado", children: ["Aclarar una idea", "Construir un cambio comprobable"] },
+      { label: "ChatGPT", children: ["Investigar y comparar", "Ordenar decisiones y textos"] },
+      { label: "Codex", children: ["Trabajar en un repositorio", "Probar y desplegar"] },
+      { label: "Comprobación", children: ["Revisar restricciones", "Validar que el resultado sirve"] },
+    ],
     examples: [
       {
         title: "Ejemplo 1: ordenar una idea de negocio",
@@ -79,6 +86,12 @@ export const insights: Insight[] = [
       { label: "Documentación oficial de OpenAI: Prompting", url: "https://learn.chatgpt.com/docs/prompting" },
     ],
     diagram: ["Describe el resultado", "Prueba con ejemplos", "Revisa y ajusta una regla"],
+    mindMap: [
+      { label: "Resultado", children: ["Qué debe quedar listo", "Cómo se reconocerá"] },
+      { label: "Contexto", children: ["Qué ocurre hoy", "Qué información es relevante"] },
+      { label: "Reglas", children: ["Qué conservar o evitar", "Qué hacer ante faltantes"] },
+      { label: "Comprobación", children: ["Primero una muestra", "Ajustar una regla por vez"] },
+    ],
     examples: [
       {
         title: "Ejemplo 1: una consulta demasiado amplia",

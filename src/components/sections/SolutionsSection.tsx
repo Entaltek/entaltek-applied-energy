@@ -1,6 +1,6 @@
-import { ArrowUpRight, Lightbulb } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
-import { insights } from "@/lib/insights";
+import { newestInsights } from "@/lib/insights";
 import { useInView } from "@/hooks/useInView";
 
 const SolutionsSection = () => {
@@ -25,13 +25,14 @@ const SolutionsSection = () => {
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-[#013762]/70">
               Compartimos aprendizajes que nacen de problemas reales y explicaciones prácticas para usar la tecnología con mejor criterio.
             </p>
-            <p className="mt-5 max-w-lg text-sm leading-relaxed text-[#013762]/55">
-              El tamaño de una solución no define su valor. Importa que haga más claro, seguro o sencillo el trabajo de alguien.
-            </p>
+            <p className="mt-5 max-w-lg text-sm leading-relaxed text-[#013762]/55">La landing muestra los seis artículos más recientes. La biblioteca mantiene el historial completo, sus fuentes y fechas.</p>
+            <Link to="/soluciones" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#0179B1] hover:text-[#013762]">
+              Explorar la biblioteca <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {insights.map((insight, index) => {
+            {newestInsights().slice(0, 6).map((insight, index) => {
               const Icon = insight.icon;
               return (
                 <Link
@@ -46,8 +47,9 @@ const SolutionsSection = () => {
                     <h3 className="mt-3 text-2xl font-bold leading-tight text-[#013762]">{insight.title}</h3>
                     <p className="mt-4 text-sm leading-relaxed text-[#013762]/65">{insight.summary}</p>
                   </div>
-                  <span className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#0179B1]">
-                    Leer artículo <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
+                  <span className="mt-7 flex items-center justify-between gap-2 text-sm font-bold text-[#0179B1]">
+                    <time dateTime={insight.publishedAt}>{new Intl.DateTimeFormat("es-MX", { dateStyle: "long" }).format(new Date(`${insight.publishedAt}T12:00:00`))}</time>
+                    <span className="inline-flex items-center gap-2">Leer artículo <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" /></span>
                   </span>
                 </Link>
               );

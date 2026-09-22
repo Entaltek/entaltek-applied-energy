@@ -5,9 +5,11 @@ export type Insight = {
   title: string;
   summary: string;
   category: string;
+  publishedAt: string;
   icon: LucideIcon;
-  sourceLabel: string;
-  sourceUrl: string;
+  sources: Array<{ label: string; url: string }>;
+  diagram: string[];
+  examples: Array<{ title: string; prompt: string; result: string }>;
   sections: Array<{ heading: string; paragraphs: string[]; list?: string[] }>;
 };
 
@@ -18,9 +20,24 @@ export const insights: Insight[] = [
     summary:
       "No necesitas elegir una herramienta para todo. La pregunta correcta es qué resultado quieres obtener y qué contexto hace falta para llegar a él.",
     category: "Herramientas",
+    publishedAt: "2026-09-22",
     icon: BotMessageSquare,
-    sourceLabel: "Documentación oficial de OpenAI: Use ChatGPT",
-    sourceUrl: "https://learn.chatgpt.com/docs/use-chatgpt",
+    sources: [
+      { label: "Documentación oficial de OpenAI: Use ChatGPT", url: "https://learn.chatgpt.com/docs/use-chatgpt" },
+    ],
+    diagram: ["Define el resultado", "Explora y decide con ChatGPT", "Construye, prueba o despliega con Codex"],
+    examples: [
+      {
+        title: "Ejemplo 1: ordenar una idea de negocio",
+        prompt: "Quiero ofrecer una asesoría para evaluar si un proceso es automatizable. Ayúdame a definir qué información debo pedir antes de una primera llamada.",
+        result: "ChatGPT puede ayudarte a convertir una idea inicial en preguntas, límites y una estructura de conversación.",
+      },
+      {
+        title: "Ejemplo 2: convertir una decisión en una página",
+        prompt: "Añade una sección de asesoría a esta landing, conserva el diseño actual, compila el proyecto y muestra los archivos modificados.",
+        result: "Codex puede trabajar dentro del repositorio, implementar el cambio, ejecutar comprobaciones y preparar el despliegue.",
+      },
+    ],
     sections: [
       {
         heading: "Dos formas de avanzar el trabajo",
@@ -56,9 +73,24 @@ export const insights: Insight[] = [
     summary:
       "Un buen prompt no es una frase mágica. Es una descripción clara del resultado, el contexto y la forma de revisar el trabajo.",
     category: "Aprender a usar IA",
+    publishedAt: "2026-09-22",
     icon: Code2,
-    sourceLabel: "Documentación oficial de OpenAI: Prompting",
-    sourceUrl: "https://learn.chatgpt.com/docs/prompting",
+    sources: [
+      { label: "Documentación oficial de OpenAI: Prompting", url: "https://learn.chatgpt.com/docs/prompting" },
+    ],
+    diagram: ["Describe el resultado", "Prueba con ejemplos", "Revisa y ajusta una regla"],
+    examples: [
+      {
+        title: "Ejemplo 1: una consulta demasiado amplia",
+        prompt: "Automatiza mis archivos.",
+        result: "Falta saber qué archivos, qué regla seguir, qué no debe cambiarse y cómo verificar el resultado.",
+      },
+      {
+        title: "Ejemplo 2: una primera prueba controlada",
+        prompt: "Con estos cinco nombres, propone una tabla de nombres con fecha_proyecto_pieza_version. Conserva extensiones, no inventes datos y señala duplicados. No cambies archivos todavía.",
+        result: "El resultado se puede revisar antes de afectar la carpeta real y deja visibles las excepciones que requieren criterio humano.",
+      },
+    ],
     sections: [
       {
         heading: "Empieza por el resultado, no por la herramienta",
@@ -99,3 +131,5 @@ export const insights: Insight[] = [
 ];
 
 export const getInsight = (slug?: string) => insights.find((insight) => insight.slug === slug);
+
+export const newestInsights = () => [...insights].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));

@@ -447,6 +447,27 @@ export const insights: Insight[] = [
     ],
   },
   {
+    slug: "investigar-con-chatgpt-y-fuentes",
+    title: "Cómo investigar con ChatGPT y revisar las fuentes",
+    summary: "Usa búsqueda para reunir evidencia, abre las fuentes importantes y deja claros los límites antes de tomar una decisión.",
+    category: "Guías", publishedAt: "2026-09-22", icon: ListChecks,
+    image: { src: "/images/insights/investigar-fuentes.png", alt: "Ilustración de fuentes que se comparan por fecha, autoridad y evidencia antes de una conclusión." },
+    sources: [{ label: "OpenAI Help Center: buscar en la web con ChatGPT — consultada el 22 de septiembre de 2026", url: "https://help.openai.com/es-419/articles/9237897-chatgpt-search" }],
+    diagram: ["Formula una decisión verificable", "Abre y compara fuentes", "Registra evidencia, límites y siguiente paso"],
+    mindMap: { title: "Una investigación revisable", variant: "flow", branches: [
+      { label: "Pregunta", children: ["Fecha y ubicación", "Criterio de decisión"] }, { label: "Fuente", children: ["Autoridad", "Fecha y alcance"] }, { label: "Evidencia", children: ["Enlace abierto", "Dato confirmado"] }, { label: "Conclusión", children: ["Condiciones", "Pendientes"] },
+    ] },
+    examples: [
+      { title: "Ejemplo ilustrativo 1: comparar herramientas", prompt: "Compara tres herramientas para cinco personas y registra función, requisito, límite, enlace oficial y fecha de consulta.", result: "Cada dato importante se puede abrir y revisar antes de elegir." },
+      { title: "Ejemplo ilustrativo 2: una afirmación normativa", prompt: "Encuentra la fuente primaria, fecha de entrada en vigor y sección exacta. Distingue anuncio, texto vigente y datos pendientes.", result: "La respuesta no convierte una publicación secundaria en una obligación confirmada." },
+    ],
+    sections: [
+      { heading: "Una cita no cierra la investigación", paragraphs: ["ChatGPT puede reunir enlaces e información actual, pero los resultados y sus citas pueden ser incompletos, desactualizados o incorrectos. Abre las fuentes importantes y confirma que respaldan exactamente la afirmación.", "Convierte una pregunta amplia en una decisión verificable: registra periodo, ubicación, alternativas y criterio para elegir evidencia."] },
+      { heading: "Revisa fecha, autoridad y alcance", paragraphs: ["Prefiere documentación oficial para funciones, condiciones y precios. Revisa cuándo se publicó o actualizó y si aplica a la cuenta, región o situación consultada.", "Una fuente puede respaldar una parte de un argumento sin demostrar una conclusión más amplia. Separa hechos, interpretación y recomendación."] },
+      { heading: "Entrega evidencia que otro pueda revisar", paragraphs: ["El resultado útil es una tabla de fuentes, fecha de consulta, evidencia y pendientes. Si un dato no se confirma, reduce la conclusión o continúa la búsqueda.", "Entaltek puede ayudar a convertir una pregunta de negocio en una investigación acotada con evidencia y siguiente paso visible."] },
+    ],
+  },
+  {
     slug: "hermes-agent-y-linear",
     title: "Hermes Agent y Linear: del encargo al resultado revisado",
     summary:

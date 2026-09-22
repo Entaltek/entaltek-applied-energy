@@ -1,4 +1,4 @@
-import { type LucideIcon, BotMessageSquare, Code2 } from "lucide-react";
+import { type LucideIcon, BotMessageSquare, Code2, Layers3 } from "lucide-react";
 
 export type Insight = {
   slug: string;
@@ -15,6 +15,66 @@ export type Insight = {
 };
 
 export const insights: Insight[] = [
+  {
+    slug: "ordenar-capas-en-photoshop",
+    title: "De capas desordenadas a una solución que se puede repetir",
+    summary:
+      "Un caso de uso real: entender una tarea repetitiva dentro de Photoshop, convertir sus reglas en un script y conservar la revisión humana donde importa.",
+    category: "Casos",
+    publishedAt: "2026-09-22",
+    icon: Layers3,
+    sources: [
+      { label: "Adobe Help: Scripting in Photoshop — consultada el 22 de septiembre de 2026", url: "https://helpx.adobe.com/ca/photoshop/using/scripting.html" },
+      { label: "Adobe Developer: UXP Scripting — consultada el 22 de septiembre de 2026", url: "https://developer.adobe.com/photoshop/uxp/scripting/" },
+    ],
+    diagram: ["Observa la tarea y sus reglas", "Prepara una primera solución ejecutable", "Revísala con archivos de prueba antes de reutilizarla"],
+    mindMap: [
+      { label: "La tarea", children: ["Agrupar y acomodar capas", "Detectar lo que se repite"] },
+      { label: "Las reglas", children: ["Qué debe ir junto", "Qué casos requieren criterio"] },
+      { label: "La solución", children: ["Instrucciones reutilizables", "Script que Photoshop puede ejecutar"] },
+      { label: "La validación", children: ["Probar con una copia", "Revisar el resultado antes de adoptarlo"] },
+    ],
+    examples: [
+      {
+        title: "Ejemplo 1: una regla que sí se puede explicar",
+        prompt: "En cada archivo, agrupa las capas de texto relacionadas con un mismo encabezado. Conserva los nombres existentes y detente si una capa pertenece a más de un grupo.",
+        result: "La regla hace visible qué puede automatizarse y qué excepción necesita revisión antes de modificar un archivo real.",
+      },
+      {
+        title: "Ejemplo 2: una prueba controlada",
+        prompt: "Usa una copia de un documento con tres grupos de capas. Ejecuta la solución y devuelve una lista de los grupos creados y de las capas que no pudiste clasificar.",
+        result: "La persona puede comparar el resultado con el documento original y corregir la regla antes de usarla en más archivos.",
+      },
+    ],
+    sections: [
+      {
+        heading: "El punto de partida fue una tarea cotidiana",
+        paragraphs: [
+          "En una conversación sobre trabajo de diseño surgió una tarea repetitiva: agrupar y acomodar capas dentro de Photoshop. El caso no empezó con una especificación técnica ni con la petición de construir una gran herramienta. Empezó al observar una parte concreta del flujo y preguntar qué resultado debía quedar listo.",
+          "A partir de esa conversación se prepararon instrucciones reutilizables para generar un script que Photoshop pudiera ejecutar. Adobe documenta que Photoshop admite automatización mediante scripts y que estos sirven especialmente para tareas repetitivas. El detalle técnico de este caso concreto no se presenta como un tutorial: no se han inspeccionado sus archivos ni medido sus resultados.",
+        ],
+      },
+      {
+        heading: "La solución dependía de reglas, no solo de código",
+        paragraphs: [
+          "El valor no estaba en pedir que una herramienta ‘ordenara capas’ de manera general. Estaba en describir qué capas debían reunirse, qué debía conservarse y cuándo la solución debía detenerse. Esas decisiones convierten una tarea repetitiva en un problema que puede probarse.",
+          "La automatización no elimina el criterio de la persona que diseña. Tras ejecutar una regla, alguien debe comprobar que el documento conserve la intención visual y que las excepciones no hayan sido forzadas dentro de un grupo equivocado.",
+        ],
+        list: [
+          "Entrada: un documento y criterios observables para sus capas.",
+          "Proceso: instrucciones claras que producen un script ejecutable en Photoshop.",
+          "Resultado: una primera organización que se revisa antes de repetirla en otros archivos.",
+        ],
+      },
+      {
+        heading: "El impacto que sí podemos contar",
+        paragraphs: [
+          "Según la experiencia compartida, la solución facilitó la organización de capas. No contamos con una medición de tiempo, una comparación de errores ni una revisión del script; por eso no atribuimos ahorros ni resultados que no fueron comprobados.",
+          "La lección es que una solución pequeña puede ser valiosa si parte del trabajo real y se entrega de forma que la persona pueda ejecutarla y revisarla. El siguiente paso para mejorarla sería probarla sobre copias de distintos documentos, registrar las excepciones y decidir qué reglas se mantienen.",
+        ],
+      },
+    ],
+  },
   {
     slug: "chatgpt-y-codex",
     title: "ChatGPT y Codex: cuándo usar cada uno",

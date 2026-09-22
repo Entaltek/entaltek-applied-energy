@@ -44,6 +44,12 @@ const SolutionsSection = () => {
           </TransitionLink>
         </div>
 
+        <nav aria-label="Explorar la biblioteca" className="mt-6 grid gap-3 sm:grid-cols-3">
+          <TransitionLink to="/soluciones/casos" className="group flex items-center justify-between rounded-xl bg-[#E7F3F9] px-5 py-4 font-bold text-[#013762] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">Casos <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></TransitionLink>
+          <TransitionLink to="/soluciones/guias" className="group flex items-center justify-between rounded-xl bg-[#0179B1] px-5 py-4 font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">Guías <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></TransitionLink>
+          <TransitionLink to="/soluciones/herramientas" className="group flex items-center justify-between rounded-xl bg-[#013762] px-5 py-4 font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">Herramientas <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></TransitionLink>
+        </nav>
+
         <div className="mt-6 grid gap-5 lg:grid-cols-[minmax(0,1.14fr)_minmax(0,0.86fr)] lg:gap-6">
           <TransitionLink
             to={`/soluciones/${featured.slug}`}

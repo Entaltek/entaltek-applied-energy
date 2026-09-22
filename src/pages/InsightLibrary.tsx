@@ -1,62 +1,56 @@
-import { ArrowLeft, ArrowUpRight, BookOpen, BriefcaseBusiness, Compass, Wrench } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { ArrowRight, ArrowUpRight, BookOpen, BriefcaseBusiness, Search, Wrench } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import logoMark from "@/assets/logo_entaltek_solo.svg";
-import { insightCategories, insightsByCategory, type Insight } from "@/lib/insights";
+import { insightCategories, insightsByCategory, newestInsights, type Insight } from "@/lib/insights";
 import TransitionLink from "@/components/navigation/TransitionLink";
 
-const categoryDetails: Record<Insight["category"], { description: string; icon: typeof BriefcaseBusiness; empty: string }> = {
-  Casos: {
-    description: "Casos reales de uso: el problema, el camino para resolverlo y el impacto observado.",
-    icon: BriefcaseBusiness,
-    empty: "Aquí reuniremos experiencias y casos reales de uso que dejen un aprendizaje útil.",
-  },
-  Herramientas: {
-    description: "Explicaciones para elegir y usar herramientas con un propósito concreto.",
-    icon: Wrench,
-    empty: "Próximamente habrá herramientas publicadas en esta sección.",
-  },
-  Guías: {
-    description: "Tutoriales para aplicar una idea, comprobar el resultado y repetir el proceso.",
-    icon: Compass,
-    empty: "Próximamente habrá guías publicadas en esta sección.",
-  },
-};
+const categories = {
+  Casos: { slug: "casos", icon: BriefcaseBusiness, description: "Problemas reales, decisiones y resultados observados.", detail: "Aprende del recorrido de una solución: qué ocurrió, qué se probó y qué queda por comprobar.", tone: "bg-[#E7F3F9] text-[#013762]" },
+  Guías: { slug: "guias", icon: BookOpen, description: "Pasos concretos para aprender haciendo.", detail: "Sigue procedimientos, trabaja con ejemplos y comprueba cada resultado antes de usarlo.", tone: "bg-[#0179B1] text-white" },
+  Herramientas: { slug: "herramientas", icon: Wrench, description: "Elige la herramienta según el trabajo.", detail: "Compara usos, requisitos y límites antes de sumar otra pieza a tu proceso.", tone: "bg-[#013762] text-white" },
+} as const;
+const route = (category: Insight["category"]) => `/soluciones/${categories[category].slug}`;
+const categoryHeading = { Casos: "Todos los casos", Guías: "Todas las guías", Herramientas: "Todas las herramientas" };
+const formatDate = (date: string) => new Intl.DateTimeFormat("es-MX", { dateStyle: "medium" }).format(new Date(`${date}T12:00:00`));
 
-const InsightLibrary = () => (
-  <main className="route-page min-h-screen bg-[#F5F9FC] text-[#013762]">
-    <header className="border-b border-[#013762]/10 bg-white/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3 font-bold tracking-wide text-[#013762]"><img src={logoMark} alt="" className="h-9 w-auto" /> ENTALTEK</Link>
-        <TransitionLink to="/#soluciones" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0179B1] hover:text-[#013762]"><ArrowLeft className="h-4 w-4" aria-hidden="true" /> Inicio</TransitionLink>
-      </div>
-    </header>
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-      <BookOpen className="h-9 w-9 text-[#0179B1]" aria-hidden="true" />
-      <h1 className="mt-7 max-w-4xl text-[clamp(2.7rem,6vw,5.5rem)] font-extrabold leading-[0.96] tracking-tight">Biblioteca de soluciones e impacto</h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#013762]/70">Una biblioteca organizada para encontrar casos, herramientas y guías prácticas. Cada artículo conserva su fecha de publicación y las fuentes que respaldan sus afirmaciones.</p>
-      <nav aria-label="Secciones de la biblioteca" className="mt-9 flex flex-wrap gap-3">
-        {insightCategories.map((category) => <a key={category} href={`#${category.toLowerCase()}`} className="rounded-full border border-[#013762]/15 bg-white px-4 py-2 text-sm font-bold text-[#0179B1] transition-colors hover:border-[#0179B1] hover:text-[#013762]">{category}</a>)}
-      </nav>
-      <div className="mt-16 space-y-20">
-        {insightCategories.map((category) => {
-          const details = categoryDetails[category];
-          const CategoryIcon = details.icon;
-          const categoryInsights = insightsByCategory(category);
-          return <section key={category} id={category.toLowerCase()} className="scroll-mt-10">
-            <div className="max-w-2xl"><div className="flex items-center gap-3 text-[#0179B1]"><CategoryIcon className="h-6 w-6" aria-hidden="true" /><p className="text-sm font-bold uppercase tracking-[0.16em]">{category}</p></div><h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">{category}</h2><p className="mt-3 text-base leading-relaxed text-[#013762]/70">{details.description}</p></div>
-            {categoryInsights.length ? <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">{categoryInsights.map((insight) => {
-              const Icon = insight.icon;
-              return <TransitionLink key={insight.slug} to={`/soluciones/${insight.slug}`} className="group flex min-h-72 flex-col overflow-hidden rounded-2xl border border-[#013762]/10 bg-white transition-all hover:-translate-y-1 hover:border-[#0179B1]/40 hover:shadow-[0_20px_44px_rgba(1,55,98,0.12)]">
-                <img src={insight.image.src} alt="" className="aspect-[16/8] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
-                <div className="flex flex-1 flex-col justify-between p-7"><div><Icon className="h-8 w-8 text-[#0179B1]" aria-hidden="true" /><h3 className="mt-5 text-2xl font-bold leading-tight">{insight.title}</h3><p className="mt-4 text-sm leading-relaxed text-[#013762]/65">{insight.summary}</p></div>
-                <div className="mt-7 flex items-center justify-between gap-3 text-sm font-semibold text-[#0179B1]"><time dateTime={insight.publishedAt}>{new Intl.DateTimeFormat("es-MX", { dateStyle: "medium" }).format(new Date(`${insight.publishedAt}T12:00:00`))}</time><ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" /></div></div>
-              </TransitionLink>;
-            })}</div> : <div className="mt-8 rounded-2xl border border-dashed border-[#013762]/20 bg-white/60 p-7 text-sm leading-relaxed text-[#013762]/65">{details.empty}</div>}
-          </section>;
-        })}
-      </div>
-    </section>
-  </main>
+const ArticleRow = ({ insight }: { insight: Insight }) => (
+  <TransitionLink to={`/soluciones/${insight.slug}`} className="group grid gap-5 border-b border-[#013762]/15 py-6 focus-visible:outline-2 focus-visible:outline-[#0179B1] sm:grid-cols-[8rem_minmax(0,1fr)_auto] sm:items-center">
+    <img src={insight.image.src} alt="" loading="lazy" className="aspect-[3/2] w-full rounded-xl object-cover sm:aspect-square" />
+    <div><p className="text-xs font-bold text-[#004C7A]">{insight.category} · <time dateTime={insight.publishedAt}>{formatDate(insight.publishedAt)}</time></p><h3 className="mt-2 text-xl font-bold leading-tight group-hover:text-[#0179B1] sm:text-2xl">{insight.title}</h3><p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#365872]">{insight.summary}</p></div>
+    <ArrowUpRight className="hidden h-5 w-5 text-[#0179B1] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 sm:block" aria-hidden="true" />
+  </TransitionLink>
 );
+
+const LibraryHeader = ({ pathname }: { pathname: string }) => (
+  <header className="sticky top-0 z-20 border-b border-[#013762]/10 bg-white/95 backdrop-blur">
+    <div className="mx-auto flex max-w-7xl flex-col items-start gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 lg:px-8">
+      <Link to="/" className="flex shrink-0 items-center gap-2 font-bold tracking-wide text-[#013762]"><img src={logoMark} alt="" className="h-8 w-auto" /> ENTALTEK</Link>
+      <nav aria-label="Biblioteca" className="flex w-full items-center justify-between gap-1 text-xs font-semibold sm:w-auto sm:justify-start sm:gap-5 sm:text-sm">
+        <TransitionLink to="/soluciones" aria-current={pathname === "/soluciones" ? "page" : undefined} className="whitespace-nowrap rounded-md px-2 py-2 text-[#004C7A] hover:bg-[#E7F3F9] aria-[current=page]:bg-[#E7F3F9]">Biblioteca</TransitionLink>
+        {insightCategories.map((category) => <TransitionLink key={category} to={route(category)} aria-current={pathname === route(category) ? "page" : undefined} className="whitespace-nowrap rounded-md px-2 py-2 text-[#004C7A] hover:bg-[#E7F3F9] aria-[current=page]:bg-[#E7F3F9]">{category}</TransitionLink>)}
+      </nav>
+    </div>
+  </header>
+);
+
+const InsightLibrary = () => {
+  const pathname = useLocation().pathname;
+  const categorySlug = pathname.split("/").at(-1);
+  const activeCategory = insightCategories.find((category) => categories[category].slug === categorySlug);
+  const [query, setQuery] = useState("");
+  useEffect(() => setQuery(""), [pathname]);
+  const all = activeCategory ? insightsByCategory(activeCategory) : newestInsights();
+  const articles = all.filter((item) => `${item.title} ${item.summary}`.toLocaleLowerCase("es").includes(query.trim().toLocaleLowerCase("es")));
+  return <main className="route-page min-h-screen bg-[#F5F9FC] text-[#013762]">
+    <LibraryHeader pathname={pathname} />
+    {!activeCategory ? <>
+      <section className="bg-[#013762] text-white"><div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8"><h1 className="max-w-4xl text-[clamp(2.3rem,5vw,4.5rem)] font-extrabold leading-[1.03] tracking-[-0.03em]">Encuentra una respuesta que puedas poner a prueba.</h1><p className="mt-5 max-w-2xl text-base leading-relaxed text-[#D4E5F0] sm:text-lg">Explora experiencias reales, aprende un procedimiento o compara herramientas. Cada recurso indica sus fuentes y la forma de revisar el resultado.</p></div></section>
+      <section aria-label="Explorar recursos" className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8"><div className="grid gap-4 md:grid-cols-3">{insightCategories.map((category) => { const info = categories[category]; const Icon = info.icon; return <TransitionLink key={category} to={route(category)} className={`group flex min-h-56 flex-col justify-between rounded-2xl p-7 transition-transform motion-safe:hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0179B1] md:min-h-64 ${info.tone}`}><div><Icon className="h-8 w-8" aria-hidden="true" /><h2 className="mt-5 text-3xl font-bold">{category}</h2><p className={`mt-3 max-w-xs leading-relaxed ${category === "Casos" ? "text-[#365872]" : "text-white/85"}`}>{info.description}</p></div><span className="mt-6 inline-flex items-center gap-2 text-sm font-bold">Explorar {category.toLowerCase()} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></span></TransitionLink>; })}</div></section>
+    </> : <section className={categories[activeCategory].tone}><div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8"><TransitionLink to="/soluciones" className="text-sm font-bold underline underline-offset-4">← Biblioteca</TransitionLink><h1 className="mt-5 text-[clamp(2.7rem,6vw,5rem)] font-extrabold leading-tight">{activeCategory}</h1><p className="mt-4 max-w-2xl text-lg leading-relaxed opacity-90">{categories[activeCategory].detail}</p></div></section>}
+    <section className="mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8"><div className="flex flex-col gap-5 border-b border-[#013762]/20 pb-5 sm:flex-row sm:items-end sm:justify-between"><div><h2 className="text-2xl font-bold">{activeCategory ? categoryHeading[activeCategory] : "Publicaciones recientes"}</h2><p className="mt-1 text-sm text-[#365872]">{all.length} {all.length === 1 ? "recurso disponible" : "recursos disponibles"}</p></div><label className="flex w-full items-center gap-2 rounded-lg border border-[#013762]/20 bg-white px-3 py-2 text-[#004C7A] focus-within:outline-2 focus-within:outline-[#0179B1] sm:w-80"><Search className="h-4 w-4" aria-hidden="true" /><span className="sr-only">Buscar artículos</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar por tema" className="w-full bg-transparent text-sm text-[#013762] outline-none placeholder:text-[#58718A]" /></label></div>
+      {articles.length ? <div>{articles.map((insight) => <ArticleRow key={insight.slug} insight={insight} />)}</div> : <p className="py-10 text-[#365872]">No encontramos recursos con ese término. Prueba con otra palabra.</p>}</section>
+  </main>;
+};
 
 export default InsightLibrary;

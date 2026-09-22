@@ -1,7 +1,7 @@
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import logoMark from "@/assets/logo_entaltek_solo.svg";
-import { getInsight } from "@/lib/insights";
+import { getInsight, insightCategories } from "@/lib/insights";
 import MindMap from "@/components/insights/MindMapLayout";
 import TransitionLink from "@/components/navigation/TransitionLink";
 
@@ -13,21 +13,25 @@ const InsightArticle = () => {
   }
 
   const Icon = insight.icon;
+  const categoryPath = { Casos: "casos", "Guías": "guias", Herramientas: "herramientas" } as const;
   return (
     <main className="route-page min-h-screen bg-[#F5F9FC] text-[#013762]">
       <header className="border-b border-[#013762]/10 bg-white/85 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
+        <div className="mx-auto flex max-w-5xl flex-col items-start gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6">
           <Link to="/" className="flex items-center gap-3 font-bold tracking-wide text-[#013762]">
             <img src={logoMark} alt="" className="h-9 w-auto" /> ENTALTEK
           </Link>
-          <TransitionLink to="/soluciones" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0179B1] hover:text-[#013762]"><ArrowLeft className="h-4 w-4" aria-hidden="true" /> Soluciones e impacto</TransitionLink>
+          <nav aria-label="Biblioteca" className="flex w-full items-center justify-between gap-1 text-xs font-semibold sm:w-auto sm:gap-5 sm:text-sm">
+            <TransitionLink to="/soluciones" className="rounded-md px-2 py-2 text-[#004C7A] hover:bg-[#E7F3F9]">Biblioteca</TransitionLink>
+            {insightCategories.map((category) => <TransitionLink key={category} to={`/soluciones/${categoryPath[category]}`} className="rounded-md px-2 py-2 text-[#004C7A] hover:bg-[#E7F3F9]">{category}</TransitionLink>)}
+          </nav>
         </div>
       </header>
       <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 md:py-24">
         <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#013762] text-[#47DAD6]">
           <Icon className="h-7 w-7" aria-hidden="true" />
         </div>
-        <p className="mt-8 text-sm font-semibold text-[#004C7A]">{insight.category}</p>
+        <TransitionLink to={`/soluciones/${categoryPath[insight.category]}`} className="mt-8 inline-block text-sm font-semibold text-[#004C7A] underline-offset-4 hover:underline">{insight.category}</TransitionLink>
         <h1 className="mt-3 text-[clamp(2.5rem,6vw,5rem)] font-extrabold leading-[0.98] tracking-tight text-[#013762]">{insight.title}</h1>
         <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[#013762]/72">{insight.summary}</p>
         <time dateTime={insight.publishedAt} className="mt-6 block text-sm text-[#013762]/55">Publicado el {new Intl.DateTimeFormat("es-MX", { dateStyle: "long" }).format(new Date(`${insight.publishedAt}T12:00:00`))}</time>

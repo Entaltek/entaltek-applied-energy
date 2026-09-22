@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Primer proyecto con Codex</title>
+  <desc id="desc">Una petición pasa por un cambio pequeño, una revisión y una entrega comprobada.</desc>
+  <rect width="1200" height="675" fill="#e7f3f9"/>
+  <text x="78" y="103" fill="#004c7a" font-family="Arial,sans-serif" font-size="24" font-weight="700">DE LA PETICIÓN A LA EVIDENCIA</text>
+  <text x="78" y="164" fill="#013762" font-family="Arial,sans-serif" font-size="48" font-weight="700">Un cambio que se puede revisar</text>
+  <path d="M90 350h1020" stroke="#0179b1" stroke-width="6"/>
+  <g font-family="Arial,sans-serif" text-anchor="middle" font-size="30" font-weight="700">
+    <circle cx="180" cy="350" r="72" fill="#013762"/><text x="180" y="362" fill="#fff">Pedir</text>
+    <circle cx="455" cy="350" r="72" fill="#0179b1"/><text x="455" y="362" fill="#fff">Editar</text>
+    <circle cx="745" cy="350" r="72" fill="#004c7a"/><text x="745" y="362" fill="#fff">Revisar</text>
+    <circle cx="1020" cy="350" r="72" fill="#47dad6"/><text x="1020" y="362" fill="#013762">Probar</text>
+  </g>
+  <rect x="78" y="523" width="1044" height="84" rx="16" fill="#fff"/>
+  <text x="600" y="575" fill="#013762" font-family="Arial,sans-serif" font-size="28" text-anchor="middle">Archivo cambiado · prueba realizada · límite declarado</text>
+</svg>

@@ -21,6 +21,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/soluciones" element={<InsightLibrary />} />
+          <Route path="/soluciones/casos" element={<InsightLibrary />} />
+          <Route path="/soluciones/guias" element={<InsightLibrary />} />
+          <Route path="/soluciones/herramientas" element={<InsightLibrary />} />
           <Route path="/soluciones/:slug" element={<InsightArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

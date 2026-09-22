@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Probar cambios en una muestra</title>
+  <desc id="desc">Los archivos originales permanecen aparte mientras una muestra se revisa antes de ampliar el cambio.</desc>
+  <rect width="1200" height="675" fill="#013762"/>
+  <text x="84" y="105" fill="#47dad6" font-family="Arial,sans-serif" font-size="24" font-weight="700">CAMBIO CONTROLADO</text>
+  <text x="84" y="166" fill="#fff" font-family="Arial,sans-serif" font-size="47" font-weight="700">Prueba antes de ampliar</text>
+  <g font-family="Arial,sans-serif" font-size="27" font-weight="700">
+    <rect x="84" y="250" width="300" height="250" rx="18" fill="#e7f3f9"/>
+    <text x="115" y="310" fill="#013762">Originales</text>
+    <path d="M120 350h225M120 388h175M120 426h205" stroke="#0179b1" stroke-width="10" stroke-linecap="round"/>
+    <rect x="456" y="250" width="300" height="250" rx="18" fill="#0179b1"/>
+    <text x="487" y="310" fill="#fff">Muestra</text>
+    <path d="M492 350h225M492 388h175M492 426h205" stroke="#a9e9ed" stroke-width="10" stroke-linecap="round"/>
+    <rect x="828" y="250" width="288" height="250" rx="18" fill="#47dad6"/>
+    <text x="859" y="310" fill="#013762">Revisión</text>
+    <path d="m876 400 38 38 96-104" stroke="#013762" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="600" y="589" fill="#fff" font-family="Arial,sans-serif" font-size="29" text-anchor="middle">Regla · excepción · decisión</text>
+</svg>

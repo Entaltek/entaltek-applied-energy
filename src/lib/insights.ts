@@ -1,5 +1,8 @@
 import { type LucideIcon, BotMessageSquare, Code2, Layers3, ListChecks, Workflow } from "lucide-react";
 import { insightsModuleThree } from "./insightsModuleThree";
+import { codexSetupInsight } from "./insightsCodexSetup";
+import { firstCodexInsight } from "./insightsFirstCodex";
+import { testChangesInsight } from "./insightsTestChanges";
 
 export type Insight = {
   slug: string;
@@ -21,6 +24,9 @@ export type Insight = {
 };
 
 export const insights: Insight[] = [
+  testChangesInsight,
+  firstCodexInsight,
+  codexSetupInsight,
   ...insightsModuleThree,
   {
     slug: "ordenar-capas-en-photoshop",
@@ -596,7 +602,7 @@ export const getInsight = (slug?: string) => insights.find((insight) => insight.
 
 export const newestInsights = () => [...insights].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 
-export const insightCategories = ["Casos", "Herramientas", "Guías"] as const;
+export const insightCategories = ["Casos", "Guías", "Herramientas"] as const;
 
 export const insightsByCategory = (category: Insight["category"]) =>
   newestInsights().filter((insight) => insight.category === category);

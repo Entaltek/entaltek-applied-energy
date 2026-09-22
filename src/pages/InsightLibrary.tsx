@@ -5,9 +5,9 @@ import { insightCategories, insightsByCategory, type Insight } from "@/lib/insig
 
 const categoryDetails: Record<Insight["category"], { description: string; icon: typeof BriefcaseBusiness; empty: string }> = {
   Casos: {
-    description: "Historias anónimas de problemas reales, el camino para resolverlos y el impacto observado.",
+    description: "Casos reales de uso: el problema, el camino para resolverlo y el impacto observado.",
     icon: BriefcaseBusiness,
-    empty: "Aquí reuniremos casos reales cuando podamos contar el aprendizaje sin exponer a las personas ni a sus empresas.",
+    empty: "Aquí reuniremos experiencias y casos reales de uso que dejen un aprendizaje útil.",
   },
   Herramientas: {
     description: "Explicaciones para elegir y usar herramientas con un propósito concreto.",

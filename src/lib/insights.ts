@@ -4,7 +4,7 @@ export type Insight = {
   slug: string;
   title: string;
   summary: string;
-  category: string;
+  category: "Casos" | "Herramientas" | "Guías";
   publishedAt: string;
   icon: LucideIcon;
   sources: Array<{ label: string; url: string }>;
@@ -72,7 +72,7 @@ export const insights: Insight[] = [
     title: "Cómo escribir un prompt que sí ayuda a resolver una tarea",
     summary:
       "Un buen prompt no es una frase mágica. Es una descripción clara del resultado, el contexto y la forma de revisar el trabajo.",
-    category: "Aprender a usar IA",
+    category: "Guías",
     publishedAt: "2026-09-22",
     icon: Code2,
     sources: [
@@ -133,3 +133,8 @@ export const insights: Insight[] = [
 export const getInsight = (slug?: string) => insights.find((insight) => insight.slug === slug);
 
 export const newestInsights = () => [...insights].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+
+export const insightCategories = ["Casos", "Herramientas", "Guías"] as const;
+
+export const insightsByCategory = (category: Insight["category"]) =>
+  newestInsights().filter((insight) => insight.category === category);

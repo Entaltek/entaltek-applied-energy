@@ -24,9 +24,9 @@ export type Insight = {
 };
 
 export const insights: Insight[] = [
-  testChangesInsight,
-  firstCodexInsight,
   codexSetupInsight,
+  firstCodexInsight,
+  testChangesInsight,
   ...insightsModuleThree,
   {
     slug: "ordenar-capas-en-photoshop",

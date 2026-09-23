@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { X, ArrowUpRight, MessageCircle } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { X, MessageCircle } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/site";
 import guarderiasMockup from "@/assets/sabueso/minimal-dashboard-mockup.svg";
@@ -33,6 +33,8 @@ type Props = {
 
 const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
   const [expanded, setExpanded] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
   const isGuarderias = detail.title === "Guarderías Entaltek";
   const isSalones = detail.title === "Salones Entaltek";
   const hero = isGuarderias
@@ -61,8 +63,28 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
     const main = document.getElementById("main-scroll");
     if (main) main.style.overflow = "hidden";
 
+    const previouslyFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    closeRef.current?.focus();
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") handleClose();
+      if (e.key === "Escape") {
+        e.preventDefault();
+        handleClose();
+      }
+      if (e.key !== "Tab" || !dialogRef.current) return;
+      const controls = Array.from(dialogRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ));
+      if (!controls.length) return;
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (e.shiftKey && (document.activeElement === first || !dialogRef.current.contains(document.activeElement))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (document.activeElement === last || !dialogRef.current.contains(document.activeElement))) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     window.addEventListener("keydown", onKey);
 
@@ -70,6 +92,7 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
       cancelAnimationFrame(raf);
       if (main) main.style.overflow = "";
       window.removeEventListener("keydown", onKey);
+      previouslyFocused?.focus();
     };
   }, [handleClose]);
 
@@ -95,6 +118,7 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
     <div
       className={`fixed z-[60] overflow-hidden bg-gradient-to-br ${detail.gradient}`}
       style={{ ...boxStyle, transition: `all ${EXPAND_MS}ms cubic-bezier(0.32, 0.72, 0, 1)` }}
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-label={`Detalle del producto ${detail.title}`}
@@ -113,6 +137,7 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
               {detail.badge.label}
             </span>
             <button
+              ref={closeRef}
               onClick={handleClose}
               className="p-2.5 rounded-full bg-white/10 text-white hover:bg-white/25 transition-colors"
               aria-label="Cerrar detalle"
@@ -128,17 +153,6 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
               <p className={`mt-2 text-lg font-medium ${detail.accentText}`}>{detail.tagline}</p>
               <p className="mt-4 text-white/70 leading-relaxed">{detail.intro}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                {false && detail.demoUrl && !isGuarderias && (
-                  <a
-                    href={detail.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg font-semibold text-[#011627] hover:bg-white transition-colors ${detail.accentBg}`}
-                  >
-                    Ver demo en vivo
-                    <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
-                  </a>
-                )}
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"

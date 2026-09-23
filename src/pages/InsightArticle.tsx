@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import logoMark from "@/assets/logo_entaltek_solo.svg";
@@ -32,6 +33,48 @@ const LinearWorkflow = () => (
 
 const InsightArticle = () => {
   const insight = getInsight(useParams().slug);
+
+  useEffect(() => {
+    if (!insight) return;
+    const title = document.title;
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    const keywords = document.querySelector<HTMLMetaElement>('meta[name="keywords"]');
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    const ogTitle = document.querySelector<HTMLMetaElement>('meta[property="og:title"]');
+    const ogDescription = document.querySelector<HTMLMetaElement>('meta[property="og:description"]');
+    const ogType = document.querySelector<HTMLMetaElement>('meta[property="og:type"]');
+    const ogUrl = document.querySelector<HTMLMetaElement>('meta[property="og:url"]');
+    const previous = [description, keywords, canonical, ogTitle, ogDescription, ogType, ogUrl].map((element) => element?.getAttribute(element instanceof HTMLLinkElement ? "href" : "content"));
+    const url = `https://entaltek.com/soluciones/${insight.slug}`;
+    document.title = `${insight.title} | Entaltek`;
+    description?.setAttribute("content", insight.seo?.description ?? insight.summary);
+    if (insight.seo?.keywords && keywords) keywords.setAttribute("content", insight.seo.keywords.join(", "));
+    canonical?.setAttribute("href", url);
+    ogTitle?.setAttribute("content", insight.title);
+    ogDescription?.setAttribute("content", insight.seo?.description ?? insight.summary);
+    ogType?.setAttribute("content", "article");
+    ogUrl?.setAttribute("content", url);
+    const structuredData = document.createElement("script");
+    structuredData.type = "application/ld+json";
+    structuredData.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: insight.title,
+      description: insight.seo?.description ?? insight.summary,
+      datePublished: insight.publishedAt,
+      isPartOf: { "@type": "WebSite", name: "Entaltek", url: "https://entaltek.com" },
+      mainEntityOfPage: url,
+      image: `https://entaltek.com${insight.image.src}`,
+    });
+    document.head.appendChild(structuredData);
+    return () => {
+      document.title = title;
+      [description, keywords, canonical, ogTitle, ogDescription, ogType, ogUrl].forEach((element, index) => {
+        if (element && previous[index] !== null && previous[index] !== undefined) element.setAttribute(element instanceof HTMLLinkElement ? "href" : "content", previous[index]);
+      });
+      structuredData.remove();
+    };
+  }, [insight]);
 
   if (!insight) {
     return <main className="route-page min-h-screen bg-[#F5F9FC] dark:bg-[#091D2C] p-8 text-[#013762] dark:text-[#E7F2F7]"><TransitionLink to="/">Volver a Entaltek</TransitionLink></main>;
@@ -87,6 +130,7 @@ const InsightArticle = () => {
                   {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 </div>
                 {section.list && <ul className="mt-6 max-w-[70ch] space-y-3 border-l border-[#0179B1]/35 pl-5 text-[#013762]/75 dark:text-[#C3D9E5]">{section.list.map((item) => <li key={item}>{item}</li>)}</ul>}
+                {section.code && <pre className="mt-6 max-w-full overflow-x-auto rounded-xl bg-[#013762] p-5 text-sm leading-7 text-white"><code>{section.code}</code></pre>}
               </div>
             </section>
           ))}

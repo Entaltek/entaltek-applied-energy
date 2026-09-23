@@ -39,7 +39,7 @@ const DemoLink = ({ href }: { href?: string }) => {
       target="_blank"
       rel="noopener noreferrer"
       onClick={(e) => e.stopPropagation()}
-      className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-[#47DAD6] hover:underline"
+      className="relative z-20 inline-flex items-center gap-1 mt-4 text-sm font-medium text-[#47DAD6] hover:underline"
     >
       Ver proyecto
       <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -64,21 +64,6 @@ const ProductsSection = () => {
   const cardIn = inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8";
   const cardDelay = (index: number) => ({ transitionDelay: inView ? `${120 + index * 90}ms` : "0ms" });
 
-  const expandableProps = (detail: ProductDetail) => {
-    const open = openDetail(detail);
-    return {
-      role: "button" as const,
-      tabIndex: 0,
-      "aria-label": `Ver detalle de ${detail.title}`,
-      onClick: (e: React.MouseEvent<HTMLElement>) => open(e.currentTarget),
-      onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          open(e.currentTarget);
-        }
-      },
-    };
-  };
 
   return (
     <section
@@ -106,10 +91,10 @@ const ProductsSection = () => {
 
           {/* 1. Clínicas Entaltek (Principal grande) - Salud: cian suave */}
           <article
-            {...expandableProps(mediclinkDetail)}
             style={cardDelay(0)}
             className={`group relative overflow-hidden md:col-span-2 lg:col-span-6 lg:row-span-2 rounded-[1.5rem] p-6 md:p-8 lg:p-10 border border-[#7dd3fc]/15 bg-gradient-to-br from-[#7dd3fc]/10 via-[#013762]/45 to-[#011627] flex flex-col justify-between min-h-[300px] md:min-h-[360px] lg:min-h-[420px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#7dd3fc]/40 hover:shadow-[0_0_24px_rgba(125,211,252,0.1)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#7dd3fc] ${cardIn}`}
           >
+            <button type="button" onClick={(e) => openDetail(mediclinkDetail)(e.currentTarget)} aria-label={`Ver detalle de ${mediclinkDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-5 right-5 w-5 h-5 text-[#7dd3fc]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
@@ -122,17 +107,17 @@ const ProductsSection = () => {
               </p>
             </div>
             <div className="mt-6">
-              <DemoLink href="https://demo-mediclink.lovable.app" />
+              <DemoLink />
             </div>
             <DeviceFrame />
           </article>
 
           {/* 2. CFDI Entaltek - Fiscal: dorado tenue */}
           <article
-            {...expandableProps(satHarmonyDetail)}
             style={cardDelay(1)}
             className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#fcd34d]/7 via-[#0b1f2e] to-[#011627] border border-[#fcd34d]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#fcd34d]/35 hover:shadow-[0_0_15px_rgba(252,211,77,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#fcd34d] ${cardIn}`}
           >
+            <button type="button" onClick={(e) => openDetail(satHarmonyDetail)(e.currentTarget)} aria-label={`Ver detalle de ${satHarmonyDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#fcd34d]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
@@ -149,10 +134,10 @@ const ProductsSection = () => {
 
           {/* 3. Rentas Entaltek - Inmobiliario: violeta tenue */}
           <article
-            {...expandableProps(nodoDetail)}
             style={cardDelay(2)}
             className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#a78bfa]/7 via-[#101b33] to-[#011627] border border-[#a78bfa]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#a78bfa]/35 hover:shadow-[0_0_15px_rgba(167,139,250,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a78bfa] ${cardIn}`}
           >
+            <button type="button" onClick={(e) => openDetail(nodoDetail)(e.currentTarget)} aria-label={`Ver detalle de ${nodoDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#a78bfa]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
@@ -169,10 +154,10 @@ const ProductsSection = () => {
 
           {/* 5. Reservas Entaltek - Reservas: verde turquesa tenue */}
           <article
-            {...expandableProps(pilatesDetail)}
             style={cardDelay(4)}
             className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#34d399]/7 via-[#062b2e] to-[#011627] border border-[#34d399]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#34d399]/35 hover:shadow-[0_0_15px_rgba(52,211,153,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#34d399] ${cardIn}`}
           >
+            <button type="button" onClick={(e) => openDetail(pilatesDetail)(e.currentTarget)} aria-label={`Ver detalle de ${pilatesDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#34d399]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
@@ -189,10 +174,10 @@ const ProductsSection = () => {
 
           {/* 6. Salones Entaltek - Servicios: magenta tenue */}
           <article
-            {...expandableProps(nailaDetail)}
             style={cardDelay(5)}
             className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#f472b6]/7 via-[#24142a] to-[#011627] border border-[#f472b6]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#f472b6]/35 hover:shadow-[0_0_15px_rgba(244,114,182,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f472b6] ${cardIn}`}
           >
+            <button type="button" onClick={(e) => openDetail(nailaDetail)(e.currentTarget)} aria-label={`Ver detalle de ${nailaDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#f472b6]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
@@ -209,10 +194,10 @@ const ProductsSection = () => {
 
           {/* 7. Guarderías Entaltek - Operación: slate azulado */}
           <article
-            {...expandableProps(sabuesoDetail)}
             style={cardDelay(6)}
             className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#94a3b8]/7 via-[#102233] to-[#011627] border border-[#94a3b8]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#94a3b8]/35 hover:shadow-[0_0_15px_rgba(148,163,184,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#94a3b8] ${cardIn}`}
           >
+            <button type="button" onClick={(e) => openDetail(sabuesoDetail)(e.currentTarget)} aria-label={`Ver detalle de ${sabuesoDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#94a3b8]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"

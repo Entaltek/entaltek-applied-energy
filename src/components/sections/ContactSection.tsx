@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle2, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useInView } from "@/hooks/useInView";
+import { Link } from "react-router-dom";
 import logoMark from "@/assets/logo_entaltek_solo.svg";
 import {
   WHATSAPP_URL,
@@ -15,7 +16,7 @@ const inputClass =
   "w-full rounded-xl border border-[#013762]/12 dark:border-[#B4DDE7]/20 bg-[#F8FAFC] dark:bg-[#102B40] px-4 py-3 text-[#013762] dark:text-[#E7F2F7] placeholder:text-[#013762]/35 dark:placeholder:text-[#9EB7C6] shadow-inner shadow-[#013762]/[0.02] outline-none transition-all focus:border-[#0179B1]/60 focus:bg-white dark:focus:bg-[#173C52] focus:ring-4 focus:ring-[#47DAD6]/15";
 
 const trustPoints = [
-  "Respuesta en menos de 24 horas.",
+  "Atención directa a tu solicitud.",
   "Diagnóstico inicial sin costo.",
   "Soluciones pensadas para PYMES, startups y equipos operativos.",
 ];
@@ -26,6 +27,7 @@ const ContactSection = () => {
   const { ref, inView } = useInView<HTMLDivElement>();
   const [formData, setFormData] = useState({ nombre: "", email: "", mensaje: "" });
   const [isSending, setIsSending] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,6 +36,8 @@ const ContactSection = () => {
       toast.error("Por favor completa todos los campos");
       return;
     }
+
+    if (honeypot) return;
 
     setIsSending(true);
     try {
@@ -49,17 +53,19 @@ const ContactSection = () => {
           message: formData.mensaje,
           _subject: "Nuevo Lead desde Entaltek Web",
           _captcha: "false",
+          _honey: honeypot,
         }),
       });
 
-      if (response.ok) {
-        toast.success("Mensaje enviado. Te respondemos en menos de 24 horas.");
+      const result: { success?: boolean | string } = await response.json();
+      if (response.ok && (result.success === true || result.success === "true")) {
+        toast.success("Mensaje enviado. Te responderemos tan pronto como podamos.");
         setFormData({ nombre: "", email: "", mensaje: "" });
       } else {
         toast.error("Error al enviar el mensaje");
       }
     } catch {
-      toast.error("No se pudo conectar con el servidor");
+      toast.error("No pudimos confirmar el envío. Escríbenos por correo o WhatsApp.");
     } finally {
       setIsSending(false);
     }
@@ -151,6 +157,10 @@ const ContactSection = () => {
               </div>
 
               <div className="space-y-4">
+                <div className="absolute -left-[9999px]" aria-hidden="true">
+                  <label htmlFor="contact-website">Deja este campo vacío</label>
+                  <input id="contact-website" name="_honey" type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+                </div>
                 <div>
                   <label htmlFor="nombre" className="mb-1.5 block text-sm font-bold text-[#013762] dark:text-[#E7F2F7]">
                     Nombre
@@ -162,6 +172,7 @@ const ContactSection = () => {
                     onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
                     placeholder="Tu nombre"
                     autoComplete="name"
+                    maxLength={120}
                     required
                     className={inputClass}
                   />
@@ -178,6 +189,7 @@ const ContactSection = () => {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="tu@correo.com"
                     autoComplete="email"
+                    maxLength={254}
                     required
                     className={inputClass}
                   />
@@ -194,10 +206,16 @@ const ContactSection = () => {
                     placeholder="Ej. Quiero automatizar cotizaciones, pedidos o seguimiento de clientes..."
                     required
                     rows={4}
+                    maxLength={4000}
                     className={`${inputClass} resize-none`}
                   />
                 </div>
               </div>
+
+              <p className="mt-5 text-sm leading-relaxed text-[#013762]/75 dark:text-[#C3D9E5]">
+                Usaremos tu nombre, correo y mensaje para responder a tu solicitud. El envío pasa por FormSubmit y llega a nuestro correo. Consulta el{" "}
+                <Link to="/privacidad" className="font-semibold underline underline-offset-2 hover:text-[#0179B1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">Aviso de Privacidad</Link>.
+              </p>
 
               <button
                 type="submit"
@@ -222,6 +240,8 @@ const ContactSection = () => {
             </span>
           </div>
 
+          <div className="flex items-center gap-5">
+            <Link to="/privacidad" className="text-sm text-white/75 underline underline-offset-2 hover:text-[#47DAD6] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#47DAD6]">Privacidad</Link>
           <a
             href={LINKEDIN_URL}
             target="_blank"
@@ -231,6 +251,7 @@ const ContactSection = () => {
           >
             <Linkedin className="w-5 h-5" />
           </a>
+          </div>
         </div>
       </footer>
     </section>

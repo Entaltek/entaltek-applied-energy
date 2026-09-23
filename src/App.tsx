@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import InsightArticle from "./pages/InsightArticle";
 import InsightLibrary from "./pages/InsightLibrary";
+import Privacy from "./pages/Privacy";
 import RouteEffects from "./components/navigation/RouteEffects";
 import { ThemeProvider } from "next-themes";
 
@@ -22,6 +23,7 @@ const App = () => (
         <RouteEffects />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/privacidad" element={<Privacy />} />
           <Route path="/soluciones" element={<InsightLibrary />} />
           <Route path="/soluciones/casos" element={<InsightLibrary />} />
           <Route path="/soluciones/guias" element={<InsightLibrary />} />

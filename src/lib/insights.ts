@@ -4,6 +4,7 @@ import { codexSetupInsight } from "./insightsCodexSetup";
 import { firstCodexInsight } from "./insightsFirstCodex";
 import { testChangesInsight } from "./insightsTestChanges";
 import { agentInsights } from "./insightsAgents";
+import { capabilityInsights } from "./insightsCapabilities";
 
 export type Insight = {
   slug: string;
@@ -31,6 +32,7 @@ export const insights: Insight[] = [
   testChangesInsight,
   ...insightsModuleThree,
   ...agentInsights,
+  ...capabilityInsights,
   {
     slug: "ordenar-capas-en-photoshop",
     title: "De capas desordenadas a una solución que se puede repetir",

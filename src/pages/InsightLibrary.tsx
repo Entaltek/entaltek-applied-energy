@@ -19,10 +19,10 @@ const collections = {
   Guías: [
     { id: "fundamentos", title: "Pedir, comprobar y organizar", description: "Empieza por una tarea clara y aprende a revisar la respuesta.", slugs: ["un-prompt-que-si-ayuda", "mejorar-una-respuesta", "comprobar-una-respuesta", "contexto-util-sin-datos-innecesarios", "documentos-y-archivos-en-chatgpt", "investigar-con-chatgpt-y-fuentes", "organizar-trabajo-continuo-en-chatgpt", "prompt-a-plantilla-reutilizable"] },
     { id: "codex", title: "Probar cambios con Codex", description: "Pasa de un diagnóstico a una prueba pequeña con evidencia.", slugs: ["elegir-tarea-para-automatizar", "diagnosticar-trabajo-antes-de-codex", "primer-proyecto-con-codex", "probar-cambios-antes-de-aplicarlos"] },
-    { id: "agentes", title: "Agentes y coordinación", description: "Divide encargos, define miniagentes y revisa sus entregas.", slugs: ["disenar-miniagentes-hermes-linear", "hermes-agent-y-linear"] },
+    { id: "agentes", title: "Agentes y coordinación", description: "Divide encargos, conecta herramientas y revisa procedimientos y entregas.", slugs: ["mcp-conectar-herramientas-con-control", "skills-procedimientos-reutilizables", "disenar-miniagentes-hermes-linear", "hermes-agent-y-linear"] },
   ],
   Herramientas: [
-    { id: "chatgpt-codex", title: "ChatGPT y Codex", description: "Elige una superficie de trabajo y comprueba sus requisitos.", slugs: ["chatgpt-y-codex", "instalar-codex-requisitos-y-modelos"] },
+    { id: "chatgpt-codex", title: "ChatGPT y Codex", description: "Elige superficie, modelo y complementos según una tarea comprobable.", slugs: ["chatgpt-y-codex", "instalar-codex-requisitos-y-modelos", "que-puede-hacer-codex-y-como-revisarlo", "modelos-codex-astra-sol-luna", "complementos-apps-y-plugins-codex"] },
     { id: "agentes-gestion", title: "Agentes y gestión del trabajo", description: "Comprende qué aporta cada herramienta antes de conectarlas.", slugs: ["hermes-agent-perfiles-y-subagentes", "linear-proyectos-tareas-y-agentes"] },
   ],
 } as const;

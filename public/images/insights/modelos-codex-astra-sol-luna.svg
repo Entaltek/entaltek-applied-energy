@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="MODELOS CODEX: Astra, Sol y Luna">
+<rect width="1200" height="675" fill="#013762"/><path d="M0 0H1200V132H0Z" fill="#004C7A"/><path d="M50 150H1150M50 570H1150" stroke="#47DAD6" stroke-opacity=".35" stroke-width="2"/>
+<text x="70" y="86" fill="#47DAD6" font-family="Arial,sans-serif" font-size="38" font-weight="700" letter-spacing="5">MODELOS CODEX</text>
+<path d="M312 350H438M762 350H888" stroke="#47DAD6" stroke-width="8" stroke-linecap="round"/><path d="M427 337l18 13-18 13M877 337l18 13-18 13" fill="none" stroke="#47DAD6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="70" y="245" width="242" height="210" rx="20" fill="#E7F3F9"/><rect x="448" y="245" width="304" height="210" rx="20" fill="#D9EFF8"/><rect x="888" y="245" width="242" height="210" rx="20" fill="#E7F3F9"/>
+<circle cx="191" cy="285" r="17" fill="#0179B1"/><circle cx="600" cy="285" r="17" fill="#0179B1"/><circle cx="1009" cy="285" r="17" fill="#0179B1"/>
+<text x="191" y="377" text-anchor="middle" fill="#013762" font-family="Arial,sans-serif" font-size="31" font-weight="700">Astra</text><text x="600" y="377" text-anchor="middle" fill="#013762" font-family="Arial,sans-serif" font-size="31" font-weight="700">Sol</text><text x="1009" y="377" text-anchor="middle" fill="#013762" font-family="Arial,sans-serif" font-size="31" font-weight="700">Luna</text>
+<text x="70" y="630" fill="#D9EFF8" font-family="Arial,sans-serif" font-size="25">Una tarea · una entrega · una comprobación</text></svg>

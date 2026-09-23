@@ -5,13 +5,6 @@ import { getInsight, insightCategories } from "@/lib/insights";
 import MindMap from "@/components/insights/MindMapLayout";
 import TransitionLink from "@/components/navigation/TransitionLink";
 
-const wideArticles = new Set([
-  "hermes-agent-perfiles-y-subagentes",
-  "linear-proyectos-tareas-y-agentes",
-  "disenar-miniagentes-hermes-linear",
-  "hermes-agent-y-linear",
-]);
-
 const LinearWorkflow = () => (
   <section id="flujo-linear" className="mt-12 border-y border-[#013762]/15 py-9" aria-labelledby="linear-workflow-title">
     <div className="max-w-2xl">
@@ -44,7 +37,6 @@ const InsightArticle = () => {
   }
 
   const Icon = insight.icon;
-  const isWideArticle = wideArticles.has(insight.slug);
   const categoryPath = { Casos: "casos", "Guías": "guias", Herramientas: "herramientas" } as const;
   return (
     <main className="route-page min-h-screen bg-[#F5F9FC] text-[#013762]">
@@ -59,23 +51,23 @@ const InsightArticle = () => {
           </nav>
         </div>
       </header>
-      <article className={`mx-auto px-4 py-12 sm:px-6 md:py-20 ${isWideArticle ? "max-w-7xl" : "max-w-3xl"}`}>
-        <div className={isWideArticle ? "grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14" : ""}>
+      <article className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
         <div>
         <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#013762] text-[#47DAD6]">
           <Icon className="h-7 w-7" aria-hidden="true" />
         </div>
         <TransitionLink to={`/soluciones/${categoryPath[insight.category]}`} className="mt-8 inline-block text-sm font-semibold text-[#004C7A] underline-offset-4 hover:underline">{insight.category}</TransitionLink>
-        <h1 className={`mt-3 font-extrabold leading-[1.04] tracking-[-0.03em] text-[#013762] ${isWideArticle ? "max-w-3xl text-[clamp(2.5rem,4.6vw,4.75rem)]" : "text-[clamp(2.5rem,6vw,5rem)]"}`}>{insight.title}</h1>
+        <h1 className="mt-3 max-w-3xl text-[clamp(2.5rem,4.6vw,4.75rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[#013762]">{insight.title}</h1>
         <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[#013762]/72">{insight.summary}</p>
         <time dateTime={insight.publishedAt} className="mt-6 block text-sm text-[#013762]/55">Publicado el {new Intl.DateTimeFormat("es-MX", { dateStyle: "long" }).format(new Date(`${insight.publishedAt}T12:00:00`))}</time>
         </div>
-        <figure className={`overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_rgba(1,55,98,0.1)] ${isWideArticle ? "lg:mt-0" : "mt-10"}`}>
+        <figure className="overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_rgba(1,55,98,0.1)]">
           <img src={insight.image.src} alt={insight.image.alt} className="aspect-[16/9] w-full object-cover" />
         </figure>
         </div>
-        <div className={isWideArticle ? "mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_16rem] xl:grid-cols-[minmax(0,1fr)_18rem]" : ""}>
-        <div className={isWideArticle ? "min-w-0 max-w-3xl" : ""}>
+        <div className="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_16rem] xl:grid-cols-[minmax(0,1fr)_18rem]">
+        <div className="min-w-0 max-w-3xl">
         {insight.mindMap && <MindMap {...insight.mindMap} />}
         <section className="mt-12 border-y border-[#013762]/10 py-7">
           <h2 className="text-xl font-bold text-[#013762]">Esquema de aplicación</h2>
@@ -123,18 +115,18 @@ const InsightArticle = () => {
           <div className="mt-5 grid gap-3 sm:grid-cols-2">{insight.relatedSlugs.map((slug) => { const related = getInsight(slug); return related && <TransitionLink key={slug} to={`/soluciones/${slug}`} className="rounded-xl border border-[#013762]/15 bg-white p-4 font-semibold text-[#004C7A] hover:border-[#0179B1] hover:text-[#0179B1]">{related.title} <ArrowUpRight className="ml-1 inline h-4 w-4" aria-hidden="true" /></TransitionLink>; })}</div>
         </section>}
         </div>
-        {isWideArticle && <aside className="hidden lg:block" aria-label="Contenido de este artículo">
+        <aside className="hidden lg:block" aria-label="Contenido de este artículo">
           <div className="sticky top-8 border-t-2 border-[#0179B1] pt-5">
             <p className="font-bold">En este artículo</p>
             <nav className="mt-4 flex flex-col gap-1 text-sm leading-snug">
               {insight.slug === "linear-proyectos-tareas-y-agentes" && <a href="#flujo-linear" className="rounded-md px-2 py-2 text-[#365872] hover:bg-[#E7F3F9]">Lista de tareas por agente</a>}
               {insight.sections.map((section, index) => <a key={section.heading} href={`#seccion-${index + 1}`} className="rounded-md px-2 py-2 text-[#365872] hover:bg-[#E7F3F9] hover:text-[#013762] focus-visible:outline-2 focus-visible:outline-[#0179B1]">{section.heading}</a>)}
-              <a href="#ejemplos" className="rounded-md px-2 py-2 text-[#365872] hover:bg-[#E7F3F9]">Ejemplos ilustrativos</a>
+              <a href="#ejemplos" className="rounded-md px-2 py-2 text-[#365872] hover:bg-[#E7F3F9]">Ejemplos</a>
               <a href="#fuentes" className="rounded-md px-2 py-2 text-[#365872] hover:bg-[#E7F3F9]">Fuentes</a>
             </nav>
             {insight.relatedSlugs?.[0] && <TransitionLink to={`/soluciones/${insight.relatedSlugs[0]}`} className="mt-7 flex items-center gap-2 border-t border-[#013762]/15 pt-5 text-sm font-semibold text-[#004C7A] hover:text-[#0179B1]">Siguiente lectura <ArrowRight className="h-4 w-4" aria-hidden="true" /></TransitionLink>}
           </div>
-        </aside>}
+        </aside>
         </div>
       </article>
     </main>

@@ -22,7 +22,7 @@ const Privacy = () => (
       </section>
       <section>
         <h2 className="text-xl font-bold">Cómo llega tu mensaje</h2>
-        <p className="mt-2">El formulario envía la información a FormSubmit, que la entrega al correo {CONTACT_EMAIL}. La configuración de correo de Entaltek utiliza Cloudflare para reenviar esos mensajes a una bandeja administrada por la persona responsable. FormSubmit y los proveedores de correo intervienen técnicamente en esta entrega. Debe confirmarse con ellos qué registros conservan y durante cuánto tiempo.</p>
+        <p className="mt-2">El formulario envía la información a FormSubmit, que la entrega al correo {CONTACT_EMAIL}. La configuración de correo de Entaltek utiliza Cloudflare para reenviar esos mensajes a una bandeja administrada por la persona responsable. FormSubmit y los proveedores de correo intervienen técnicamente en esta entrega. FormSubmit documenta que conserva durante 30 días los envíos de formularios aún no activados; falta confirmar el tratamiento y la conservación de los formularios ya activados, así como la política de la bandeja de destino.</p>
       </section>
       <section>
         <h2 className="text-xl font-bold">Conservación y solicitudes</h2>
@@ -30,7 +30,7 @@ const Privacy = () => (
       </section>
       <section>
         <h2 className="text-xl font-bold">Preferencias y cambios</h2>
-        <p className="mt-2">El sitio recuerda tu preferencia de tema claro u oscuro en el almacenamiento local del navegador. En el código revisado no se cargan herramientas de analítica o publicidad. [CONFIRMAR SERVICIOS ACTIVOS EN PRODUCCIÓN]. Los cambios a este aviso se comunicarán en esta misma página. [FECHA DE PUBLICACIÓN PENDIENTE].</p>
+        <p className="mt-2">El sitio recuerda tu preferencia de tema claro u oscuro en el almacenamiento local del navegador. La página pública carga Cloudflare Web Analytics para obtener métricas agregadas de uso y rendimiento. Según Cloudflare, su beacon no utiliza cookies ni almacenamiento del navegador y descarta la dirección IP antes de almacenarla. [CONFIRMAR EN CLOUDFLARE LA CONFIGURACIÓN ACTIVA Y SI HAY OTROS SERVICIOS]. Los cambios a este aviso se comunicarán en esta misma página. [FECHA DE PUBLICACIÓN PENDIENTE].</p>
       </section>
     </article>
   </main>

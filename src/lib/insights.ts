@@ -539,6 +539,8 @@ export const insights: Insight[] = [
       { label: "Hermes Agent: MCP — consultada el 22 de septiembre de 2026", url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp" },
       { label: "Linear: servidor MCP — consultada el 22 de septiembre de 2026", url: "https://linear.app/docs/mcp" },
       { label: "Linear: relaciones entre tareas — consultada el 22 de septiembre de 2026", url: "https://linear.app/docs/issue-relations" },
+      { label: "Linear: asignación y delegación a agentes", url: "https://linear.app/docs/assigning-issues" },
+      { label: "Hermes Agent: Kanban entre perfiles", url: "https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban" },
     ],
     diagram: ["Escribe una entrega y criterios verificables", "Divide el trabajo y haz visibles sus dependencias", "Revisa la evidencia antes de marcar la tarea como terminada"],
     mindMap: {
@@ -589,6 +591,13 @@ export const insights: Insight[] = [
         paragraphs: [
           "Hermes Agent documenta una conexión con Linear mediante MCP, un protocolo para que un agente pueda usar herramientas externas. Linear publica un servidor MCP con acceso a datos y operaciones sobre objetos como tareas, proyectos y comentarios.",
           "La documentación confirma que existe esta ruta de conexión. No se ha instalado Hermes ni conectado Linear en una cuenta de Entaltek, por lo que no presentamos este artículo como una integración probada. Un primer ensayo responsable puede limitarse a leer una tarea conocida y contrastar el resultado con la interfaz.",
+        ],
+      },
+      {
+        heading: "Dos tableros distintos: decide cuál lleva el estado oficial",
+        paragraphs: [
+          "Hermes tiene un Kanban propio que asigna tareas a perfiles y registra estados como todo, running, blocked, review y done. Linear organiza issues por equipo; su flujo predeterminado incluye Backlog, Todo, In Progress, Done y Canceled, y un equipo puede añadir In Review.",
+          "Linear permite delegar issues a agentes instalados mientras una persona conserva la responsabilidad. Puedes filtrar una vista por agente delegado para revisar su lista de trabajo. Esto no significa que un perfil de Hermes aparezca automáticamente como agente instalado en Linear ni que los estados de ambos tableros se sincronicen por MCP. Si usas los dos, define cuál es la fuente del estado oficial y cómo se enlaza la evidencia.",
         ],
       },
       {

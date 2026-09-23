@@ -107,7 +107,7 @@ const ProductsSection = () => {
               </p>
             </div>
             <div className="mt-6">
-              <DemoLink href="https://demo-mediclink.lovable.app" />
+              <DemoLink />
             </div>
             <DeviceFrame />
           </article>

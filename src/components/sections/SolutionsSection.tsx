@@ -31,7 +31,7 @@ const SolutionsSection = () => {
               Soluciones e impacto
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#013762]/75 dark:text-[#C3D9E5] sm:text-lg">
-              Casos reales, herramientas y guías para entender una tarea,
+              Casos de uso, herramientas y guías para entender una tarea,
               probar una solución y revisar el resultado.
             </p>
           </div>

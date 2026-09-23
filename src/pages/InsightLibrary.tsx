@@ -7,7 +7,7 @@ import TransitionLink from "@/components/navigation/TransitionLink";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const categories = {
-  Casos: { slug: "casos", icon: BriefcaseBusiness, description: "Problemas reales, decisiones y resultados observados.", detail: "Aprende del recorrido de una solución: qué ocurrió, qué se probó y qué queda por comprobar.", tone: "bg-[#E7F3F9] dark:bg-[#173C52] text-[#013762] dark:text-[#E7F2F7]" },
+  Casos: { slug: "casos", icon: BriefcaseBusiness, description: "Problemas, decisiones y resultados con sus límites documentados.", detail: "Aprende del recorrido de una solución: qué ocurrió, qué se probó y qué queda por comprobar.", tone: "bg-[#E7F3F9] dark:bg-[#173C52] text-[#013762] dark:text-[#E7F2F7]" },
   Guías: { slug: "guias", icon: BookOpen, description: "Pasos concretos para aprender haciendo.", detail: "Sigue procedimientos, trabaja con ejemplos y comprueba cada resultado antes de usarlo.", tone: "bg-[#0179B1] text-white" },
   Herramientas: { slug: "herramientas", icon: Wrench, description: "Elige la herramienta según el trabajo.", detail: "Compara usos, requisitos y límites antes de sumar otra pieza a tu proceso.", tone: "bg-[#013762] text-white" },
 } as const;

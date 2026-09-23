@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
-import { toast } from "sonner";
 import { useInView } from "@/hooks/useInView";
 import { Link } from "react-router-dom";
 import logoMark from "@/assets/logo_entaltek_solo.svg";
@@ -17,7 +16,7 @@ const inputClass =
 
 const trustPoints = [
   "Atención directa a tu solicitud.",
-  "Diagnóstico inicial sin costo.",
+  "Primero entendemos el proceso que quieres mejorar.",
   "Soluciones pensadas para PYMES, startups y equipos operativos.",
 ];
 
@@ -28,17 +27,19 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({ nombre: "", email: "", mensaje: "" });
   const [isSending, setIsSending] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const [status, setStatus] = useState<{ kind: "success" | "error"; message: string } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.nombre || !formData.email || !formData.mensaje) {
-      toast.error("Por favor completa todos los campos");
+    if (!formData.nombre.trim() || !formData.email.trim() || !formData.mensaje.trim()) {
+      setStatus({ kind: "error", message: "Completa nombre, correo y mensaje antes de enviarlo." });
       return;
     }
 
     if (honeypot) return;
 
+    setStatus(null);
     setIsSending(true);
     try {
       const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
@@ -48,10 +49,10 @@ const ContactSection = () => {
           "Accept": "application/json",
         },
         body: JSON.stringify({
-          name: formData.nombre,
-          email: formData.email,
-          message: formData.mensaje,
-          _subject: "Nuevo Lead desde Entaltek Web",
+          name: formData.nombre.trim(),
+          email: formData.email.trim(),
+          message: formData.mensaje.trim(),
+          _subject: "Nueva consulta desde entaltek.com",
           _captcha: "false",
           _honey: honeypot,
         }),
@@ -59,13 +60,13 @@ const ContactSection = () => {
 
       const result: { success?: boolean | string } = await response.json();
       if (response.ok && (result.success === true || result.success === "true")) {
-        toast.success("Mensaje enviado. Te responderemos tan pronto como podamos.");
+        setStatus({ kind: "success", message: "FormSubmit recibió la solicitud. Si no recibes respuesta, escríbenos directamente por correo o WhatsApp." });
         setFormData({ nombre: "", email: "", mensaje: "" });
       } else {
-        toast.error("Error al enviar el mensaje");
+        setStatus({ kind: "error", message: "No pudimos confirmar el envío. Conservamos tu mensaje aquí para que intentes de nuevo o nos escribas por correo." });
       }
     } catch {
-      toast.error("No pudimos confirmar el envío. Escríbenos por correo o WhatsApp.");
+      setStatus({ kind: "error", message: "No pudimos confirmar el envío. Conservamos tu mensaje aquí para que intentes de nuevo o nos escribas por correo." });
     } finally {
       setIsSending(false);
     }
@@ -74,7 +75,7 @@ const ContactSection = () => {
   return (
     <section
       id="contacto"
-      className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-[#F7FAFC] dark:bg-[#091D2C] flex flex-col"
+      className="relative min-h-screen md:snap-start overflow-x-hidden bg-[#F7FAFC] dark:bg-[#091D2C] flex flex-col"
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute -top-28 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#47DAD6]/16 blur-[95px]" />
@@ -83,8 +84,8 @@ const ContactSection = () => {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#0179B1]/20 to-transparent" />
       </div>
 
-      <div className="relative flex-1 min-h-0 flex items-center">
-        <div ref={ref} className="container mx-auto px-4 pt-14 pb-5 md:pt-12 md:pb-4">
+      <div className="relative flex-1 flex items-center">
+        <div ref={ref} className="container mx-auto px-4 pt-24 pb-10 md:pt-28 md:pb-12">
           <div className="grid md:grid-cols-[1.12fr_0.88fr] gap-8 lg:gap-12 xl:gap-16 max-w-[88rem] mx-auto items-center">
             <div
               className={`transition-all duration-700 ease-out ${
@@ -140,6 +141,7 @@ const ContactSection = () => {
 
             <form
               onSubmit={handleSubmit}
+              aria-label="Formulario de contacto"
               className={`rounded-3xl border border-[#013762]/10 dark:border-[#B4DDE7]/20 bg-white dark:bg-[#123149] p-5 shadow-[0_24px_80px_rgba(1,55,98,0.12)] transition-all duration-700 ease-out delay-150 md:p-6 lg:p-7 ${
                 inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
               }`}
@@ -213,9 +215,15 @@ const ContactSection = () => {
               </div>
 
               <p className="mt-5 text-sm leading-relaxed text-[#013762]/75 dark:text-[#C3D9E5]">
-                Usaremos tu nombre, correo y mensaje para responder a tu solicitud. El envío pasa por FormSubmit y llega a nuestro correo. Consulta el{" "}
+                Usaremos tu nombre, correo y mensaje para responder a tu solicitud. El envío pasa por FormSubmit hacia nuestro correo. Consulta el{" "}
                 <Link to="/privacidad" className="font-semibold underline underline-offset-2 hover:text-[#0179B1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">Aviso de Privacidad</Link>.
               </p>
+
+              {status && (
+                <p role={status.kind === "error" ? "alert" : "status"} className={`mt-4 rounded-lg px-4 py-3 text-sm leading-relaxed ${status.kind === "error" ? "bg-red-50 text-red-900 dark:bg-red-950/40 dark:text-red-100" : "bg-teal-50 text-[#013762] dark:bg-teal-950/40 dark:text-[#E7F2F7]"}`}>
+                  {status.message}
+                </p>
+              )}
 
               <button
                 type="submit"

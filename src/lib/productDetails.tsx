@@ -203,8 +203,7 @@ export const mediclinkDetail: ProductDetail = {
   title: "Clínicas Entaltek",
   tagline: "Plataforma de gestión integral para clínicas y consultorios",
   intro:
-    "Desarrollada para la operación real de clínicas multi-especialidad: centraliza citas, pacientes, especialistas y horarios en un solo sistema, con asistentes virtuales que pueden agendar 24/7 sin intervención del personal.",
-  demoUrl: "https://demo-mediclink.lovable.app",
+    "Muestra de una plataforma para clínicas y consultorios: reúne citas, pacientes, especialistas y horarios en una interfaz de gestión.",
   hero: {
     src: mediclinkMockup,
     alt: "Mockup del panel de administración de clínicas con métricas de citas",
@@ -212,7 +211,7 @@ export const mediclinkDetail: ProductDetail = {
   },
   stats: [
     { value: "8", label: "módulos" },
-    { value: "24/7", label: "agendamiento" },
+    { value: "Agenda", label: "citas y horarios" },
     { value: "PDF/Excel", label: "reportes exportables" },
   ],
   pillars: [

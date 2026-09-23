@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { X, ArrowUpRight, MessageCircle } from "lucide-react";
+import { X, MessageCircle } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/site";
 import guarderiasMockup from "@/assets/sabueso/minimal-dashboard-mockup.svg";
@@ -153,17 +153,6 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
               <p className={`mt-2 text-lg font-medium ${detail.accentText}`}>{detail.tagline}</p>
               <p className="mt-4 text-white/70 leading-relaxed">{detail.intro}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                {false && detail.demoUrl && !isGuarderias && (
-                  <a
-                    href={detail.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg font-semibold text-[#011627] hover:bg-white transition-colors ${detail.accentBg}`}
-                  >
-                    Ver demo en vivo
-                    <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
-                  </a>
-                )}
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"

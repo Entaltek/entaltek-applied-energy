@@ -41,7 +41,7 @@ const InsightArticle = () => {
   return (
     <main className="route-page min-h-screen bg-[#F5F9FC] text-[#013762]">
       <header className="border-b border-[#013762]/10 bg-white/85 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl flex-col items-start gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6">
+        <div className="mx-auto flex max-w-[90rem] flex-col items-start gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center gap-3 font-bold tracking-wide text-[#013762]">
             <img src={logoMark} alt="" className="h-9 w-auto" /> ENTALTEK
           </Link>
@@ -51,7 +51,7 @@ const InsightArticle = () => {
           </nav>
         </div>
       </header>
-      <article className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-20">
+      <article className="mx-auto max-w-[90rem] px-4 py-12 sm:px-6 md:py-20 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
         <div>
         <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#013762] text-[#47DAD6]">
@@ -66,8 +66,8 @@ const InsightArticle = () => {
           <img src={insight.image.src} alt={insight.image.alt} className="aspect-[16/9] w-full object-cover" />
         </figure>
         </div>
-        <div className="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_16rem] xl:grid-cols-[minmax(0,1fr)_18rem]">
-        <div className="min-w-0 max-w-3xl">
+        <div className="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_15rem] xl:grid-cols-[minmax(0,1fr)_17rem] xl:gap-16">
+        <div className="min-w-0">
         {insight.mindMap && <MindMap {...insight.mindMap} />}
         <section className="mt-12 border-y border-[#013762]/10 py-7">
           <h2 className="text-xl font-bold text-[#013762]">Esquema de aplicación</h2>
@@ -76,14 +76,16 @@ const InsightArticle = () => {
           </ol>
         </section>
         {insight.slug === "linear-proyectos-tareas-y-agentes" && <LinearWorkflow />}
-        <div className="mt-12 space-y-12">
+        <div className="mt-12 border-t border-[#013762]/15">
           {insight.sections.map((section, index) => (
-            <section key={section.heading} id={`seccion-${index + 1}`} className="scroll-mt-24">
-              <h2 className="text-2xl font-bold tracking-tight text-[#013762]">{section.heading}</h2>
-              <div className="mt-4 space-y-4 text-lg leading-8 text-[#013762]/78">
-                {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            <section key={section.heading} id={`seccion-${index + 1}`} className="scroll-mt-24 border-b border-[#013762]/15 py-9 xl:grid xl:grid-cols-[minmax(0,0.32fr)_minmax(0,0.68fr)] xl:gap-10 xl:py-11">
+              <h2 className="max-w-sm text-2xl font-bold tracking-tight text-[#013762]">{section.heading}</h2>
+              <div className="min-w-0">
+                <div className="mt-4 max-w-[70ch] space-y-4 text-lg leading-8 text-[#013762]/78 xl:mt-0">
+                  {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                </div>
+                {section.list && <ul className="mt-6 max-w-[70ch] space-y-3 border-l border-[#0179B1]/35 pl-5 text-[#013762]/75">{section.list.map((item) => <li key={item}>{item}</li>)}</ul>}
               </div>
-              {section.list && <ul className="mt-6 space-y-3 border-l border-[#0179B1]/35 pl-5 text-[#013762]/75">{section.list.map((item) => <li key={item}>{item}</li>)}</ul>}
             </section>
           ))}
         </div>
@@ -99,10 +101,12 @@ const InsightArticle = () => {
             ))}
           </div>
         </section>
-        <div className="mt-14 rounded-2xl bg-[#013762] p-7 text-white sm:p-9">
-          <h2 className="text-2xl font-bold">¿Tienes una tarea que quieres mejorar?</h2>
-          <p className="mt-3 max-w-xl leading-relaxed text-white/75">Podemos revisar contigo si la idea es alcanzable, qué condiciones necesita y cómo empezar con una prueba pequeña.</p>
-          <Link to="/#contacto" className="mt-6 inline-flex items-center gap-2 font-bold text-[#47DAD6] hover:text-white">Cuéntanos tu idea <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+        <div className="mt-14 rounded-2xl bg-[#013762] p-7 text-white sm:p-9 xl:flex xl:items-end xl:justify-between xl:gap-10">
+          <div>
+            <h2 className="text-2xl font-bold">¿Tienes una tarea que quieres mejorar?</h2>
+            <p className="mt-3 max-w-xl leading-relaxed text-white/75">Podemos revisar contigo si la idea es alcanzable, qué condiciones necesita y cómo empezar con una prueba pequeña.</p>
+          </div>
+          <Link to="/#contacto" className="mt-6 inline-flex shrink-0 items-center gap-2 font-bold text-[#47DAD6] hover:text-white xl:mt-0">Cuéntanos tu idea <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
         </div>
         <section id="fuentes" className="mt-12 scroll-mt-24">
           <h2 className="text-xl font-bold text-[#013762]">Fuentes consultadas</h2>

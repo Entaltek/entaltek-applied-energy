@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/site";
 import logoMark from "@/assets/logo_entaltek_solo.svg";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
   { label: "Servicios", id: "servicios" },
@@ -74,17 +75,21 @@ const Navbar = () => {
               >
                 Escríbenos
               </a>
+              <ThemeToggle className="ml-2 text-white" />
             </div>
 
             {/* Mobile trigger */}
-            <button
-              className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
-              onClick={() => setIsMenuOpen(true)}
-              aria-label="Abrir menú"
-              aria-expanded={isMenuOpen}
-            >
-              <Menu className="w-6 h-6" />
-            </button>
+            <div className="flex items-center gap-1 lg:hidden">
+              <ThemeToggle className="text-white" />
+              <button
+                className="rounded-lg p-2 text-white transition-colors hover:bg-white/10"
+                onClick={() => setIsMenuOpen(true)}
+                aria-label="Abrir menú"
+                aria-expanded={isMenuOpen}
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+            </div>
           </div>
         </div>
       </nav>

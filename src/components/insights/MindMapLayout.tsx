@@ -19,20 +19,20 @@ const MindMapLayout = ({ title, variant, branches }: MindMapProps) => {
     if (next.has(label)) next.delete(label); else next.add(label);
     return next;
   });
-  const card = (branch: Branch, index: number, tone = "border-[#013762]/10") => <div key={branch.label} className={`rounded-2xl border bg-white p-5 shadow-sm ${tone}`}>
-    <button type="button" onClick={() => toggle(branch.label)} className="flex w-full items-center justify-between gap-4 text-left font-bold text-[#013762]" aria-expanded={expanded.has(branch.label)}>
-      <span className="flex items-center gap-3"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#E9F5F8] text-xs text-[#0179B1]">{index + 1}</span>{branch.label}</span>
-      <ChevronDown className={`h-4 w-4 shrink-0 text-[#0179B1] transition-transform ${expanded.has(branch.label) ? "rotate-180" : ""}`} aria-hidden="true" />
+  const card = (branch: Branch, index: number, tone = "border-[#013762]/10 dark:border-[#B4DDE7]/15") => <div key={branch.label} className={`rounded-2xl border bg-white dark:bg-[#123149] p-5 shadow-sm ${tone}`}>
+    <button type="button" onClick={() => toggle(branch.label)} className="flex w-full items-center justify-between gap-4 text-left font-bold text-[#013762] dark:text-[#E7F2F7]" aria-expanded={expanded.has(branch.label)}>
+      <span className="flex items-center gap-3"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#E9F5F8] dark:bg-[#14384B] text-xs text-[#0179B1] dark:text-[#72D5E3]">{index + 1}</span>{branch.label}</span>
+      <ChevronDown className={`h-4 w-4 shrink-0 text-[#0179B1] dark:text-[#72D5E3] transition-transform ${expanded.has(branch.label) ? "rotate-180" : ""}`} aria-hidden="true" />
     </button>
-    {expanded.has(branch.label) && <ul className="mt-4 space-y-2 border-l border-[#47DAD6] pl-4 text-sm leading-relaxed text-[#013762]/70">{branch.children.map((child) => <li key={child}>{child}</li>)}</ul>}
+    {expanded.has(branch.label) && <ul className="mt-4 space-y-2 border-l border-[#47DAD6] pl-4 text-sm leading-relaxed text-[#013762]/70 dark:text-[#BFD5E1]">{branch.children.map((child) => <li key={child}>{child}</li>)}</ul>}
   </div>;
 
-  return <section className="mt-12 overflow-hidden rounded-3xl border border-[#013762]/10 bg-[#E9F5F8] p-5 sm:p-8" aria-labelledby="mind-map-title">
-    <div className="flex items-center gap-3 text-[#0179B1]"><Icon className="h-5 w-5" aria-hidden="true" /><p id="mind-map-title" className="text-sm font-bold uppercase tracking-[0.16em]">{detail.label}</p></div>
-    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#013762]/65">{detail.text}</p>
+  return <section className="mt-12 overflow-hidden rounded-3xl border border-[#013762]/10 dark:border-[#B4DDE7]/15 bg-[#E9F5F8] dark:bg-[#14384B] p-5 sm:p-8" aria-labelledby="mind-map-title">
+    <div className="flex items-center gap-3 text-[#0179B1] dark:text-[#72D5E3]"><Icon className="h-5 w-5" aria-hidden="true" /><p id="mind-map-title" className="text-sm font-bold uppercase tracking-[0.16em]">{detail.label}</p></div>
+    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#013762]/65 dark:text-[#BAD0DD]">{detail.text}</p>
     {variant === "flow" && <div className="mt-8"><div className="mx-auto max-w-xl rounded-2xl bg-[#013762] px-6 py-5 text-center text-lg font-bold text-white shadow-[0_16px_35px_rgba(1,55,98,0.2)]">{title}</div><div className="mt-6 grid gap-3 lg:grid-cols-4">{branches.map((branch, index) => <div key={branch.label} className="min-w-0">{card(branch, index)}{index < branches.length - 1 && <ArrowRight className="mx-auto mt-3 h-5 w-5 rotate-90 text-[#0179B1]/60 lg:rotate-0" aria-hidden="true" />}</div>)}</div></div>}
     {variant === "compare" && <div className="mt-8"><div className="mx-auto max-w-md rounded-full bg-[#013762] px-7 py-5 text-center text-lg font-bold text-white shadow-[0_16px_35px_rgba(1,55,98,0.2)]">{title}</div><div className="mt-7 grid gap-4 md:grid-cols-2">{card(branches[0], 0, "border-[#47DAD6]/70")}{card(branches[1], 1, "border-[#0179B1]/50")}</div><div className="mt-4 grid gap-4 sm:grid-cols-2">{card(branches[2], 2)}{card(branches[3], 3)}</div></div>}
-    {variant === "cycle" && <div className="mt-8 rounded-[2.5rem] border-2 border-dashed border-[#0179B1]/25 p-5 sm:p-8"><div className="mx-auto flex aspect-square max-w-[13rem] items-center justify-center rounded-full bg-[#013762] p-6 text-center text-base font-bold leading-tight text-white shadow-[0_16px_35px_rgba(1,55,98,0.2)]">{title}</div><div className="mt-6 grid gap-4 sm:grid-cols-2">{branches.map((branch, index) => card(branch, index))}</div><div className="mt-5 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#0179B1]"><RotateCw className="h-4 w-4" aria-hidden="true" /> Repite solo lo que necesite ajuste</div></div>}
+    {variant === "cycle" && <div className="mt-8 rounded-[2.5rem] border-2 border-dashed border-[#0179B1]/25 p-5 sm:p-8"><div className="mx-auto flex aspect-square max-w-[13rem] items-center justify-center rounded-full bg-[#013762] p-6 text-center text-base font-bold leading-tight text-white shadow-[0_16px_35px_rgba(1,55,98,0.2)]">{title}</div><div className="mt-6 grid gap-4 sm:grid-cols-2">{branches.map((branch, index) => card(branch, index))}</div><div className="mt-5 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#0179B1] dark:text-[#72D5E3]"><RotateCw className="h-4 w-4" aria-hidden="true" /> Repite solo lo que necesite ajuste</div></div>}
   </section>;
 };
 

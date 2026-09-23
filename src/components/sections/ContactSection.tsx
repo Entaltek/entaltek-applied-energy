@@ -12,7 +12,7 @@ import {
 } from "@/lib/site";
 
 const inputClass =
-  "w-full rounded-xl border border-[#013762]/12 bg-[#F8FAFC] px-4 py-3 text-[#013762] placeholder:text-[#013762]/35 shadow-inner shadow-[#013762]/[0.02] outline-none transition-all focus:border-[#0179B1]/60 focus:bg-white focus:ring-4 focus:ring-[#47DAD6]/15";
+  "w-full rounded-xl border border-[#013762]/12 dark:border-[#B4DDE7]/20 bg-[#F8FAFC] dark:bg-[#102B40] px-4 py-3 text-[#013762] dark:text-[#E7F2F7] placeholder:text-[#013762]/35 dark:placeholder:text-[#9EB7C6] shadow-inner shadow-[#013762]/[0.02] outline-none transition-all focus:border-[#0179B1]/60 focus:bg-white dark:focus:bg-[#173C52] focus:ring-4 focus:ring-[#47DAD6]/15";
 
 const trustPoints = [
   "Respuesta en menos de 24 horas.",
@@ -68,7 +68,7 @@ const ContactSection = () => {
   return (
     <section
       id="contacto"
-      className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-[#F7FAFC] flex flex-col"
+      className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-[#F7FAFC] dark:bg-[#091D2C] flex flex-col"
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute -top-28 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#47DAD6]/16 blur-[95px]" />
@@ -85,38 +85,38 @@ const ContactSection = () => {
                 inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
               }`}
             >
-              <h2 className="max-w-3xl font-extrabold text-[#013762] text-[clamp(2.15rem,3.9vw,3.55rem)] leading-[1.08] tracking-tight">
+              <h2 className="max-w-3xl font-extrabold text-[#013762] dark:text-[#E7F2F7] text-[clamp(2.15rem,3.9vw,3.55rem)] leading-[1.08] tracking-tight">
                 Cuéntanos qué proceso quieres mejorar
               </h2>
-              <p className="mt-5 max-w-3xl text-base lg:text-lg leading-relaxed text-[#013762]/68">
+              <p className="mt-5 max-w-3xl text-base lg:text-lg leading-relaxed text-[#013762]/68 dark:text-[#BFD5E1]">
                 Ya sea una automatización, una plataforma interna, una landing o una herramienta a la medida, podemos ayudarte a convertir una operación manual en un sistema claro y funcional.
               </p>
 
               <ul className="mt-6 grid gap-4 sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3">
                 {trustPoints.map((point) => (
-                  <li key={point} className="flex min-h-[5.4rem] items-start gap-3 rounded-2xl border border-[#013762]/8 bg-white/60 px-5 py-4 text-sm text-[#013762]/80 shadow-sm backdrop-blur">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0179B1]" aria-hidden="true" />
+                  <li key={point} className="flex min-h-[5.4rem] items-start gap-3 rounded-2xl border border-[#013762]/8 dark:border-[#B4DDE7]/15 bg-white/60 dark:bg-[#123149]/85 px-5 py-4 text-sm text-[#013762]/80 dark:text-[#CDDFE9] shadow-sm backdrop-blur">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0179B1] dark:text-[#7BDDDC]" aria-hidden="true" />
                     <span>{point}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-6 grid gap-4 rounded-2xl border border-[#013762]/10 bg-white/75 p-5 shadow-sm backdrop-blur sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-[1.2fr_1fr_1.05fr]">
+              <div className="mt-6 grid gap-4 rounded-2xl border border-[#013762]/10 dark:border-[#B4DDE7]/20 bg-white/75 dark:bg-[#123149]/90 p-5 shadow-sm backdrop-blur sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-[1.2fr_1fr_1.05fr]">
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-[3.5rem] items-center gap-3 rounded-xl bg-white/55 px-3 text-sm text-[#013762]/85 hover:text-[#0179B1] transition-colors"
+                  className="flex min-h-[3.5rem] items-center gap-3 rounded-xl bg-white/55 dark:bg-[#173C52] px-3 text-sm text-[#013762]/85 dark:text-[#D5E8F0] hover:text-[#0179B1] transition-colors"
                 >
-                  <MessageCircle className="h-5 w-5 text-[#0179B1] shrink-0" aria-hidden="true" />
+                  <MessageCircle className="h-5 w-5 text-[#0179B1] dark:text-[#7BDDDC] shrink-0" aria-hidden="true" />
                   <span>WhatsApp: {WHATSAPP_DISPLAY_NUMBER}</span>
                 </a>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="flex min-h-[3.5rem] items-center gap-3 rounded-xl bg-white/55 px-3 text-sm text-[#013762]/85 hover:text-[#0179B1] transition-colors">
-                  <Mail className="h-5 w-5 text-[#0179B1] shrink-0" aria-hidden="true" />
+                <a href={`mailto:${CONTACT_EMAIL}`} className="flex min-h-[3.5rem] items-center gap-3 rounded-xl bg-white/55 dark:bg-[#173C52] px-3 text-sm text-[#013762]/85 dark:text-[#D5E8F0] hover:text-[#0179B1] transition-colors">
+                  <Mail className="h-5 w-5 text-[#0179B1] dark:text-[#7BDDDC] shrink-0" aria-hidden="true" />
                   <span>{CONTACT_EMAIL}</span>
                 </a>
-                <div className="flex min-h-[3.5rem] items-center gap-3 rounded-xl bg-white/55 px-3 text-sm text-[#013762]/85">
-                  <MapPin className="h-5 w-5 text-[#0179B1] shrink-0" aria-hidden="true" />
+                <div className="flex min-h-[3.5rem] items-center gap-3 rounded-xl bg-white/55 dark:bg-[#173C52] px-3 text-sm text-[#013762]/85 dark:text-[#D5E8F0]">
+                  <MapPin className="h-5 w-5 text-[#0179B1] dark:text-[#7BDDDC] shrink-0" aria-hidden="true" />
                   <span>{LOCATION}</span>
                 </div>
               </div>
@@ -134,17 +134,17 @@ const ContactSection = () => {
 
             <form
               onSubmit={handleSubmit}
-              className={`rounded-3xl border border-[#013762]/10 bg-white p-5 shadow-[0_24px_80px_rgba(1,55,98,0.12)] transition-all duration-700 ease-out delay-150 md:p-6 lg:p-7 ${
+              className={`rounded-3xl border border-[#013762]/10 dark:border-[#B4DDE7]/20 bg-white dark:bg-[#123149] p-5 shadow-[0_24px_80px_rgba(1,55,98,0.12)] transition-all duration-700 ease-out delay-150 md:p-6 lg:p-7 ${
                 inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
               }`}
             >
               <div className="mb-5 flex items-start gap-4">
-                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#47DAD6]/12 text-[#0179B1]">
+                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#47DAD6]/12 text-[#0179B1] dark:text-[#7BDDDC]">
                   <Mail className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="text-2xl font-extrabold text-[#013762]">Envíanos tu idea</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-[#013762]/58">
+                  <h3 className="text-2xl font-extrabold text-[#013762] dark:text-[#E7F2F7]">Envíanos tu idea</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-[#013762]/58 dark:text-[#B4CEDC]">
                     No necesitas tener todo definido. Con una descripción inicial podemos ayudarte a ordenar el alcance.
                   </p>
                 </div>
@@ -152,7 +152,7 @@ const ContactSection = () => {
 
               <div className="space-y-4">
                 <div>
-                  <label htmlFor="nombre" className="mb-1.5 block text-sm font-bold text-[#013762]">
+                  <label htmlFor="nombre" className="mb-1.5 block text-sm font-bold text-[#013762] dark:text-[#E7F2F7]">
                     Nombre
                   </label>
                   <input
@@ -168,7 +168,7 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="mb-1.5 block text-sm font-bold text-[#013762]">
+                  <label htmlFor="email" className="mb-1.5 block text-sm font-bold text-[#013762] dark:text-[#E7F2F7]">
                     Email
                   </label>
                   <input
@@ -184,7 +184,7 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="mensaje" className="mb-1.5 block text-sm font-bold text-[#013762]">
+                  <label htmlFor="mensaje" className="mb-1.5 block text-sm font-bold text-[#013762] dark:text-[#E7F2F7]">
                     ¿Qué necesitas resolver?
                   </label>
                   <textarea

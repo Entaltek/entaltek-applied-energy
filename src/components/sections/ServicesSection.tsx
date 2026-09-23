@@ -146,8 +146,7 @@ const ServicesSection = () => {
       id="servicios"
       className="relative min-h-screen md:h-screen md:snap-start overflow-hidden flex items-center"
       style={{
-        background:
-          "linear-gradient(155deg, #f5f8fc 0%, #edf3f9 50%, #eef5ff 100%)",
+        background: "var(--services-bg)",
       }}
     >
       {/* Ambient orbs */}
@@ -188,17 +187,17 @@ const ServicesSection = () => {
             style={{ transitionDelay: inView ? "60ms" : "0ms" }}
           >
             {/* Eyebrow */}
-            <p className="text-[0.75rem] font-bold uppercase tracking-[0.22em] text-[#0179B1]">
+            <p className="text-[0.75rem] font-bold uppercase tracking-[0.22em] text-[#0179B1] dark:text-[#7BDDDC]">
               Lo que hacemos
             </p>
 
             {/* Title */}
-            <h2 className="font-extrabold text-[#0D2C42] leading-[1.05] text-[clamp(2.2rem,3.2vw,3.4rem)]">
+            <h2 className="font-extrabold text-[#0D2C42] dark:text-[#E7F2F7] leading-[1.05] text-[clamp(2.2rem,3.2vw,3.4rem)]">
               Digitalizamos procesos que hoy te quitan tiempo
             </h2>
 
             {/* Subtitle */}
-            <p className="text-base lg:text-lg text-[#345878]/85 leading-relaxed">
+            <p className="text-base lg:text-lg text-[#345878]/85 dark:text-[#C3D9E5] leading-relaxed">
               Creamos sistemas, automatizaciones y servicios que ordenan tu
               operación, reducen tareas manuales y conectan las herramientas
               que ya usas.
@@ -206,7 +205,7 @@ const ServicesSection = () => {
 
             {/* Ideal para cuando (Chips) */}
             <div className="flex flex-col gap-2 mt-2">
-              <p className="text-[0.7rem] font-bold uppercase tracking-wider text-[#0179B1]/90">
+              <p className="text-[0.7rem] font-bold uppercase tracking-wider text-[#0179B1]/90 dark:text-[#7BDDDC]">
                 Ideal para cuando...
               </p>
               <div className="flex flex-wrap gap-2">
@@ -216,12 +215,12 @@ const ServicesSection = () => {
                     className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[0.78rem] font-medium"
                     style={{
                       background: "rgba(1,121,177,0.06)",
-                      color: "#345878",
+                      color: "var(--service-copy, #345878)",
                       border: "1px solid rgba(1,121,177,0.15)",
                     }}
                   >
                     <CheckCircle2
-                      className="w-3.5 h-3.5 text-[#0179B1]"
+                      className="w-3.5 h-3.5 text-[#0179B1] dark:text-[#7BDDDC]"
                       strokeWidth={2.5}
                       aria-hidden="true"
                     />
@@ -244,7 +243,7 @@ const ServicesSection = () => {
                 style={{ background: "rgba(71,218,214,0.7)" }}
                 aria-hidden="true"
               />
-              <p className="text-[0.82rem] font-medium italic leading-snug text-[#345878]">
+              <p className="text-[0.82rem] font-medium italic leading-snug text-[#345878] dark:text-[#B6CEDC]">
                 Si no hay un proceso que valga la pena automatizar, te lo diremos.
               </p>
             </div>
@@ -257,7 +256,7 @@ const ServicesSection = () => {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="inline-flex items-center gap-2 font-bold group text-base w-fit transition-colors duration-300 mt-1"
-              style={{ color: "#0179B1" }}
+              style={{ color: "var(--service-link, #0179B1)" }}
             >
               Cuéntanos qué proceso quieres mejorar
               <span
@@ -287,7 +286,7 @@ const ServicesSection = () => {
                 }}
                 aria-hidden="true"
               />
-              <p className="text-[0.75rem] font-bold uppercase tracking-[0.22em] text-[#0179B1] shrink-0">
+              <p className="text-[0.75rem] font-bold uppercase tracking-[0.22em] text-[#0179B1] dark:text-[#7BDDDC] shrink-0">
                 Cómo trabajamos
               </p>
               <div
@@ -359,10 +358,10 @@ const ServicesSection = () => {
 
                     {/* Content */}
                     <div className={`pb-3 ${isLast ? "pb-0" : ""} pt-[2px] min-w-0`}>
-                      <p className="text-[0.95rem] font-bold text-[#0D2C42] leading-snug">
+                      <p className="text-[0.95rem] font-bold text-[#0D2C42] dark:text-[#E7F2F7] leading-snug">
                         {step.title}
                       </p>
-                      <p className="mt-0.5 text-[0.8rem] text-[#345878]/80 leading-relaxed">
+                      <p className="mt-0.5 text-[0.8rem] text-[#345878]/80 dark:text-[#BAD0DD] leading-relaxed">
                         {step.desc}
                       </p>
                     </div>
@@ -376,7 +375,7 @@ const ServicesSection = () => {
               COLUMNA DERECHA — 5 service cards
           ══════════════════════════════════════════ */}
           <div className="flex flex-col gap-3">
-            <p className="text-[0.75rem] font-bold uppercase tracking-[0.22em] text-[#0179B1] mb-1 px-1">
+            <p className="text-[0.75rem] font-bold uppercase tracking-[0.22em] text-[#0179B1] dark:text-[#7BDDDC] mb-1 px-1">
               Áreas donde aplicamos tecnología
             </p>
             {services.map((svc, i) => {
@@ -391,7 +390,7 @@ const ServicesSection = () => {
                     }`}
                   style={{
                     transitionDelay: `${delay}ms`,
-                    background: svc.tintBg,
+                    background: `var(--service-card-bg, ${svc.tintBg})`,
                     borderColor: svc.tintBorder,
                     boxShadow: "0 2px 10px rgba(13,44,66,0.06)",
                   }}
@@ -439,10 +438,10 @@ const ServicesSection = () => {
 
                     {/* Text */}
                     <div className="min-w-0 pr-2">
-                      <h3 className="text-[0.95rem] font-bold text-[#0D2C42] leading-snug">
+                      <h3 className="text-[0.95rem] font-bold text-[#0D2C42] dark:text-[#E7F2F7] leading-snug">
                         {svc.title}
                       </h3>
-                      <p className="mt-0.5 text-[0.8rem] leading-relaxed" style={{ color: `rgba(${svc.accentRgb},0.78)` }}>
+                      <p className="mt-0.5 text-[0.8rem] leading-relaxed" style={{ color: `var(--service-copy, rgba(${svc.accentRgb},0.78))` }}>
                         {svc.bullets}
                       </p>
                     </div>

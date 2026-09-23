@@ -8,11 +8,13 @@ import NotFound from "./pages/NotFound";
 import InsightArticle from "./pages/InsightArticle";
 import InsightLibrary from "./pages/InsightLibrary";
 import RouteEffects from "./components/navigation/RouteEffects";
+import { ThemeProvider } from "next-themes";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="entaltek-theme">
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -30,6 +32,7 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 

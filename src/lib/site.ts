@@ -8,6 +8,9 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURICo
 
 export const CONTACT_EMAIL = "contact@entaltek.com";
 
+export const RESPONSIBLE_NAME = "Carlos Sebastian Cano Gutierrez";
+export const PRIVACY_ADDRESS = "Calle María de la Luz 747 B, colonia Loma Bonita, C.P. 37420, León, Guanajuato, México";
+
 export const LOCATION = "León, Guanajuato, México";
 
 export const LINKEDIN_URL = "https://www.linkedin.com/company/entaltek";

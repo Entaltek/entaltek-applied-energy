@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Usuarios, permisos y suscripción</title><desc id="desc">Una empresa conecta las tres decisiones de acceso de una plataforma SaaS.</desc>
+<rect width="1200" height="675" fill="#013762"/>
+<g fill="none" stroke="#47DAD6" stroke-width="4"><path d="M600 242V292M324 350V292H876V350M600 292V350"/></g>
+<g font-family="'Exo 2',Arial,sans-serif" text-anchor="middle">
+<text x="600" y="84" fill="#A9D7E7" font-size="24" letter-spacing="4">ARQUITECTURA SAAS</text>
+<rect x="403" y="130" width="394" height="112" rx="16" fill="#FFFFFF"/>
+<text x="600" y="199" fill="#013762" font-size="42" font-weight="700">Una empresa</text>
+<g fill="#FFFFFF"><rect x="206" y="350" width="236" height="164" rx="14"/><rect x="482" y="350" width="236" height="164" rx="14"/><rect x="758" y="350" width="236" height="164" rx="14"/></g>
+<g fill="#0179B1" font-size="24"><text x="324" y="394">01</text><text x="600" y="394">02</text><text x="876" y="394">03</text></g>
+<g fill="#013762" font-size="32" font-weight="700"><text x="324" y="445">Usuarios</text><text x="600" y="445">Permisos</text><text x="876" y="445">Suscripción</text></g>
+<g fill="#004C7A" font-size="22"><text x="324" y="484">Quién entra</text><text x="600" y="484">Qué puede hacer</text><text x="876" y="484">Qué contrató</text></g>
+<text x="600" y="598" fill="#FFFFFF" font-size="28">Better Auth + Stripe</text>
+</g></svg>

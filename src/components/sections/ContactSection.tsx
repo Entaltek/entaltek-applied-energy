@@ -7,6 +7,7 @@ import {
   WHATSAPP_URL,
   WHATSAPP_DISPLAY_NUMBER,
   CONTACT_EMAIL,
+  RESPONSIBLE_NAME,
   LOCATION,
   LINKEDIN_URL,
 } from "@/lib/site";
@@ -244,7 +245,7 @@ const ContactSection = () => {
           <div className="flex items-center gap-3">
             <HexLogo />
             <span className="text-sm text-white/60">
-              {LOCATION} · {new Date().getFullYear()}
+              Entaltek · Responsable: {RESPONSIBLE_NAME} · {LOCATION} · {new Date().getFullYear()}
             </span>
           </div>
 

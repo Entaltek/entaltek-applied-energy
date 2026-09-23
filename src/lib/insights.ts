@@ -5,11 +5,13 @@ import { firstCodexInsight } from "./insightsFirstCodex";
 import { testChangesInsight } from "./insightsTestChanges";
 import { agentInsights } from "./insightsAgents";
 import { capabilityInsights } from "./insightsCapabilities";
+import { betterAuthInsight } from "./insightsBetterAuth";
 
 export type Insight = {
   slug: string;
   title: string;
   summary: string;
+  seo?: { description: string; keywords: string[] };
   category: "Casos" | "Herramientas" | "Guías";
   publishedAt: string;
   icon: LucideIcon;
@@ -22,11 +24,12 @@ export type Insight = {
     branches: Array<{ label: string; children: string[] }>;
   };
   examples: Array<{ title: string; prompt: string; result: string }>;
-  sections: Array<{ heading: string; paragraphs: string[]; list?: string[] }>;
+  sections: Array<{ heading: string; paragraphs: string[]; list?: string[]; code?: string }>;
   relatedSlugs?: string[];
 };
 
 export const insights: Insight[] = [
+  betterAuthInsight,
   codexSetupInsight,
   firstCodexInsight,
   testChangesInsight,

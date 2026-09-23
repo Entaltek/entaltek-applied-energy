@@ -23,6 +23,7 @@ const collections = {
     { id: "agentes", title: "Agentes y coordinación", description: "Divide encargos, conecta herramientas y revisa procedimientos y entregas.", slugs: ["mcp-conectar-herramientas-con-control", "skills-procedimientos-reutilizables", "disenar-miniagentes-hermes-linear", "hermes-agent-y-linear"] },
   ],
   Herramientas: [
+    { id: "plataformas-saas", title: "Plataformas SaaS", description: "Usuarios, permisos y suscripciones para productos que atienden a varias empresas.", slugs: ["better-auth-stripe-saas-multiempresa"] },
     { id: "chatgpt-codex", title: "ChatGPT y Codex", description: "Elige superficie, modelo y complementos según una tarea comprobable.", slugs: ["chatgpt-y-codex", "instalar-codex-requisitos-y-modelos", "que-puede-hacer-codex-y-como-revisarlo", "modelos-codex-astra-sol-luna", "complementos-apps-y-plugins-codex"] },
     { id: "agentes-gestion", title: "Agentes y gestión del trabajo", description: "Comprende qué aporta cada herramienta antes de conectarlas.", slugs: ["hermes-agent-perfiles-y-subagentes", "linear-proyectos-tareas-y-agentes"] },
   ],

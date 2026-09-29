@@ -1,7 +1,7 @@
+import { useTranslation } from "@/lib/i18n";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { X, MessageCircle } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { WHATSAPP_URL } from "@/lib/site";
 import guarderiasMockup from "@/assets/sabueso/minimal-dashboard-mockup.svg";
 
 const EXPAND_MS = 550;
@@ -32,6 +32,7 @@ type Props = {
 };
 
 const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
+  const { t, isEnglish, whatsappUrl } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -121,7 +122,7 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
       ref={dialogRef}
       role="dialog"
       aria-modal="true"
-      aria-label={`Detalle del producto ${detail.title}`}
+      aria-label={`${isEnglish ? "Product details:" : "Detalle del producto"} ${detail.title}`}
     >
       <div
         className={`h-full overflow-y-auto overscroll-contain transition-opacity duration-300 ${
@@ -134,13 +135,13 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
             <span
               className={`px-2.5 py-1 rounded-md text-[0.65rem] font-bold tracking-widest uppercase ${detail.badge.className}`}
             >
-              {detail.badge.label}
+              {t(detail.badge.label)}
             </span>
             <button
               ref={closeRef}
               onClick={handleClose}
               className="p-2.5 rounded-full bg-white/10 text-white hover:bg-white/25 transition-colors"
-              aria-label="Cerrar detalle"
+              aria-label={t("Cerrar detalle")}
             >
               <X className="w-5 h-5" />
             </button>
@@ -149,25 +150,23 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
           {/* Encabezado + visual */}
           <div className="mt-8 grid md:grid-cols-2 gap-8 items-center">
             <div {...reveal(1)}>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-white">{detail.title}</h2>
-              <p className={`mt-2 text-lg font-medium ${detail.accentText}`}>{detail.tagline}</p>
-              <p className="mt-4 text-white/70 leading-relaxed">{detail.intro}</p>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white">{t(detail.title)}</h2>
+              <p className={`mt-2 text-lg font-medium ${detail.accentText}`}>{t(detail.tagline)}</p>
+              <p className="mt-4 text-white/70 leading-relaxed">{t(detail.intro)}</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
-                  href={WHATSAPP_URL}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-white/30 text-white font-medium hover:border-white hover:bg-white/10 transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4" aria-hidden="true" />
-                  Quiero algo así
-                </a>
+                  <MessageCircle className="w-4 h-4" aria-hidden="true" />{t("Quiero algo así")}</a>
               </div>
             </div>
             <div {...reveal(2)}>
               <img
                 src={hero.src}
-                alt={hero.alt}
+                alt={t(hero.alt)}
                 className={hero.className ?? "w-full max-w-md mx-auto drop-shadow-2xl"}
                 loading="lazy"
               />
@@ -179,8 +178,8 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
             <div {...reveal(3, "mt-12 flex flex-wrap gap-8 rounded-xl bg-white/[0.06] border border-white/10 px-6 py-5")}>
               {stats.map((stat) => (
                 <div key={stat.label}>
-                  <p className={`text-2xl font-bold leading-none ${detail.accentText}`}>{stat.value}</p>
-                  <p className="mt-1.5 text-[0.7rem] uppercase tracking-wider text-white/40">{stat.label}</p>
+                  <p className={`text-2xl font-bold leading-none ${detail.accentText}`}>{t(stat.value)}</p>
+                  <p className="mt-1.5 text-[0.7rem] uppercase tracking-wider text-white/40">{t(stat.label)}</p>
                 </div>
               ))}
             </div>
@@ -190,15 +189,15 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
           <div {...reveal(4, "mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4")}>
             {detail.pillars.map((pillar) => (
               <div key={pillar.title} className="rounded-xl bg-white/[0.06] border border-white/10 p-5">
-                <h3 className="font-bold text-white text-sm">{pillar.title}</h3>
-                <p className="mt-2 text-sm text-white/60 leading-relaxed">{pillar.description}</p>
+                <h3 className="font-bold text-white text-sm">{t(pillar.title)}</h3>
+                <p className="mt-2 text-sm text-white/60 leading-relaxed">{t(pillar.description)}</p>
               </div>
             ))}
           </div>
 
           {/* Módulos */}
           <div {...reveal(5, "mt-14")}>
-            <h3 className="text-2xl font-bold text-white">{detail.modulesTitle}</h3>
+            <h3 className="text-2xl font-bold text-white">{t(detail.modulesTitle)}</h3>
             <div className="mt-6 grid md:grid-cols-2 gap-x-10 gap-y-6">
               {detail.modules.map((module) => {
                 const Icon = module.icon;
@@ -208,8 +207,8 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
                       <Icon className={`w-5 h-5 ${detail.accentText}`} aria-hidden="true" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-white">{module.name}</h4>
-                      <p className="mt-1 text-sm text-white/60 leading-relaxed">{module.description}</p>
+                      <h4 className="font-bold text-white">{t(module.name)}</h4>
+                      <p className="mt-1 text-sm text-white/60 leading-relaxed">{t(module.description)}</p>
                     </div>
                   </div>
                 );
@@ -220,13 +219,13 @@ const ProductOverlay = ({ detail, originRect, onClose }: Props) => {
           {/* Galería */}
           {detail.gallery && detail.gallery.length > 0 ? (
             <div {...reveal(6, "mt-14 pb-10")}>
-              <h3 className="text-2xl font-bold text-white">El sistema en pantalla</h3>
+              <h3 className="text-2xl font-bold text-white">{t("El sistema en pantalla")}</h3>
               <div className="mt-6 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4">
                 {detail.gallery.map((shot) => (
                   <img
                     key={shot.src}
                     src={shot.src}
-                    alt={shot.alt}
+                    alt={t(shot.alt)}
                     loading="lazy"
                     className={`snap-start shrink-0 rounded-xl border border-white/10 ${
                       shot.wide ? "h-56 md:h-72" : "h-72 md:h-80"

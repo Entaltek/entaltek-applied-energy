@@ -1,3 +1,4 @@
+import { useTranslation } from "@/lib/i18n";
 import { Atom, BrainCircuit, CheckCircle2, HeartHandshake, Scale, ShieldCheck } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 
@@ -39,6 +40,7 @@ const principles = [
 ];
 
 const BrandAdnSection = () => {
+  const { t } = useTranslation();
   const { ref, inView } = useInView<HTMLDivElement>();
 
   const reveal = (index: number, className = "") => ({
@@ -51,7 +53,7 @@ const BrandAdnSection = () => {
   return (
     <section
       id="adn-marca"
-      className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-[#011627] flex items-center"
+      className="relative min-h-screen md:snap-start overflow-hidden bg-[#011627] flex items-center"
     >
       <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute top-16 left-6 w-80 h-80 rounded-full bg-[#0179B1]/20 blur-[95px]" />
@@ -65,17 +67,11 @@ const BrandAdnSection = () => {
           <div>
 
 
-            <h2 {...reveal(1, "text-white font-extrabold leading-tight text-[clamp(2.1rem,5vw,4.35rem)]")}>
-              Creamos software que ordena,
-              <br />
-              <span className="bg-gradient-to-r from-white via-[#7de8e5] to-[#47DAD6] bg-clip-text text-transparent">
-                automatiza y hace crecer tu operación
-              </span>
+            <h2 {...reveal(1, "text-white font-extrabold leading-tight text-[clamp(2.1rem,5vw,4.35rem)]")}>{t("Creamos software que ordena,")}<br />
+              <span className="bg-gradient-to-r from-white via-[#7de8e5] to-[#47DAD6] bg-clip-text text-transparent">{t("automatiza y hace crecer tu operación")}</span>
             </h2>
 
-            <p {...reveal(2, "mt-6 text-white/65 text-lg leading-relaxed max-w-xl")}>
-              Diseñamos sistemas a la medida para convertir procesos manuales, dispersos o repetitivos en herramientas claras, útiles y fáciles de usar.
-            </p>
+            <p {...reveal(2, "mt-6 text-white/65 text-lg leading-relaxed max-w-xl")}>{t("Diseñamos sistemas a la medida para convertir procesos manuales, dispersos o repetitivos en herramientas claras, útiles y fáciles de usar.")}</p>
 
             <div {...reveal(3, "mt-8 flex flex-wrap gap-3")}>
               {attributes.map((attribute) => (
@@ -83,7 +79,7 @@ const BrandAdnSection = () => {
                   key={attribute}
                   className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-medium text-white/80 hover:border-[#47DAD6]/50 hover:text-[#47DAD6] transition-colors"
                 >
-                  {attribute}
+                  {t(attribute)}
                 </span>
               ))}
             </div>
@@ -102,8 +98,8 @@ const BrandAdnSection = () => {
                   <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#47DAD6]/10 text-[#47DAD6] group-hover:bg-[#47DAD6]/15">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/75">{description}</p>
+                  <h3 className="text-xl font-bold text-white">{t(title)}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-white/75">{t(description)}</p>
                 </article>
               ))}
             </div>
@@ -120,15 +116,15 @@ const BrandAdnSection = () => {
                     <CheckCircle2 className="h-5 w-5 text-[#47DAD6]" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white">Valores que sostienen el trabajo</h3>
-                    <p className="text-sm text-white/50">La base ética se mantiene; el foco está en resolver bien.</p>
+                    <h3 className="font-bold text-white">{t("Valores que sostienen el trabajo")}</h3>
+                    <p className="text-sm text-white/50">{t("La base ética se mantiene; el foco está en resolver bien.")}</p>
                   </div>
                 </div>
 
                 <div className="flex flex-wrap gap-2 md:justify-end">
                   {values.map((value) => (
                     <span key={value} className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-medium text-white/70">
-                      {value}
+                      {t(value)}
                     </span>
                   ))}
                 </div>

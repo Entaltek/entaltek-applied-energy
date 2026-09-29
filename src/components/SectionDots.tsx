@@ -1,3 +1,4 @@
+import { useTranslation } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 
 const sections = [
@@ -13,6 +14,7 @@ const sections = [
 const lightSections = new Set(["servicios", "soluciones", "contacto"]);
 
 const SectionDots = () => {
+  const { t, isEnglish } = useTranslation();
   const [active, setActive] = useState("hero");
 
   useEffect(() => {
@@ -36,7 +38,7 @@ const SectionDots = () => {
   return (
     <nav
       className="hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col gap-4"
-      aria-label="Navegación de secciones"
+      aria-label={t("Navegación de secciones")}
     >
       {sections.map((section) => {
         const isActive = active === section.id;
@@ -45,7 +47,7 @@ const SectionDots = () => {
             key={section.id}
             onClick={() => document.getElementById(section.id)?.scrollIntoView({ behavior: "smooth" })}
             className="group relative flex items-center justify-center w-4 h-4"
-            aria-label={`Ir a ${section.label}`}
+            aria-label={`${isEnglish ? "Go to" : "Ir a"} ${t(section.label)}`}
             aria-current={isActive ? "true" : undefined}
           >
             <span
@@ -58,7 +60,7 @@ const SectionDots = () => {
               }`}
             />
             <span className="absolute right-7 px-2.5 py-1 rounded-md bg-[#011627]/90 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              {section.label}
+              {t(section.label)}
             </span>
           </button>
         );

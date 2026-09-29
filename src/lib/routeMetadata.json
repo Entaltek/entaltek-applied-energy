@@ -1,0 +1,22 @@
+{
+  "/": {
+    "lang": "es-MX", "locale": "es_MX", "alternate": "/en/",
+    "title": "Entaltek — Desarrollo de software y automatización con IA en León, Guanajuato",
+    "description": "Estudio de tecnología en León, Guanajuato. Desarrollo de software y SaaS a medida, automatización con IA y apps móviles para PyMEs y startups."
+  },
+  "/en/": {
+    "lang": "en", "locale": "en_US", "alternate": "/",
+    "title": "Entaltek — Custom Software and Business Automation",
+    "description": "Custom software, business automation, integrations and mobile apps for small businesses and startups. Based in León, Guanajuato, Mexico. Tell us about your project."
+  },
+  "/privacidad": {
+    "lang": "es-MX", "locale": "es_MX", "alternate": "/en/privacy",
+    "title": "Aviso de Privacidad | Entaltek",
+    "description": "Conoce qué datos solicita el formulario de Entaltek, cómo se envían y cómo ejercer tus derechos sobre ellos."
+  },
+  "/en/privacy": {
+    "lang": "en", "locale": "en_US", "alternate": "/privacidad",
+    "title": "Privacy Notice | Entaltek",
+    "description": "Learn what data Entaltek's contact form collects, how your message is delivered and how to exercise your data rights."
+  }
+}

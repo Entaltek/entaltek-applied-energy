@@ -1,3 +1,4 @@
+import LocaleMetadata from "./components/navigation/LocaleMetadata";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,8 +22,11 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <RouteEffects />
+        <LocaleMetadata />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/en" element={<Index />} />
+          <Route path="/en/privacy" element={<Privacy />} />
           <Route path="/privacidad" element={<Privacy />} />
           <Route path="/soluciones" element={<InsightLibrary />} />
           <Route path="/soluciones/casos" element={<InsightLibrary />} />

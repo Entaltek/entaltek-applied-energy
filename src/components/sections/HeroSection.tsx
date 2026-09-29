@@ -1,8 +1,8 @@
+import { useTranslation } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { useInView } from "@/hooks/useInView";
-import { WHATSAPP_URL } from "@/lib/site";
 
 const metrics = [
   { value: "León", label: "Guanajuato" },
@@ -11,6 +11,7 @@ const metrics = [
 ];
 
 const HeroSection = () => {
+  const { t, whatsappUrl } = useTranslation();
   const { ref, inView } = useInView<HTMLDivElement>();
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -33,7 +34,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen md:h-screen md:snap-start overflow-hidden flex items-center justify-center"
+      className="relative min-h-screen md:snap-start overflow-hidden flex items-center justify-center"
       style={{
         background: `
           radial-gradient(circle at 15% 20%, rgba(71, 218, 214, 0.08), transparent 22%),
@@ -57,42 +58,32 @@ const HeroSection = () => {
 
       <div ref={ref} className="relative z-10 container mx-auto px-4 py-24 text-center">
 
-        <h1 {...reveal(1, "font-extrabold text-white leading-[1.1] text-[clamp(2.5rem,6vw,5rem)]")}>
-          Soluciones digitales y automatización
-          <br />
-          <span className="bg-gradient-to-r from-[#AEEBE9] to-[#47DAD6] bg-clip-text text-transparent">
-            para simplificar la operación de tu negocio
-          </span>
+        <h1 {...reveal(1, "font-extrabold text-white leading-[1.1] text-[clamp(2.5rem,6vw,5rem)]")}>{t("Soluciones digitales y automatización")}<br />
+          <span className="bg-gradient-to-r from-[#AEEBE9] to-[#47DAD6] bg-clip-text text-transparent">{t("para simplificar la operación de tu negocio")}</span>
         </h1>
 
-        <p {...reveal(2, "mt-6 mx-auto max-w-2xl text-[1.1rem] leading-relaxed text-[#B8C2CC]")}>
-          Creamos sistemas, automatizaciones e integraciones que reducen tareas manuales, ordenan procesos y ayudan a pequeñas y medianas empresas a vender y operar mejor.
-        </p>
+        <p {...reveal(2, "mt-6 mx-auto max-w-2xl text-[1.1rem] leading-relaxed text-[#B8C2CC]")}>{t("Creamos sistemas, automatizaciones e integraciones que reducen tareas manuales, ordenan procesos y ayudan a pequeñas y medianas empresas a vender y operar mejor.")}</p>
 
         <div {...reveal(3, "mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center")}>
           <a
-            href={WHATSAPP_URL}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-[#3F67C6] text-white font-semibold hover:bg-[#5278d4] hover:scale-[1.04] hover:shadow-[0_8px_30px_rgba(63,103,198,0.40)] transition-all duration-300"
           >
-            <MessageCircle className="w-5 h-5" aria-hidden="true" />
-            Escríbenos por WhatsApp
-          </a>
+            <MessageCircle className="w-5 h-5" aria-hidden="true" />{t("Escríbenos por WhatsApp")}</a>
           <button
             onClick={() => document.getElementById("productos")?.scrollIntoView({ behavior: "smooth" })}
             className="px-7 py-3.5 rounded-lg border border-white/20 text-[#F5F7FA] font-medium hover:border-[#47DAD6]/60 hover:text-[#47DAD6] hover:scale-[1.04] hover:shadow-[0_0_20px_rgba(71,218,214,0.15)] transition-all duration-300"
-          >
-            Ver productos →
-          </button>
+          >{t("Ver productos →")}</button>
         </div>
 
         {/* Métricas en flujo para móvil y tablet */}
         <div {...reveal(4, "mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:hidden")}>
           {metrics.map((metric) => (
             <div key={metric.label} className="text-center">
-              <p className="text-xl font-bold text-[#47DAD6] leading-none">{metric.value}</p>
-              <p className="mt-1.5 text-[0.65rem] uppercase tracking-wider text-white/40">{metric.label}</p>
+              <p className="text-xl font-bold text-[#47DAD6] leading-none">{t(metric.value)}</p>
+              <p className="mt-1.5 text-[0.65rem] uppercase tracking-wider text-white/40">{t(metric.label)}</p>
             </div>
           ))}
         </div>
@@ -112,8 +103,8 @@ const HeroSection = () => {
       >
         {metrics.map((metric) => (
           <div key={metric.label} className="text-left">
-            <p className="text-2xl font-bold text-[#47DAD6] leading-none">{metric.value}</p>
-            <p className="mt-1.5 text-[0.7rem] uppercase tracking-wider text-[#7E8A96]">{metric.label}</p>
+            <p className="text-2xl font-bold text-[#47DAD6] leading-none">{t(metric.value)}</p>
+            <p className="mt-1.5 text-[0.7rem] uppercase tracking-wider text-[#7E8A96]">{t(metric.label)}</p>
           </div>
         ))}
       </div>
@@ -124,7 +115,7 @@ const HeroSection = () => {
           }`}
         aria-hidden="true"
       >
-        <span className="text-xs uppercase tracking-[0.2em] text-white/40">scroll para explorar</span>
+        <span className="text-xs uppercase tracking-[0.2em] text-white/40">{t("scroll para explorar")}</span>
         <span className="w-2 h-2 rounded-full bg-[#47DAD6] animate-bounce" />
       </div>
     </section>

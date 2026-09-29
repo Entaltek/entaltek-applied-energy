@@ -1,14 +1,12 @@
+import { useTranslation } from "@/lib/i18n";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { newestInsights } from "@/lib/insights";
 import TransitionLink from "@/components/navigation/TransitionLink";
 
-const dateFormatter = new Intl.DateTimeFormat("es-MX", {
-  day: "numeric",
-  month: "short",
-  year: "numeric",
-});
 
 const SolutionsSection = () => {
+  const { t, isEnglish } = useTranslation();
+  const dateFormatter = new Intl.DateTimeFormat(isEnglish ? "en" : "es-MX", { day: "numeric", month: "short", year: "numeric" });
   const [featured, ...more] = newestInsights().slice(0, 3);
 
   if (!featured) return null;
@@ -27,27 +25,20 @@ const SolutionsSection = () => {
             <h2
               id="soluciones-title"
               className="text-[clamp(2.6rem,5vw,4.5rem)] font-bold leading-[1.02] tracking-[-0.025em]"
-            >
-              Soluciones e impacto
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#013762]/75 dark:text-[#C3D9E5] sm:text-lg">
-              Casos de uso, herramientas y guías para entender una tarea,
-              probar una solución y revisar el resultado.
-            </p>
+            >{t("Soluciones e impacto")}</h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#013762]/75 dark:text-[#C3D9E5] sm:text-lg">{t("Casos de uso, herramientas y guías para entender una tarea, probar una solución y revisar el resultado.")}</p>
           </div>
           <TransitionLink
             to="/soluciones"
             className="inline-flex min-h-11 shrink-0 items-center gap-2 self-start rounded-lg border border-[#004C7A]/25 bg-white dark:bg-[#123149] px-4 py-2.5 text-sm font-bold text-[#004C7A] dark:text-[#8DDDDC] transition-colors hover:border-[#0179B1] hover:text-[#0179B1] dark:hover:text-[#7BDDDC] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0179B1] md:self-auto"
-          >
-            Ver la biblioteca completa
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          >{t("Ver la biblioteca completa")}<ArrowRight className="h-4 w-4" aria-hidden="true" />
           </TransitionLink>
         </div>
 
-        <nav aria-label="Explorar la biblioteca" className="mt-6 grid gap-3 sm:grid-cols-3">
-          <TransitionLink to="/soluciones/casos" className="group flex items-center justify-between rounded-xl bg-[#E7F3F9] dark:bg-[#173C52] px-5 py-4 font-bold text-[#013762] dark:text-[#E7F2F7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">Casos <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></TransitionLink>
-          <TransitionLink to="/soluciones/guias" className="group flex items-center justify-between rounded-xl bg-[#0179B1] px-5 py-4 font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">Guías <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></TransitionLink>
-          <TransitionLink to="/soluciones/herramientas" className="group flex items-center justify-between rounded-xl bg-[#013762] px-5 py-4 font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">Herramientas <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></TransitionLink>
+        <nav aria-label={t("Explorar la biblioteca")} className="mt-6 grid gap-3 sm:grid-cols-3">
+          <TransitionLink to="/soluciones/casos" className="group flex items-center justify-between rounded-xl bg-[#E7F3F9] dark:bg-[#173C52] px-5 py-4 font-bold text-[#013762] dark:text-[#E7F2F7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">{t("Casos")}<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></TransitionLink>
+          <TransitionLink to="/soluciones/guias" className="group flex items-center justify-between rounded-xl bg-[#0179B1] px-5 py-4 font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">{t("Guías")}<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></TransitionLink>
+          <TransitionLink to="/soluciones/herramientas" className="group flex items-center justify-between rounded-xl bg-[#013762] px-5 py-4 font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0179B1]">{t("Herramientas")}<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></TransitionLink>
         </nav>
 
         <div className="mt-6 grid gap-5 lg:grid-cols-[minmax(0,1.14fr)_minmax(0,0.86fr)] lg:gap-6">
@@ -67,27 +58,25 @@ const SolutionsSection = () => {
             <div className="flex min-w-0 flex-1 flex-col p-6 sm:p-7">
               <div className="flex items-center gap-2 text-xs font-bold text-[#004C7A] dark:text-[#8DDDDC]">
                 <FeaturedIcon className="h-4 w-4 text-[#0179B1] dark:text-[#72D5E3]" aria-hidden="true" />
-                <span>{featured.category}</span>
+                <span lang="es-MX">{featured.category}</span>
               </div>
               <h3 className="mt-3 max-w-[28ch] text-2xl font-bold leading-tight tracking-[-0.02em]">
-                {featured.title}
+                <span lang="es-MX">{featured.title}</span>
               </h3>
               <p className="mt-3 max-w-[65ch] text-sm leading-relaxed text-[#013762]/70 dark:text-[#BFD5E1]">
-                {featured.summary}
+                <span lang="es-MX">{featured.summary}</span>
               </p>
               <div className="mt-auto flex items-center justify-between gap-4 pt-7 text-sm">
                 <time dateTime={featured.publishedAt} className="text-[#004C7A]/80 dark:text-[#A1D7E0]">
                   {dateFormatter.format(new Date(`${featured.publishedAt}T12:00:00`))}
                 </time>
-                <span className="inline-flex items-center gap-1.5 font-bold text-[#0179B1] dark:text-[#72D5E3]">
-                  Leer artículo
-                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                <span className="inline-flex items-center gap-1.5 font-bold text-[#0179B1] dark:text-[#72D5E3]">{t("Leer artículo")}<ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                 </span>
               </div>
             </div>
           </TransitionLink>
 
-          <div className="flex min-w-0 flex-col gap-4" aria-label="Más publicaciones recientes">
+          <div className="flex min-w-0 flex-col gap-4" aria-label={t("Más publicaciones recientes")}>
             {more.map((insight) => {
               const Icon = insight.icon;
               return (
@@ -100,10 +89,10 @@ const SolutionsSection = () => {
                     <div>
                       <div className="flex items-center gap-2 text-xs font-bold text-[#004C7A] dark:text-[#8DDDDC]">
                         <Icon className="h-4 w-4 text-[#0179B1] dark:text-[#72D5E3]" aria-hidden="true" />
-                        <span>{insight.category}</span>
+                        <span lang="es-MX">{insight.category}</span>
                       </div>
                       <h3 className="mt-2 text-base font-bold leading-snug tracking-[-0.015em] sm:text-lg">
-                        {insight.title}
+                        <span lang="es-MX">{insight.title}</span>
                       </h3>
                     </div>
                     <div className="flex items-center justify-between gap-3 text-xs text-[#004C7A]/80 dark:text-[#A1D7E0]">

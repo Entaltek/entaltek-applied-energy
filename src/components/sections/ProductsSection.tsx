@@ -1,3 +1,4 @@
+import { useTranslation } from "@/lib/i18n";
 import { useState } from "react";
 import { PawPrint, ArrowUpRight, Maximize2 } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
@@ -25,11 +26,10 @@ const DeviceFrame = () => (
 );
 
 const DemoLink = ({ href }: { href?: string }) => {
+  const { t } = useTranslation();
   if (!href) {
     return (
-      <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-[#47DAD6]">
-        Ver proyecto
-        <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+      <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-[#47DAD6]">{t("Ver proyecto")}<ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
       </span>
     );
   }
@@ -40,9 +40,7 @@ const DemoLink = ({ href }: { href?: string }) => {
       rel="noopener noreferrer"
       onClick={(e) => e.stopPropagation()}
       className="relative z-20 inline-flex items-center gap-1 mt-4 text-sm font-medium text-[#47DAD6] hover:underline"
-    >
-      Ver proyecto
-      <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+    >{t("Ver proyecto")}<ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
     </a>
   );
 };
@@ -54,6 +52,7 @@ const Badge = ({ label, className }: { label: string; className: string }) => (
 );
 
 const ProductsSection = () => {
+  const { t, isEnglish } = useTranslation();
   const { ref, inView } = useInView<HTMLDivElement>();
   const [active, setActive] = useState<{ detail: ProductDetail; rect: DOMRect } | null>(null);
 
@@ -68,22 +67,18 @@ const ProductsSection = () => {
   return (
     <section
       id="productos"
-      className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-[#011627] flex items-center"
+      className="relative min-h-screen md:snap-start overflow-hidden bg-[#011627] flex items-center"
     >
       <div
         ref={ref}
-        className="mx-auto w-full max-w-[92rem] px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 flex flex-col"
+        className="mx-auto w-full max-w-[92rem] px-4 py-24 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 flex flex-col"
       >
         <div
           className={`text-center mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
         >
-          <h2 className="font-bold text-[clamp(1.8rem,3.5vw,3rem)] bg-gradient-to-r from-white to-[#47DAD6] bg-clip-text text-transparent leading-tight uppercase">
-            Experiencia Aplicada
-          </h2>
-          <p className="mt-4 text-white/60 text-base md:text-lg max-w-3xl mx-auto">
-            Soluciones digitales desarrolladas para mejorar la operación, reducir trabajo manual y convertir procesos dispersos en sistemas claros.
-          </p>
+          <h2 className="font-bold text-[clamp(1.8rem,3.5vw,3rem)] bg-gradient-to-r from-white to-[#47DAD6] bg-clip-text text-transparent leading-tight uppercase">{t("Experiencia Aplicada")}</h2>
+          <p className="mt-4 text-white/60 text-base md:text-lg max-w-3xl mx-auto">{t("Soluciones digitales desarrolladas para mejorar la operación, reducir trabajo manual y convertir procesos dispersos en sistemas claros.")}</p>
         </div>
 
         {/* Showcase horizontal amplio */}
@@ -94,17 +89,15 @@ const ProductsSection = () => {
             style={cardDelay(0)}
             className={`group relative overflow-hidden md:col-span-2 lg:col-span-6 lg:row-span-2 rounded-[1.5rem] p-6 md:p-8 lg:p-10 border border-[#7dd3fc]/15 bg-gradient-to-br from-[#7dd3fc]/10 via-[#013762]/45 to-[#011627] flex flex-col justify-between min-h-[300px] md:min-h-[360px] lg:min-h-[420px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#7dd3fc]/40 hover:shadow-[0_0_24px_rgba(125,211,252,0.1)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#7dd3fc] ${cardIn}`}
           >
-            <button type="button" onClick={(e) => openDetail(mediclinkDetail)(e.currentTarget)} aria-label={`Ver detalle de ${mediclinkDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
+            <button type="button" onClick={(e) => openDetail(mediclinkDetail)(e.currentTarget)} aria-label={`${isEnglish ? "View details for" : "Ver detalle de"} ${mediclinkDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-5 right-5 w-5 h-5 text-[#7dd3fc]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
             <div className="max-w-xl">
-              <Badge label="Salud" className="bg-[#7dd3fc]/15 text-[#7dd3fc] mb-4" />
+              <Badge label={t("Salud")} className="bg-[#7dd3fc]/15 text-[#7dd3fc] mb-4" />
               <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight">Clínicas Entaltek</h3>
-              <p className="mt-3 text-white/70 leading-relaxed max-w-lg text-sm lg:text-base">
-                Sistema para clínicas y consultorios con agenda de citas, especialistas, horarios, lista de espera, reportes y panel administrativo.
-              </p>
+              <p className="mt-3 text-white/70 leading-relaxed max-w-lg text-sm lg:text-base">{t("Sistema para clínicas y consultorios con agenda de citas, especialistas, horarios, lista de espera, reportes y panel administrativo.")}</p>
             </div>
             <div className="mt-6">
               <DemoLink />
@@ -117,17 +110,15 @@ const ProductsSection = () => {
             style={cardDelay(1)}
             className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#fcd34d]/7 via-[#0b1f2e] to-[#011627] border border-[#fcd34d]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#fcd34d]/35 hover:shadow-[0_0_15px_rgba(252,211,77,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#fcd34d] ${cardIn}`}
           >
-            <button type="button" onClick={(e) => openDetail(satHarmonyDetail)(e.currentTarget)} aria-label={`Ver detalle de ${satHarmonyDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
+            <button type="button" onClick={(e) => openDetail(satHarmonyDetail)(e.currentTarget)} aria-label={`${isEnglish ? "View details for" : "Ver detalle de"} ${satHarmonyDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#fcd34d]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Fiscal" className="bg-[#fcd34d]/10 text-[#fcd34d] mb-4" />
+            <Badge label={t("Fiscal")} className="bg-[#fcd34d]/10 text-[#fcd34d] mb-4" />
             <div>
               <h3 className="text-lg font-bold text-white leading-tight">CFDI Entaltek</h3>
-              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
-                Herramienta para convertir XML y ZIP de CFDI en información clara, revisable y exportable a Excel.
-              </p>
+              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">{t("Herramienta para convertir XML y ZIP de CFDI en información clara, revisable y exportable a Excel.")}</p>
               <DemoLink />
             </div>
           </article>
@@ -137,17 +128,15 @@ const ProductsSection = () => {
             style={cardDelay(2)}
             className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#a78bfa]/7 via-[#101b33] to-[#011627] border border-[#a78bfa]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#a78bfa]/35 hover:shadow-[0_0_15px_rgba(167,139,250,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a78bfa] ${cardIn}`}
           >
-            <button type="button" onClick={(e) => openDetail(nodoDetail)(e.currentTarget)} aria-label={`Ver detalle de ${nodoDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
+            <button type="button" onClick={(e) => openDetail(nodoDetail)(e.currentTarget)} aria-label={`${isEnglish ? "View details for" : "Ver detalle de"} ${nodoDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#a78bfa]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Inmobiliario" className="bg-[#a78bfa]/10 text-[#a78bfa] mb-4" />
+            <Badge label={t("Inmobiliario")} className="bg-[#a78bfa]/10 text-[#a78bfa] mb-4" />
             <div>
               <h3 className="text-lg font-bold text-white leading-tight">Rentas Entaltek</h3>
-              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
-                CRM inmobiliario para organizar propiedades, expedientes de renta, prospectos, documentos y seguimiento comercial.
-              </p>
+              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">{t("CRM inmobiliario para organizar propiedades, expedientes de renta, prospectos, documentos y seguimiento comercial.")}</p>
               <DemoLink />
             </div>
           </article>
@@ -157,17 +146,15 @@ const ProductsSection = () => {
             style={cardDelay(4)}
             className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#34d399]/7 via-[#062b2e] to-[#011627] border border-[#34d399]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#34d399]/35 hover:shadow-[0_0_15px_rgba(52,211,153,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#34d399] ${cardIn}`}
           >
-            <button type="button" onClick={(e) => openDetail(pilatesDetail)(e.currentTarget)} aria-label={`Ver detalle de ${pilatesDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
+            <button type="button" onClick={(e) => openDetail(pilatesDetail)(e.currentTarget)} aria-label={`${isEnglish ? "View details for" : "Ver detalle de"} ${pilatesDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#34d399]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Reservas" className="bg-[#34d399]/10 text-[#34d399] mb-4" />
+            <Badge label={t("Reservas")} className="bg-[#34d399]/10 text-[#34d399] mb-4" />
             <div>
               <h3 className="text-lg font-bold text-white leading-tight">Reservas Entaltek</h3>
-              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
-                Sistema para clases, estudios y servicios con horarios programados, reservas en línea, perfiles de clientes y pagos.
-              </p>
+              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">{t("Sistema para clases, estudios y servicios con horarios programados, reservas en línea, perfiles de clientes y pagos.")}</p>
               <DemoLink />
             </div>
           </article>
@@ -177,17 +164,15 @@ const ProductsSection = () => {
             style={cardDelay(5)}
             className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#f472b6]/7 via-[#24142a] to-[#011627] border border-[#f472b6]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#f472b6]/35 hover:shadow-[0_0_15px_rgba(244,114,182,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f472b6] ${cardIn}`}
           >
-            <button type="button" onClick={(e) => openDetail(nailaDetail)(e.currentTarget)} aria-label={`Ver detalle de ${nailaDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
+            <button type="button" onClick={(e) => openDetail(nailaDetail)(e.currentTarget)} aria-label={`${isEnglish ? "View details for" : "Ver detalle de"} ${nailaDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#f472b6]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Servicios" className="bg-[#f472b6]/10 text-[#f472b6] mb-4" />
+            <Badge label={t("Servicios")} className="bg-[#f472b6]/10 text-[#f472b6] mb-4" />
             <div>
               <h3 className="text-lg font-bold text-white leading-tight">Salones Entaltek</h3>
-              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
-                Herramienta para salones y servicios de belleza con control de citas, tiempos de atención, inventario, costos y rentabilidad.
-              </p>
+              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">{t("Herramienta para salones y servicios de belleza con control de citas, tiempos de atención, inventario, costos y rentabilidad.")}</p>
               <DemoLink href="https://nail-chic-system.lovable.app" />
             </div>
           </article>
@@ -197,17 +182,15 @@ const ProductsSection = () => {
             style={cardDelay(6)}
             className={`group relative overflow-hidden rounded-[1.25rem] p-5 md:p-6 bg-gradient-to-br from-[#94a3b8]/7 via-[#102233] to-[#011627] border border-[#94a3b8]/15 flex flex-col lg:col-span-2 min-h-[210px] md:min-h-[170px] lg:min-h-[200px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#94a3b8]/35 hover:shadow-[0_0_15px_rgba(148,163,184,0.06)] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#94a3b8] ${cardIn}`}
           >
-            <button type="button" onClick={(e) => openDetail(sabuesoDetail)(e.currentTarget)} aria-label={`Ver detalle de ${sabuesoDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
+            <button type="button" onClick={(e) => openDetail(sabuesoDetail)(e.currentTarget)} aria-label={`${isEnglish ? "View details for" : "Ver detalle de"} ${sabuesoDetail.title}`} className="absolute inset-0 z-10 h-full w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#47DAD6]" />
             <Maximize2
               className="absolute top-4 right-4 w-4 h-4 text-[#94a3b8]/40 opacity-0 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
-            <Badge label="Operación" className="bg-[#94a3b8]/10 text-[#94a3b8] mb-4" />
+            <Badge label={t("Operación")} className="bg-[#94a3b8]/10 text-[#94a3b8] mb-4" />
             <div>
               <h3 className="text-lg font-bold text-white leading-tight">Guarderías Entaltek</h3>
-              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">
-                Plataforma para negocios de cuidado animal con registro de mascotas, asistencia, vacunas, estado de salud y comunicación con clientes.
-              </p>
+              <p className="mt-2 text-white/70 text-sm leading-snug line-clamp-2">{t("Plataforma para negocios de cuidado animal con registro de mascotas, asistencia, vacunas, estado de salud y comunicación con clientes.")}</p>
               <DemoLink href="https://perro-pal-manage.lovable.app" />
             </div>
           </article>

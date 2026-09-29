@@ -1,6 +1,7 @@
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useTranslation } from "@/lib/i18n";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { WHATSAPP_URL } from "@/lib/site";
 import logoMark from "@/assets/logo_entaltek_solo.svg";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -14,6 +15,7 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const { t, whatsappUrl } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -50,10 +52,10 @@ const Navbar = () => {
             <button
               onClick={() => document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" })}
               className="flex items-center gap-3 hover:opacity-80 transition-opacity"
-              aria-label="Ir al inicio"
+              aria-label={t("Ir al inicio")}
             >
               <img src={logoMark} alt="" className="h-10 md:h-12 w-auto" />
-              <span className="text-xl md:text-2xl font-bold text-white tracking-wide">ENTALTEK</span>
+              <span className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-wide">ENTALTEK</span>
             </button>
 
             {/* Desktop */}
@@ -62,29 +64,29 @@ const Navbar = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="px-4 py-2 text-sm font-medium text-white/80 hover:text-[#47DAD6] transition-colors duration-300"
+                  className="px-2 xl:px-3 py-2 text-sm font-medium text-white/80 hover:text-[#47DAD6] transition-colors duration-300"
                 >
-                  {item.label}
+                  {t(item.label)}
                 </button>
               ))}
               <a
-                href={WHATSAPP_URL}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ml-3 px-5 py-2 rounded-lg bg-[#0179B1] text-white text-sm font-semibold hover:bg-[#47DAD6] hover:text-[#011627] transition-colors duration-300"
-              >
-                Escríbenos
-              </a>
+              >{t("Escríbenos")}</a>
+              <LanguageSwitcher />
               <ThemeToggle className="ml-2 text-white" />
             </div>
 
             {/* Mobile trigger */}
             <div className="flex items-center gap-1 lg:hidden">
+              <LanguageSwitcher />
               <ThemeToggle className="text-white" />
               <button
                 className="rounded-lg p-2 text-white transition-colors hover:bg-white/10"
                 onClick={() => setIsMenuOpen(true)}
-                aria-label="Abrir menú"
+                aria-label={t("Abrir menú")}
                 aria-expanded={isMenuOpen}
               >
                 <Menu className="h-6 w-6" />
@@ -110,7 +112,7 @@ const Navbar = () => {
         }`}
         role="dialog"
         aria-modal="true"
-        aria-label="Menú de navegación"
+        aria-label={t("Menú de navegación")}
         aria-hidden={!isMenuOpen}
       >
         <div className="flex items-center justify-between p-4 border-b border-white/10">
@@ -121,7 +123,7 @@ const Navbar = () => {
           <button
             className="p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
             onClick={() => setIsMenuOpen(false)}
-            aria-label="Cerrar menú"
+            aria-label={t("Cerrar menú")}
           >
             <X className="w-6 h-6" />
           </button>
@@ -133,17 +135,15 @@ const Navbar = () => {
               onClick={() => scrollToSection(item.id)}
               className="w-full text-left px-4 py-3 rounded-lg text-white/80 hover:text-[#47DAD6] hover:bg-white/5 font-medium transition-colors"
             >
-              {item.label}
+              {t(item.label)}
             </button>
           ))}
           <a
-            href={WHATSAPP_URL}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="block text-center mt-4 px-5 py-3 rounded-lg bg-[#0179B1] text-white font-semibold hover:bg-[#47DAD6] hover:text-[#011627] transition-colors"
-          >
-            Escríbenos
-          </a>
+          >{t("Escríbenos")}</a>
         </div>
       </div>
     </>

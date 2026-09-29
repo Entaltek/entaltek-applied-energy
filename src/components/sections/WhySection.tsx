@@ -1,3 +1,4 @@
+import { useTranslation } from "@/lib/i18n";
 import { Atom, Cog, HeartHandshake, Layers } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 
@@ -56,6 +57,7 @@ const Hexagon = ({ size, top, left, index }: { size: number; top: string; left: 
 );
 
 const WhySection = () => {
+  const { t } = useTranslation();
   const { ref, inView } = useInView<HTMLDivElement>();
 
   const reveal = (index: number, className = "") => ({
@@ -67,7 +69,7 @@ const WhySection = () => {
   return (
     <section
       id="por-que-entaltek"
-      className="relative min-h-screen md:h-screen md:snap-start overflow-hidden bg-[#013762] flex items-center"
+      className="relative min-h-screen md:snap-start overflow-hidden bg-[#013762] flex items-center"
     >
       <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-[#0179B1]/18 blur-[95px]" />
@@ -85,28 +87,18 @@ const WhySection = () => {
               0,
               "inline-flex items-center gap-2 rounded-full border border-[#47DAD6]/30 bg-[#47DAD6]/10 px-4 py-1.5 text-sm font-semibold tracking-[0.28em] text-[#47DAD6] uppercase",
             )}
-          >
-            ADN Entaltek
-          </span>
+          >{t("ADN Entaltek")}</span>
 
           <h2
             {...reveal(
               1,
               "mt-6 text-white font-extrabold leading-tight text-[clamp(2rem,4.8vw,4.6rem)]",
             )}
-          >
-            Tecnología con estructura,
-            <br className="hidden md:block" />
-            <span className="bg-gradient-to-r from-white via-[#9cecea] to-[#47DAD6] bg-clip-text text-transparent">
-              propósito y trato humano.
-            </span>
+          >{t("Tecnología con estructura,")}{" "}<br className="hidden md:block" />
+            <span className="bg-gradient-to-r from-white via-[#9cecea] to-[#47DAD6] bg-clip-text text-transparent">{t("propósito y trato humano.")}</span>
           </h2>
 
-          <p {...reveal(2, "mx-auto mt-6 max-w-3xl text-base md:text-lg leading-relaxed text-white/75")}>
-            Creamos soluciones sólidas para transformar procesos sin borrar la esencia de cada negocio.
-            Aplicamos ciencia, ingeniería y criterio práctico para convertir desafíos reales en sistemas claros,
-            útiles y sostenibles.
-          </p>
+          <p {...reveal(2, "mx-auto mt-6 max-w-3xl text-base md:text-lg leading-relaxed text-white/75")}>{t("Creamos soluciones sólidas para transformar procesos sin borrar la esencia de cada negocio. Aplicamos ciencia, ingeniería y criterio práctico para convertir desafíos reales en sistemas claros, útiles y sostenibles.")}</p>
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -123,8 +115,8 @@ const WhySection = () => {
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl border border-[#47DAD6]/20 bg-[#47DAD6]/10 transition-transform duration-300 group-hover:scale-110">
                   <Icon className="h-6 w-6 text-[#47DAD6]" aria-hidden="true" />
                 </div>
-                <h3 className="text-xl font-bold text-white">{reason.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/60">{reason.description}</p>
+                <h3 className="text-xl font-bold text-white">{t(reason.title)}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/60">{t(reason.description)}</p>
               </article>
             );
           })}

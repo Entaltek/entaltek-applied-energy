@@ -71,3 +71,11 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Spanish and English website
+
+The commercial landing uses Spanish at `/` and English at `/en/`. Both routes share components; `src/lib/i18n.ts` selects the language from the URL and `src/lib/locales/en.json` contains the English copy. Language links are explicit: there is no automatic redirection or language cookie. Keep product names and existing screenshot assets unchanged. The editorial library remains in Spanish and is labeled accordingly on the English landing.
+
+Privacy routes: `/privacidad` and `/en/privacy`. Route titles, descriptions, canonical URLs and reciprocal language alternates are defined in `src/lib/routeMetadata.json`. `npm run build` generates static HTML entry files for all four routes, so metadata is available before JavaScript runs. Deploy the **entire** `dist` directory, including `en/` and `privacidad/`, and keep the existing SPA fallback for article routes. `npm run build:dev` is only for development and does not generate these static locale entries.
+
+Validation: `npm run build`, `npx tsc --noEmit -p tsconfig.app.json`, and ESLint on changed files. Check `/`, `/en/`, both privacy routes, ES/EN switching, mobile navigation, product dialogs and empty-form validation. Do not send a real inquiry as a deployment test.
